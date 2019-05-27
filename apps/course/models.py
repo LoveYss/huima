@@ -13,7 +13,10 @@ class Course(models.Model):
     cover = models.ImageField(max_length=100, verbose_name='课程封面', null=True, upload_to='course/')  # 课程封面
     leave = models.IntegerField(null=True, default=1, verbose_name='难易程度',
                                 choices=((1, '入门'), (2, '初级'), (3, '中级'), (4, '高级')))
-    yin = models.IntegerField(choices=((0, '隐'), (1, '不隐')), null=True, default=0)
+    status = models.IntegerField(choices=((0, '下架'), (1, '上架')), null=True, default=1, verbose_name='课程当前状态')
+    buy = models.IntegerField(choices=((0, '未购买'), (1, '已购买')), default=0, verbose_name='是否购买课程')
+    buy_channel = models.IntegerField(choices=((1, '支付宝'), (2, '微信'), (3, '信用卡'), (4, '储蓄卡'), (5, '积分兑换')),
+                                      verbose_name='购买渠道')
     create_times = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
 
     class Meta:
@@ -28,9 +31,10 @@ class Chapter(models.Model):
     name = models.CharField(max_length=50, blank=True, verbose_name='章节名称')
     synopsis = models.CharField(max_length=300, null=True, verbose_name='章节简介')
     cover = models.ImageField(max_length=100, verbose_name='章节封面', null=True, upload_to='course/chapter/')
+    status = models.IntegerField(choices=((0, '未学习'), (1, '学习中'), (2, '已学习')), default=0, verbose_name='是否学习')
+    course_id = models.IntegerField(verbose_name='所属的课程id')
     create_times = models.DateTimeField(verbose_name='创建时间', default=datetime.now)
     up_time = models.DateTimeField(verbose_name='修改时间', auto_now=True)
-    course_id = models.IntegerField(verbose_name='所属的课程id')
 
     class Meta:
         verbose_name = '章节表'
@@ -45,12 +49,29 @@ class Video(models.Model):
     synopsis = models.CharField(max_length=300, null=True, verbose_name='视频简介')
     cover = models.ImageField(max_length=100, verbose_name='视频封面', null=True, upload_to='course/video/img/')
     need_time = models.IntegerField(verbose_name='视频时长')
+    video_type = models.IntegerField(((1, '项目视频'), (2, '课程视频')), blank=True,default=2)
     url = models.FileField(max_length=200, verbose_name='视频地址', upload_to='course/video/video/')
     create_times = models.DateTimeField(verbose_name='创建时间', default=datetime.now)
     chapter_id = models.IntegerField(verbose_name='所属章节id')
 
     class Meta:
         verbose_name = '视频表'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
+
+
+class Note(models.Model):
+    name = models.CharField(max_length=50, null=True)
+    chapter_id = models.IntegerField(verbose_name='所属章节id')
+    inner = models.CharField(max_length=300, blank=True, verbose_name='笔记内容')
+    status = models.IntegerField(choices=((0, '屏蔽'), (1, '展示')), default=1, verbose_name='当前状态')
+    user_id = models.IntegerField(verbose_name='用户id')
+    create_times = models.DateTimeField(verbose_name='创建时间', default=datetime.now)
+
+    class Meta:
+        verbose_name = '笔记表'
         verbose_name_plural = verbose_name
 
     def __str__(self):
