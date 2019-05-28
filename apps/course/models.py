@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime
-from apps.usercenter.models import User
+from usercenter.models import User
 
 
 # Create your models here.
@@ -65,10 +65,10 @@ class Video(models.Model):
 
 class Note(models.Model):
     name = models.CharField(max_length=50, null=True)
-    chapter_id = models.ForeignKey('Chapter',verbose_name='所属章节id', on_delete=models.DO_NOTHING, blank=True)
+    chapter_id = models.ForeignKey('Chapter', verbose_name='所属章节id', on_delete=models.DO_NOTHING, blank=True)
     inner = models.CharField(max_length=300, blank=True, verbose_name='笔记内容')
     status = models.IntegerField(choices=((0, '屏蔽'), (1, '展示')), default=1, verbose_name='当前状态')
-    user_id = models.ForeignKey('User', verbose_name='用户id', on_delete=models.DO_NOTHING, blank=True)
+    user_id = models.ForeignKey(User, verbose_name='用户id', on_delete=models.DO_NOTHING, blank=True)
     create_times = models.DateTimeField(verbose_name='创建时间', default=datetime.now)
 
     class Meta:

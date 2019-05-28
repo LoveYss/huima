@@ -15,7 +15,7 @@ import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(BASE_DIR, '../../apps'))
+sys.path.insert(0, os.path.join(BASE_DIR, '/apps'))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -36,12 +36,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'huima',
-    'apps.course',
-    'apps.blog',
-    'apps.index',
-    'apps.subject',
-    'apps.task',
+    'course',
+    'blog',
+    'index',
+    'subject',
+    'task',
+    'usercenter',
 ]
 
 MIDDLEWARE = [
@@ -88,9 +88,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "huima",
         'USER': 'root',
-        'PASSWORD': 'bb12345',
-        'HOST': '144.34.157.202',
-        'PORT': 3306,
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
@@ -112,6 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'usercenter.user'
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 

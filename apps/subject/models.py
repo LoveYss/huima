@@ -70,7 +70,6 @@ class ProjectDetail(models.Model):
     class Meta:
         verbose_name = '项目详细表1'
         verbose_name_plural = verbose_name + '222'
-        db_table = '项目详细表'
         db_tablespace = 'proj_date'
         get_latest_by = 'proj_date'
         managed = True

@@ -7,7 +7,7 @@ from datetime import datetime
 # Create your models here.
 class User(AbstractUser):
     birthday = models.DateField(verbose_name='生日')
-    uuid = models.IntegerField(max_length=11, verbose_name='uuid')
+    uuid = models.IntegerField(verbose_name='uuid')
     sex = models.CharField(max_length=10, choices=(('male', '男'), ('female', '女'), ('secrete', '保密')),
                            default='female', verbose_name='性别')
     description = models.TextField(max_length=2048, verbose_name='描述')
