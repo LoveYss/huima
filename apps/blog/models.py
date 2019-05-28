@@ -13,6 +13,8 @@ class Blog(models.Model):
     title = models.CharField(max_length=256, verbose_name="标题")
     content = models.TextField(verbose_name="正文")
     publish = models.DateTimeField(auto_now=True, verbose_name="发布时间")
+    com_num = models.IntegerField(verbose_name="评论数")
+    tag_num = models.IntegerField(verbose_name="点赞数")
 
     def __str__(self):
         return ("%d - %s") % (self.user_id, self.title)
@@ -31,6 +33,7 @@ class BlogComment(models.Model):
     blog_id = models.IntegerField(verbose_name="回复博客id")
     content = models.TextField(verbose_name="回复内容")
     publish = models.DateTimeField(auto_now=True, verbose_name="回复时间")
+    tag_num = models.IntegerField(verbose_name="点赞数")
 
     def __str__(self):
         return ("%d - %d") % (self.user_id, self.blog_id)
