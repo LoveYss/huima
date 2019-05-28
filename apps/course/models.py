@@ -16,7 +16,7 @@ class Course(models.Model):
     status = models.IntegerField(choices=((0, '下架'), (1, '上架')), null=True, default=1, verbose_name='课程当前状态')
     buy = models.IntegerField(choices=((0, '未购买'), (1, '已购买')), default=0, verbose_name='是否购买课程')
     buy_channel = models.IntegerField(choices=((1, '支付宝'), (2, '微信'), (3, '信用卡'), (4, '储蓄卡'), (5, '积分兑换')),
-                                      verbose_name='购买渠道')
+                                      verbose_name='购买渠道',default=1)
     create_times = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
 
     class Meta:
