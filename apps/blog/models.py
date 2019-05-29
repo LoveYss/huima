@@ -10,8 +10,8 @@ class Blog(models.Model):
     '''
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="博主id")
-    type = models.ForeignKey(Level, on_delete=models.CASCADE, verbose_name="分类id")
-    language = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="语言id")
+    level = models.ForeignKey(Level, on_delete=models.CASCADE, verbose_name="分类id")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="语言id")
     title = models.CharField(max_length=256, verbose_name="标题")
     content = models.TextField(verbose_name="正文")
     publish = models.DateTimeField(auto_now=True, verbose_name="发布时间")
