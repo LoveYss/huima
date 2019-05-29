@@ -1,0 +1,355 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+{% block html_body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div id="carousel-example-generic" class="carousel slide lunbo" data-ride="carousel">
+			  <!-- Indicators -->
+			  <ol class="carousel-indicators">
+                  {% for ban_img in banner_img %}
+                    <li data-target="#carousel-example-generic" data-slide-to="{{ ban_img.banner_img_nub }}"></li>
+                  {% endfor %}
+			  </ol>
+
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner" role="listbox">
+                {% for ban_img in banners_img %}
+                    <a href="{{ ban_img.banner_img_url }}">
+                        <div class="item active">
+        {#                 #}
+                            <img src="{{ ban_img.banner_img }}" alt="...">
+                          <div class="carousel-caption">
+                            {{ ban_img.banner_img_introduce }}
+                          </div>
+                        </div>
+                    </a>
+                {% endfor %}
+			  </div>
+
+			  <!-- Controls -->
+			  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			  </a>
+			  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			  </a>
+			</div>
+		</div>
+	</div>
+</div>
+
+{##}
+{#<div class="container coures_plate">#}
+{#	<div class="plate_title">#}
+{#		<h1>精选课程</h1>#}
+{#		<h4>Select&nbsp;&nbsp;Coures</h4>#}
+{#	</div>#}
+{#	<div class="row">#}
+{#		<div class="col-md-4  course_block">#}
+{#			<div class="row">#}
+{#				<div class="col-md-6 col-xs-6"><img src="images/course/html.png" alt=""></div>#}
+{#				<div class="col-md-6 col-xs-6">1234565487987/<br>7/7984546516548</div>#}
+{#			</div>#}
+{#		</div>#}
+{#		<div class="col-md-4  course_block">#}
+{#			<div class="row">#}
+{#				<div class="col-md-6 col-xs-6"><img src="images/course/css.jpg" alt=""></div>#}
+{#				<div class="col-md-6 col-xs-6">1234565487987/<br>7/7984546516548</div>#}
+{#			</div>#}
+{#		</div>#}
+{#		<div class="col-md-4  course_block">#}
+{#			<div class="row">#}
+{#				<div class="col-md-6 col-xs-6"><img src="images/course/js.jpg" alt=""></div>#}
+{#				<div class="col-md-6 col-xs-6">1234565487987/<br>7/7984546516548</div>#}
+{#			</div>#}
+{#		</div>#}
+{#		<div class="col-md-4  course_block">#}
+{#			<div class="row">#}
+{#				<div class="col-md-6 col-xs-6"><img src="images/course/php.jpg" alt=""></div>#}
+{#				<div class="col-md-6 col-xs-6">1234565487987/<br>7/7984546516548</div>#}
+{#			</div>#}
+{#		</div>#}
+{#		<div class="col-md-4  course_block">#}
+{#			<div class="row">#}
+{#				<div class="col-md-6 col-xs-6"><img src="images/course/python.jpg" alt=""></div>#}
+{#				<div class="col-md-6 col-xs-6">1234565487987/<br>7/7984546516548</div>#}
+{#			</div>#}
+{#		</div>#}
+{#		<div class="col-md-4  course_block">#}
+{#			<div class="row">#}
+{#				<div class="col-md-6 col-xs-6"><img src="images/course/bootstrap.png" alt=""></div>#}
+{#				<div class="col-md-6 col-xs-6">1234565487987/<br>7/7984546516548</div>#}
+{#			</div>#}
+{#		</div>#}
+{#	</div>#}
+{#	<div class="row">#}
+{#		<div class="pull-right more">#}
+{#			<a href="">查看更多>></a>#}
+{#		</div>#}
+{#	</div>#}
+{#</div>#}
+{##}
+{#<div class="container path_plate">#}
+{#	<div class="row">#}
+{#		<div class="panel panel-success">#}
+{#			<div class="panel-heading">语言热度</div>#}
+{#		    <div class="panel-body">#}
+{#		      <canvas id="popChart" width="600" height="400"></canvas>#}
+{#		    </div>#}
+{#		</div>#}
+{#	</div>#}
+{#</div>#}
+{##}
+{#<div class="container article_plate">#}
+{#	<div class="plate_title">#}
+{#		<h1>博客&文章</h1>#}
+{#		<h4>Blog&nbsp;&nbsp;&nbsp;&&nbsp;&nbsp;&nbsp;Article</h4>#}
+{#	</div>#}
+{#	<div class="row">#}
+{#	  <div class="col-sm-6 col-md-3">#}
+{#	    <div class="thumbnail">#}
+{#	      <img src="images/img_bg_1.jpg" alt="...">#}
+{#	      <div class="caption">#}
+{#            <div class="blog-details">#}
+{#                <a href="#">#}
+{#                	<h4>8 个用于业余项目的优秀 Python 库</h4>#}
+{#                </a>#}
+{#                <p>#}
+{#                    在Django 的世界里有这样一个谚语：为语言而来，为社区而留……#}
+{#                </p>#}
+{#                <ul class="list-inline blog-item-links">#}
+{#                    <li class="list-inline-item">#}
+{#                        <span class="glyphicon glyphicon-user"></span>#}
+{#                        <a href="#">作者</a>#}
+{#                    </li>#}
+{#                    <li class="list-inline-item">#}
+{#                        <span class="glyphicon glyphicon-calendar"></span>#}
+{#                        2019/05/16#}
+{#                    </li>#}
+{#                    <li class="list-inline-item">#}
+{#                        <span class="glyphicon glyphicon-education"></span>#}
+{#                        基础知识#}
+{#                    </li>#}
+{#                    <br>#}
+{#                    <li class="list-inline-item">#}
+{#                        <span class="glyphicon glyphicon-comment"></span>#}
+{#                        评论 10条#}
+{#                    </li>#}
+{#                    <li class="list-inline-item">#}
+{#                    	<span class="glyphicon glyphicon-thumbs-up"></span>#}
+{#                        点赞 6次#}
+{#                    </li>#}
+{#                </ul>#}
+{#                <p></p>#}
+{#                <a class="blog-post-link" href="{% url 'blog' %}" >#}
+{#                    <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>#}
+{#                    阅读全文#}
+{#                </a>#}
+{#            </div>#}
+{#	      </div>#}
+{#	    </div>#}
+{#	  </div>#}
+{##}
+{#	  <div class="col-sm-6 col-md-3">#}
+{#	    <div class="thumbnail">#}
+{#	      <img src="images/img_bg_1.jpg" alt="...">#}
+{#	      <div class="caption">#}
+{#            <div class="blog-details">#}
+{#                <a href="#">#}
+{#                	<h4>8 个用于业余项目的优秀 Python 库</h4>#}
+{#                </a>#}
+{#                <p>#}
+{#                    在Django 的世界里有这样一个谚语：为语言而来，为社区而留……#}
+{#                </p>#}
+{#                <ul class="list-inline blog-item-links">#}
+{#                    <li class="list-inline-item">#}
+{#                        <span class="glyphicon glyphicon-user"></span>#}
+{#                        <a href="#">作者</a>#}
+{#                    </li>#}
+{#                    <li class="list-inline-item">#}
+{#                        <span class="glyphicon glyphicon-calendar"></span>#}
+{#                        2019/05/16#}
+{#                    </li>#}
+{#                    <li class="list-inline-item">#}
+{#                        <span class="glyphicon glyphicon-education"></span>#}
+{#                        基础知识#}
+{#                    </li>#}
+{#                    <br>#}
+{#                    <li class="list-inline-item">#}
+{#                        <span class="glyphicon glyphicon-comment"></span>#}
+{#                        评论 10条#}
+{#                    </li>#}
+{#                    <li class="list-inline-item">#}
+{#                    	<span class="glyphicon glyphicon-thumbs-up"></span>#}
+{#                        点赞 6次#}
+{#                    </li>#}
+{#                </ul>#}
+{#                <p></p>#}
+{#                <a class="blog-post-link" href="{% url 'blog' %}" >#}
+{#                    <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>#}
+{#                    阅读全文#}
+{#                </a>#}
+{#            </div>#}
+{#	      </div>#}
+{#	    </div>#}
+{#	  </div>#}
+{##}
+{#	  <div class="col-sm-6 col-md-3">#}
+{#	    <div class="thumbnail">#}
+{#	      <img src="images/img_bg_1.jpg" alt="...">#}
+{#	      <div class="caption">#}
+{#            <div class="blog-details">#}
+{#                <a href="#">#}
+{#                	<h4>8 个用于业余项目的优秀 Python 库</h4>#}
+{#                </a>#}
+{#                <p>#}
+{#                    在Django 的世界里有这样一个谚语：为语言而来，为社区而留……#}
+{#                </p>#}
+{#                <ul class="list-inline blog-item-links">#}
+{#                    <li class="list-inline-item">#}
+{#                        <span class="glyphicon glyphicon-user"></span>#}
+{#                        <a href="#">作者</a>#}
+{#                    </li>#}
+{#                    <li class="list-inline-item">#}
+{#                        <span class="glyphicon glyphicon-calendar"></span>#}
+{#                        2019/05/16#}
+{#                    </li>#}
+{#                    <li class="list-inline-item">#}
+{#                        <span class="glyphicon glyphicon-education"></span>#}
+{#                        基础知识#}
+{#                    </li>#}
+{#                    <br>#}
+{#                    <li class="list-inline-item">#}
+{#                        <span class="glyphicon glyphicon-comment"></span>#}
+{#                        评论 10条#}
+{#                    </li>#}
+{#                    <li class="list-inline-item">#}
+{#                    	<span class="glyphicon glyphicon-thumbs-up"></span>#}
+{#                        点赞 6次#}
+{#                    </li>#}
+{#                </ul>#}
+{#                <p></p>#}
+{#                <a class="blog-post-link" href="{% url 'blog' %}" >#}
+{#                    <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>#}
+{#                    阅读全文#}
+{#                </a>#}
+{#            </div>#}
+{#	      </div>#}
+{#	    </div>#}
+{#	  </div>#}
+{##}
+{#	  <div class="col-sm-6 col-md-3">#}
+{#	    <div class="thumbnail">#}
+{#	      <img src="images/img_bg_1.jpg" alt="...">#}
+{#	      <div class="caption">#}
+{#            <div class="blog-details">#}
+{#                <a href="#">#}
+{#                	<h4>8 个用于业余项目的优秀 Python 库</h4>#}
+{#                </a>#}
+{#                <p>#}
+{#                    在Django 的世界里有这样一个谚语：为语言而来，为社区而留……#}
+{#                </p>#}
+{#                <ul class="list-inline blog-item-links">#}
+{#                    <li>#}
+{#                        <span class="glyphicon glyphicon-user"></span>#}
+{#                        <a href="#">作者</a>#}
+{#                    </li>#}
+{#                    <li>#}
+{#                        <span class="glyphicon glyphicon-calendar"></span>#}
+{#                        2019/05/16#}
+{#                    </li>#}
+{#                    <li>#}
+{#                        <span class="glyphicon glyphicon-education"></span>#}
+{#                        基础知识#}
+{#                    </li>#}
+{#                    <br>#}
+{#                    <li>#}
+{#                        <span class="glyphicon glyphicon-comment"></span>#}
+{#                        评论 10条#}
+{#                    </li>#}
+{#                    <li>#}
+{#                    	<span class="glyphicon glyphicon-thumbs-up"></span>#}
+{#                        点赞 6次#}
+{#                    </li>#}
+{#                </ul>#}
+{#                <p></p>#}
+{#                <a class="blog-post-link" href="" >#}
+{#                    <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>#}
+{#                    阅读全文#}
+{#                </a>#}
+{#              </div>#}
+{#	        </div>#}
+{#	      </div>#}
+{#	    </div>#}
+{#	  </div>#}
+{#	<div class="row">#}
+{#		<div class="pull-right more">#}
+{#			<a href="">查看更多>></a>#}
+{#		</div>#}
+{#	</div>#}
+{#</div>#}
+{##}
+{##}
+{#<div class="container project_plate">#}
+{#	<div class="plate_title">#}
+{#		<h1>项目挑战</h1>#}
+{#		<h4>Project Challenges</h4>#}
+{#	</div>#}
+{#	<div class="row">#}
+{#	  <div class="col-sm-6 col-md-3">#}
+{#	    <div class="thumbnail">#}
+{#	      <img src="images/img_bg_1.jpg" alt="...">#}
+{#	      <div class="caption">#}
+{#	        <h3>Thumbnail label</h3>#}
+{#	        <p>...</p>#}
+{#	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>#}
+{#	      </div>#}
+{#	    </div>#}
+{#	  </div>#}
+{##}
+{#	  <div class="col-sm-6 col-md-3">#}
+{#	    <div class="thumbnail">#}
+{#	      <img src="images/img_bg_1.jpg" alt="...">#}
+{#	      <div class="caption">#}
+{#	        <h3>Thumbnail label</h3>#}
+{#	        <p>...</p>#}
+{#	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>#}
+{#	      </div>#}
+{#	    </div>#}
+{#	  </div>#}
+{##}
+{#	  <div class="col-sm-6 col-md-3">#}
+{#	    <div class="thumbnail">#}
+{#	      <img src="images/img_bg_1.jpg" alt="...">#}
+{#	      <div class="caption">#}
+{#	        <h3>Thumbnail label</h3>#}
+{#	        <p>...</p>#}
+{#	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>#}
+{#	      </div>#}
+{#	    </div>#}
+{#	  </div>#}
+{##}
+{#	  <div class="col-sm-6 col-md-3">#}
+{#	    <div class="thumbnail">#}
+{#	      <img src="images/img_bg_1.jpg" alt="...">#}
+{#	      <div class="caption">#}
+{#	        <h3>Thumbnail label</h3>#}
+{#	        <p>...</p>#}
+{#	        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>#}
+{#	      </div>#}
+{#	    </div>#}
+{#	  </div>#}
+{#	</div>#}
+{#	<div class="row">#}
+{#		<div class="pull-right more">#}
+{#			<a href="">查看更多>></a>#}
+{#		</div>#}
+{#	</div>#}
+{#</div>#}
+{% endblock %}
