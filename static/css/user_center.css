@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fefefe;
+    color: #24292e;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+#main > div {
+    display: none;
+}
+
+#course img,
+#project img,
+#suggestion img {
+    width: 250px;
+    height: 150px;
+}
+
+#course .panel-body,
+#project .panel-body,
+#suggestion .panel-body {
+    padding: 0 15px 10px 15px;
+}
+
+#course .panel-body hr,
+#project .panel-body hr,
+#suggestion .panel-body hr {
+    margin: 0 0 10px 10px;
+}
+
+#blog .panel,
+#QA .panel {
+    margin-top: 10px;
+}
+
+.media-list img {
+    width: 64px;
+    height: 64px;
+}
+
+.media-body blockquote {
+    font-size: 12px;
+}
+
+#note .panel hr {
+    margin: 10px 0 0px 10px;
+}
+
+#note .panel-body {
+    padding-top: 0px;
+}
+
+#user-img img {
+    width: 200px;
+    height: 200px;
+}
+
+#set-user-img-button {
+    display: none;
+}
+
+#setting textarea {
+    resize: none;
+}
+
+#set-user-img {
+    position: fixed;
+    left: 30%;
+    top: 10%;
+    z-index: 999;
+    width: 40%;
+    height: 40%;
+    display: none;
+    margin-top: 30px;
+}
+
+#set-user-img img {
+    width: 50%;
+    height: 50%;
+}
+
+#set-user-img .panel-body {
+    text-align: center;
+}
+
+#set-user-img .panel-body input {
+    margin-left: 30px;
+}
+
+#img-file {
+    margin: 30px;
+}
+
+.mask {
+    display: none;
+    position: fixed;
+    z-index: 998;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .5);
+}
+
+/*错题集*/
+.error-warp {
+    width: 100%;
+}
+
+.error-wasp {
+    padding: 5px;
+    box-sizing: border-box;
+    margin-top: 15px;
+}
+
+.error-inner {
+    padding: 0;
+}
+
+.error-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    margin: 10px auto;
+}
+
+.img1 {
+    background: url("../img/python_course.jpg") center center /cover no-repeat;
+
+}
+
+.img2 {
+    background: url("../img/长颈鹿.png") center center /cover no-repeat;
+
+}
+
+.img3 {
+    background: url("../img/长颈鹿.png") center center /cover no-repeat;
+
+}
+
+.img4 {
+    background: url("../img/长颈鹿.png") center center /cover no-repeat;
+
+}
+
+.error-hid {
+    width: 100%;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: rgba(18, 18, 18, 0);
+    text-align: center;
+    padding-top: 30%;
+    transition: .35s;
+    opacity: 0;
+    color: #fff;
+    position: relative;
+}
+
+.error-hid:before {
+    content: '';
+    width: 100%;
+    height: 100px;
+    border-radius: 50%;
+    box-sizing: content-box;
+    box-shadow: 0 0 20px #337AB7;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: .35s;
+}
+
+.error-img:hover .error-hid {
+    opacity: 1;
+    background: rgba(18, 18, 18, .3);
+    cursor: pointer;
+}
+
+.error-img:hover .error-hid:before {
+    box-shadow: 0 0 20px 3px #337AB7;
+}

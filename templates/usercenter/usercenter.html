@@ -5,7 +5,12 @@
     个人中心
 {% endblock %}
 
-{% block content %}
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/user_center.css' %}">
+{% endblock %}
+
+
+{% block html_body %}
     <div class="container" id="wrapper">
         <div class="row">
             <!-- 导航标签 -->
