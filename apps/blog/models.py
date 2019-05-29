@@ -1,5 +1,5 @@
 from django.db import models
-from usercenter.models import User
+from usercenter.models import *
 
 # Create your models here.
 
@@ -10,8 +10,8 @@ class Blog(models.Model):
     '''
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="博主id")
-    type = models.ForeignKey(Type, on_delete=models.CASCADE, verbose_name="分类id")
-    language = models.ForeignKey(Language, on_delete=models.CASCADE, verbose_name="语言id")
+    type = models.ForeignKey(Level, on_delete=models.CASCADE, verbose_name="分类id")
+    language = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="语言id")
     title = models.CharField(max_length=256, verbose_name="标题")
     content = models.TextField(verbose_name="正文")
     publish = models.DateTimeField(auto_now=True, verbose_name="发布时间")
