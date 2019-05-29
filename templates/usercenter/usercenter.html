@@ -376,41 +376,11 @@
                                                 </a>
                                             </div>
                                             <div class="media-body">
-                                                <h4 class="media-heading">深入理解BootStrap之栅格系统（布局）<span
-                                                        class="label label-danger">热</span></h4>
+                                                <h4 class="media-heading">{{blog.title}}
+                                                    <span class="label label-danger">热</span>
+                                                </h4>
                                                 <blockquote>
-                                                    Bootstrap内置了一套响应式、移动设备优先的流式栅格系统，随着屏幕设备或视口（viewport）尺寸的增加，系统会自动分为最多12列。
-                                                </blockquote>
-                                            </div>
-                                            <ul class="list-unstyled">
-                                                <li>
-                                                    <a href="">https://blog.csdn.net/q121516340/article/details/51506865</a>
-                                                </li>
-                                                <li>
-                                                    <ul class="list-unstyled list-inline">
-                                                        <li class="pull-left">作者：<a href="#">陈思杰</a></li>
-                                                        <li class="pull-right">日期：2019年5月17日</li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="panel-body">
-                                    <ul class="media-list">
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <a href="#">
-                                                    <img class="media-object" src={% static 'img/长颈鹿.png' %} alt="">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">深入理解BootStrap之栅格系统（布局）<span
-                                                        class="label label-danger">热</span></h4>
-                                                <blockquote>
-                                                    Bootstrap内置了一套响应式、移动设备优先的流式栅格系统，随着屏幕设备或视口（viewport）尺寸的增加，系统会自动分为最多12列。
+                                                    {{ blog.content | truncatewords:2 }}
                                                 </blockquote>
                                             </div>
                                             <ul class="list-unstyled">
