@@ -1,0 +1,109 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>慧码时代</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{% static 'bootstrap/bootstrap.css' %}">
+	<script src='{% static 'jquery/jquery-3.1.1.js' %}'></script>
+    {% block custom_css %}{% endblock %}
+    {% block custom_js %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+</head>
+<body>
+<!-- 导航条 -->
+<nav class="navbar navbar-default nav_height">
+  <div class="container-fluid nav_panel">
+    <div class="navbar-header nav_head">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse nav_body" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="active"><a href="#">首页</a></li>
+        <li><a href="#">课程中心</a></li>
+        <li><a href="#">博客</a></li>
+        <li><a href="#">项目</a></li>
+        <li><a href="#">个人中心</a></li>
+      </ul>
+      
+      <ul class="nav navbar-nav nav-magrig navbar-right ">
+        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">登录</a></li>
+        <li>/</li>
+        <li><a href="#">注册</a></li>
+      </ul>
+
+ 	<form class="navbar-form navbar-right form-search">
+ 			<div class="search-border">
+		        <div class="form-group">
+		          	<input type="text" class="form-control from-defined" placeholder="Search">
+		        </div>
+		        	<a href=""><span class="iconfont">&#xe603;</span></a>
+	        </div>
+    </form>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+ </nav>
+
+<!-- 模态框 -->
+	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">登录</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form class="form-horizontal">
+			  <div class="form-group">
+			    <label class="col-sm-3 col-md-3 control-label">账号：</label>
+			    <div class="col-sm-9 col-md-9 input-wei">
+			      <input type="text" class="form-control"  placeholder="邮箱/电话">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label class="col-sm-3 col-md-3 control-label">密码：</label>
+			    <div class="col-sm-9 col-md-9 input-wei">
+			      <input type="password" class="form-control"  placeholder="密码">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <div class="checkbox">
+			        <label>
+			          <input type="checkbox"> 记住密码
+			        </label>
+			      </div>
+			    </div>
+			  </div>
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	        <button type="button" class="btn btn-success">登录</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+{% block html_body %}
+
+{% endblock %}
+
+
+
+<footer>
+	<div class="footer_body">蜀备ICP 慧码时代&copy; 5215584886号</div>
+</footer>
+</body>
+<script src="{% static 'bootstrap/bootstrap.min.js' %}"></script>
+<script src="{% static 'chart/Chart.bundle.js' %}></script>
+<script src="{% static 'chart/chart.dinyi.js' %}></script>
+</html>
