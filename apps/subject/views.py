@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from apps.subject.models import ProjectDetail
 
 # Create your views here.
 def project_list(request):
@@ -8,6 +9,7 @@ def project_list(request):
     :param request:
     :return:
     """
+    items = ProjectDetail.objects.all()
 
     return render(request, "subject/project_list.html", locals())
 
