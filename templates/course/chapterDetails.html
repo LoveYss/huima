@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>章节详情页</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    <link rel="stylesheet" href="css/chapterDetails.css" type="text/css">
+    <script src="js/jquery3.4.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="js/video_js/alt/video-js-cdn.min.css" rel="stylesheet" />
+    <script src="js/video_js/alt/video.novtt.min.js"></script>
+    <script>
+        var player = videojs('video', {
+            fluid: true ,
+            autoplay: 'muted',
+            // autoplay:"true",
+            nativeTextTracks : false,
+            responsive: true,
+            // aspectRatio: '5:5'
+        }, function () {
+            $(this).play()
+        }); //播放视频
+        player.responsive(true);
+    </script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="container-fluid det-video">
+        <div class="container">
+            <video id="video" class="video-js vjs-default-skin medium" controls preload="none" >
+                <source src="a.mp4" type="video/mp4">
+            </video>
+        </div>
+
+<!--        <video id="video" class="video-js vjs-default-skin vjs-fluid" poster="http://vjs.zencdn.net/v/oceans.png" width="375" height="200" controls preload="none"-->
+<!--               data-setup='{ "html5" : { "nativeTextTracks" : false } }'>-->
+<!--            <source src="https://www.bilibili.com/9e972378-409d-42c8-a79c-b2187e1c709d" type="video/mp4">-->
+<!--        </video>-->
+    </div>
+    <div class="container det-list-waper">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="det-inner-list">
+                    <p class="det-name">
+                        本章教程
+                        <span class="glyphicon glyphicon-plus add-list"></span>
+                    </p>
+                    <ul class="list-group cha-entry">
+                        <li class="list-group-item"><span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<span>css怎么导入</span></li>
+                        <li class="list-group-item"><span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<span>css怎么导入</span></li>
+                        <li class="list-group-item"><span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<span>css怎么导入</span></li>
+                        <li class="list-group-item"><span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<span>css怎么导入</span></li>
+                    </ul>
+                </div>
+                <div class="det-inner-list">
+                    <p class="det-name">本章知识小结</p>
+                    <a href="http://www.bai.com">点击查看本章小结</a>
+
+                </div>
+                <div class="det-inner-list">
+                    <p class="det-name">
+                        看看大家有什么问题
+                        <span class="glyphicon glyphicon-plus add-list"></span>
+                    </p>
+                    <ul class="list-group cha-entry">
+                        <li class="list-group-item"><span class="def-user">小白：</span>&nbsp;&nbsp;<span>css怎么引入啊？</span></li>
+                        <li class="list-group-item"><span class="def-user">豆豆：</span>&nbsp;&nbsp;<span>去看看豆豆大神的博客</span></li>
+                        <li class="list-group-item"><span class="def-user">小白：</span>&nbsp;&nbsp;<span>谢谢楼上</span></li>
+                        <li class="list-group-item"><span class="def-user">豆豆： </span>&nbsp;&nbsp;<span>没事没事</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 ">
+                <a href="#" class="det-studyData det-subject">
+                    <span class="iconfont det-subject-img">&#xe662;</span>
+                    <h2>选择题库</h2>
+                    <p>Note</p>
+                    <p>开始练习吧！</p>
+                </a>
+                <a href="#" class="det-studyData det-subject">
+                    <span class="iconfont det-subject-img">&#xe662;</span>
+                    <h2>操作题库</h2>
+                    <p>Note</p>
+                    <p>开始练习吧！</p>
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>
+<script src="js/chapterList.js"></script>
