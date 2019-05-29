@@ -22,6 +22,7 @@ from .settings import MEDIA_ROOT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('index/', include('apps.index.urls')),
     path('blog/', include('apps.blog.urls')),
     path('course/', include('apps.course.urls')),
     path('subject/', include('apps.subject.urls')),
