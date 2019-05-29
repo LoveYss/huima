@@ -6,7 +6,7 @@
 	<title>慧码时代</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="{% static 'bootstrap/bootstrap.css' %}">
-	<script src='{% static 'jquery/jquery-3.1.1.js' %}'></script>
+	<script src="{% static 'jquery/jquery-3.1.1.js' %}"></script>
     {% block custom_css %}{% endblock %}
     {% block custom_js %}{% endblock %}
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
@@ -103,7 +103,8 @@
 	<div class="footer_body">蜀备ICP 慧码时代&copy; 5215584886号</div>
 </footer>
 </body>
+{% block small_js %}{% endblock %}
 <script src="{% static 'bootstrap/bootstrap.min.js' %}"></script>
-<script src="{% static 'chart/Chart.bundle.js' %}></script>
-<script src="{% static 'chart/chart.dinyi.js' %}></script>
+<script src="{% static 'chart/Chart.bundle.js' %}"></script>
+<script src="{% static 'chart/chart.dinyi.js' %}"></script>
 </html>
