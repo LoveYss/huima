@@ -1,5 +1,5 @@
 from django.db import models
-from apps.usercenter.models import User
+from usercenter.models import User
 
 # Create your models here.
 
