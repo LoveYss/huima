@@ -61,12 +61,14 @@
     box-sizing: border-box;
     font-size: 12px;
     margin-bottom: 5px;
+    max-width: 200px;
+    display: block;
 }
 .l-sec img{
     width:100%;
     border-radius: 5px;
 }
-.l-sec a{
+.l-sec span{
     color: #0f0f0f;
     height:24px;
     line-height: 24px;
