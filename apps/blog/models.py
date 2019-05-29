@@ -4,36 +4,6 @@ from usercenter.models import User
 # Create your models here.
 
 
-class Type(models.Model):
-    '''
-    分类表
-    '''
-
-    type = models.CharField(max_length=50, verbose_name="分类")
-
-    def __str__(self):
-        return self.type
-
-    class Meta:
-        verbose_name = '分类表'
-        verbose_name_plural = verbose_name
-
-
-class Language(models.Model):
-    '''
-    编程语言表
-    '''
-
-    language = models.CharField(max_length=50, verbose_name="编程语言")
-
-    def __str__(self):
-        return self.language
-
-    class Meta:
-        verbose_name = '编程语言表'
-        verbose_name_plural = verbose_name
-
-
 class Blog(models.Model):
     '''
     博客表

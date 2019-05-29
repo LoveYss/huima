@@ -23,3 +23,31 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username + '\t最后登录：' + str(self.last_login)
+
+
+class Level(models.Model):
+    '''
+    分类表
+    '''
+    type = models.CharField(max_length=50, verbose_name="级别")
+
+    def __str__(self):
+        return self.type
+
+    class Meta:
+        verbose_name = '分类表'
+        verbose_name_plural = verbose_name
+
+
+class Category(models.Model):
+    '''
+    编程语言表
+    '''
+    language = models.CharField(max_length=50, verbose_name="类别")
+
+    def __str__(self):
+        return self.language
+
+    class Meta:
+        verbose_name = '编程语言表'
+        verbose_name_plural = verbose_name
