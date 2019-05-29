@@ -22,10 +22,11 @@ from .settings import MEDIA_ROOT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('apps.blog.urls')),
+    path('blog/', include('apps.blog.urls')),
     path('course/', include('apps.course.urls')),
     path('subject/', include('apps.subject.urls')),
     path('task/', include('apps.task.urls')),
+    path('usercneter/', include('apps.usercenter.urls')),
     re_path(r"media/(?P<path>.*)$", serve, {'document_root': MEDIA_ROOT}),
 
 ]

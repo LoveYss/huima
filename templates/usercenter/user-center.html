@@ -1,0 +1,786 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    个人中心
+{% endblock %}
+
+{% block content %}
+    <div class="container" id="wrapper">
+        <div class="row">
+            <!-- 导航标签 -->
+            <div class="col-md-2">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#user-center-label-list"
+                                aria-expanded="false" aria-controls="navbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <h7 class="navbar-brand">个人中心</h7>
+                    </div>
+                </nav>
+                <div class="panel panel-default" id="user-center-label-list">
+                    <div class="panel-body">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li role="presentation" id="course-label" onclick="display('course')" class="active">
+                                <a href="#">已学课程</a>
+                            </li>
+                            <li role="presentation" id="project-label" onclick="display('project')">
+                                <a href="#">实战项目</a>
+                            </li>
+                            <!-- <li role="presentation" id="exam-label" onclick="display('exam')">
+                                    <a href="#">习题演练</a>
+                            </li> -->
+                            <li role="presentation" id="suggestion-label" onclick="display('suggestion')">
+                                <a href="#">点评集</a>
+                            </li>
+                            <li role="presentation" id="error-label" onclick="display('error')">
+                                <a href="#">错题集</a>
+                            </li>
+                            <li role="presentation" id="blog-label" onclick="display('blog')">
+                                <a href="#">博客</a>
+                            </li>
+                            <li role="presentation" id="QA-label" onclick="display('QA')">
+                                <a href="#">问答</a>
+                            </li>
+                            <li role="presentation" id="note-label" onclick="display('note')">
+                                <a href="#">笔记</a>
+                            </li>
+                            <li role="presentation" id="setting-label" onclick="display('setting')">
+                                <a href="#">个人设置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 主页面 -->
+            <div class="col-md-7" id="main">
+                <!-- 已学课程 -->
+                <div id="course">
+                    <h3>已学课程</h3>
+                    <hr/>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">2019年
+                                <small>5月17日</small>
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <h4><b>Python基础课程</b></h4>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-5">
+                                    <a href="#">
+                                        <img src="{% static 'img/python_course.jpg' %}" alt="python">
+                                    </a>
+                                </div>
+                                <div class="col-xs-12 col-md-4">
+                                    <h5>学习进度：<font size="" color="#C9302C">99%</font>
+                                    </h5>
+                                    <h5>已学xxxH</h5>
+                                    <h5>章节进度：</h5>
+                                    <h5>1-2 变量的命名规则</h5>
+                                </div>
+                                <div class="col-xs-12 col-md-2">
+                                    <div>
+                                        <a href="#">错题：123</a>
+                                    </div>
+                                    <div>
+                                        <a href="#">点评：123</a>
+                                    </div>
+                                    <div>
+                                        <a href="#">问答：123</a>
+                                    </div>
+                                    <div>
+                                        <a href="#">笔记：123</a>
+                                    </div>
+                                    <button class="btn btn-default" type="button">
+                                        继续学习
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">2019年
+                                <small>5月17日</small>
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <h4><b>Python基础课程</b></h4>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-5">
+                                    <a href="#">
+                                        <img src={% static 'img/python_course.jpg' %} alt="python">
+                                    </a>
+                                </div>
+                                <div class="col-xs-12 col-md-4">
+                                    <h5>学习进度：<font size="" color="#C9302C">99%</font>
+                                    </h5>
+                                    <h5>已学xxxH</h5>
+                                    <h5>章节进度：</h5>
+                                    <h5>1-2 变量的命名规则</h5>
+                                </div>
+                                <div class="col-xs-12 col-md-2">
+                                    <div>
+                                        <a href="#">错题：123</a>
+                                    </div>
+                                    <div>
+                                        <a href="#">点评：123</a>
+                                    </div>
+                                    <div>
+                                        <a href="#">问答：123</a>
+                                    </div>
+                                    <div>
+                                        <a href="#">笔记：123</a>
+                                    </div>
+                                    <button class="btn btn-default" type="button">
+                                        继续学习
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 实战项目 -->
+                <div id="project">
+                    <h3>实战项目</h3>
+                    <hr/>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">2019年
+                                <small>5月17日</small>
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <h4><b>Python爬取职位信息</b></h4>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-5">
+                                    <a href="#">
+                                        <img src={% static 'img/python_course.jpg' %} alt="python">
+                                    </a>
+                                </div>
+                                <div class="col-xs-12 col-md-4">
+                                    <h5>项目难度：<font size="" color="#C9302C"></font>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                    </h5>
+                                    <h5>前置课程：</h5>
+                                    <ol class="breadcrumb">
+                                        <li><a href="#">python基础</a></li>
+                                        <li><a href="#">html基础</a></li>
+                                        <li><a href="#">html基础</a></li>
+                                        <li><a href="#">html基础</a></li>
+                                    </ol>
+                                </div>
+                                <div class="col-xs-12 col-md-2">
+                                    <div>
+                                        <a href="#">错题：123</a>
+                                    </div>
+                                    <div>
+                                        <a href="#">点评：123</a>
+                                    </div>
+                                    <div>
+                                        <a href="#">问答：123</a>
+                                    </div>
+                                    <div>
+                                        <a href="#">笔记：123</a>
+                                    </div>
+                                    <button class="btn btn-default" type="button">
+                                        查看详情
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">2019年
+                                <small>5月17日</small>
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <h4><b>Python爬取职位信息</b></h4>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-5">
+                                    <a href="#">
+                                        <img src={% static 'img/python_course.jpg' %} alt="python">
+                                    </a>
+                                </div>
+                                <div class="col-xs-12 col-md-4">
+                                    <h5>项目难度：<font size="" color="#C9302C"></font>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                    </h5>
+                                    <h5>前置课程：</h5>
+                                    <ol class="breadcrumb">
+                                        <li><a href="#">python基础</a></li>
+                                        <li><a href="#">html基础</a></li>
+                                        <li><a href="#">html基础</a></li>
+                                        <li><a href="#">html基础</a></li>
+                                    </ol>
+                                </div>
+                                <div class="col-xs-12 col-md-2">
+                                    <div>
+                                        <a href="#">错题：123</a>
+                                    </div>
+                                    <div>
+                                        <a href="#">点评：123</a>
+                                    </div>
+                                    <div>
+                                        <a href="#">问答：123</a>
+                                    </div>
+                                    <div>
+                                        <a href="#">笔记：123</a>
+                                    </div>
+                                    <button class="btn btn-default" type="button">
+                                        查看详情
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 点评集 -->
+                <div id="suggestion">
+                    <h3>点评集</h3>
+                    <hr/>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">2019年
+                                <small>5月17日</small>
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <h4><b>Python爬取职位信息</b></h4>
+                            <hr/>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- 错题集 -->
+                <div id="error">
+                    <h3>错题集</h3>
+                    <hr/>
+                    <div class="error-warp">
+                        <div class="row error-wasp">
+                            <div href="#" class="col-md-3 error-inner">
+                                <!--<img src="img/js.jpg" alt="">-->
+                                <a class=" error-img img1">
+                                    <div class="error-hid">
+                                        <p>Jquery</p>
+                                        <p>错题：<span>223</span></p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div href="#" class="col-md-3 error-inner">
+                                <!--<img src="img/js.jpg" alt="">-->
+                                <a class=" error-img img2">
+                                    <div class="error-hid">
+                                        <p>C++</p>
+                                        <p>错题：<span>223</span></p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div href="#" class="col-md-3 error-inner">
+                                <!--<img src="img/js.jpg" alt="">-->
+                                <a class=" error-img img3">
+                                    <div class="error-hid">
+                                        <p>Python</p>
+                                        <p>错题：<span>223</span></p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div href="#" class="col-md-3 error-inner">
+                                <!--<img src="img/js.jpg" alt="">-->
+                                <a class=" error-img img4">
+                                    <div class="error-hid">
+                                        <p>PHP</p>
+                                        <p>错题：<span>223</span></p>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="row error-wasp">
+                            <div href="#" class="col-md-3 error-inner">
+                                <a class=" error-img img1">
+                                    <div class="error-hid">
+                                        <p>Jquery</p>
+                                        <p>错题：<span>223</span></p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div href="#" class="col-md-3 error-inner">
+                                <a class=" error-img img2">
+                                    <div class="error-hid">
+                                        <p>C++</p>
+                                        <p>错题：<span>223</span></p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div href="#" class="col-md-3 error-inner">
+                                <a class=" error-img img3">
+                                    <div class="error-hid">
+                                        <p>Python</p>
+                                        <p>错题：<span>223</span></p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div href="#" class="col-md-3 error-inner">
+                                <a class=" error-img img4">
+                                    <div class="error-hid">
+                                        <p>PHP</p>
+                                        <p>错题：<span>223</span></p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 博客 -->
+                <div id="blog">
+                    <h3>博客</h3>
+                    <hr/>
+                    <ul class="nav nav-pills">
+                        <li role="presentation" class="active"><a href="#">收藏</a></li>
+                        <li role="presentation"><a href="#">我的</a></li>
+                    </ul>
+                    <div class="panel panel-default">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="panel-body">
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-left">
+                                                <a href="#">
+                                                    <img class="media-object" src={% static 'img/长颈鹿.png' %} alt="">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">深入理解BootStrap之栅格系统（布局）<span
+                                                        class="label label-danger">热</span></h4>
+                                                <blockquote>
+                                                    Bootstrap内置了一套响应式、移动设备优先的流式栅格系统，随着屏幕设备或视口（viewport）尺寸的增加，系统会自动分为最多12列。
+                                                </blockquote>
+                                            </div>
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <a href="">https://blog.csdn.net/q121516340/article/details/51506865</a>
+                                                </li>
+                                                <li>
+                                                    <ul class="list-unstyled list-inline">
+                                                        <li class="pull-left">作者：<a href="#">陈思杰</a></li>
+                                                        <li class="pull-right">日期：2019年5月17日</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="panel-body">
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-left">
+                                                <a href="#">
+                                                    <img class="media-object" src={% static 'img/长颈鹿.png' %} alt="">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">深入理解BootStrap之栅格系统（布局）<span
+                                                        class="label label-danger">热</span></h4>
+                                                <blockquote>
+                                                    Bootstrap内置了一套响应式、移动设备优先的流式栅格系统，随着屏幕设备或视口（viewport）尺寸的增加，系统会自动分为最多12列。
+                                                </blockquote>
+                                            </div>
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <a href="">https://blog.csdn.net/q121516340/article/details/51506865</a>
+                                                </li>
+                                                <li>
+                                                    <ul class="list-unstyled list-inline">
+                                                        <li class="pull-left">作者：<a href="#">陈思杰</a></li>
+                                                        <li class="pull-right">日期：2019年5月17日</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 问答 -->
+                <div id="QA">
+                    <h3>Q & A</h3>
+                    <hr/>
+                    <ul class="nav nav-pills">
+                        <li role="presentation" id="my-answer" class="active"><a href="#">我的回复</a></li>
+                        <li role="presentation" id="my-question"><a href="#">我的提问</a></li>
+                    </ul>
+                    <div class="panel panel-default " id="QA-answer">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="panel-body">
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-body">
+                                                <h4 class="media-heading">回复：盖上被子，闭上眼睛，关掉灯.......</h4>
+                                                <blockquote>
+                                                    我是前端小白，怎么三天月薪过万？
+                                                </blockquote>
+                                            </div>
+                                            <ul class="list-unstyled">
+                                                <li class="pull-right">
+                                                    <small>
+                                                        <span>回复：123</span>
+                                                        <span>|</span>
+                                                        <span>浏览：123123123</span>
+                                                    </small>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="panel-body">
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-body">
+                                                <h4 class="media-heading">回复：盖上被子，闭上眼睛，关掉灯.......</h4>
+                                                <blockquote>
+                                                    我是前端小白，怎么三天月薪过万？
+                                                </blockquote>
+                                            </div>
+                                            <ul class="list-unstyled">
+                                                <li class="pull-right">
+                                                    <small>
+                                                        <span>回复：123</span>
+                                                        <span>|</span>
+                                                        <span>浏览：123123123</span>
+                                                    </small>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="panel-body">
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-body">
+                                                <h4 class="media-heading">回复：盖上被子，闭上眼睛，关掉灯.......</h4>
+                                                <blockquote>
+                                                    我是前端小白，怎么三天月薪过万？
+                                                </blockquote>
+                                            </div>
+                                            <ul class="list-unstyled">
+                                                <li class="pull-right">
+                                                    <small>
+                                                        <span>回复：123</span>
+                                                        <span>|</span>
+                                                        <span>浏览：123123123</span>
+                                                    </small>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="panel-body">
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-body">
+                                                <h4 class="media-heading">回复：盖上被子，闭上眼睛，关掉灯.......</h4>
+                                                <blockquote>
+                                                    我是前端小白，怎么三天月薪过万？
+                                                </blockquote>
+                                            </div>
+                                            <ul class="list-unstyled">
+                                                <li class="pull-right">
+                                                    <small>
+                                                        <span>回复：123</span>
+                                                        <span>|</span>
+                                                        <span>浏览：123123123</span>
+                                                    </small>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel panel-default" id="QA-question">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="panel-body">
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-body">
+                                                <h4 class="media-heading">我是前端小白，怎么三天月薪过万？<span
+                                                        class="label label-success">已解决</span>
+                                                </h4>
+                                            </div>
+                                            <ul class="list-unstyled">
+                                                <li class="pull-left">
+                                                    <span>发布日期：2019年5月18日</span>
+                                                </li>
+                                                <li class="pull-right">
+                                                    <small>
+                                                        <span>回复：123</span>
+                                                        <span>|</span>
+                                                        <span>浏览：123123123</span>
+                                                    </small>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 笔记 -->
+                <div id="note">
+                    <h3>笔记</h3>
+                    <hr/>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h4><b>git基础课程</b></h4>
+                            <small>1-2 提交更改</small>
+                        </div>
+                        <div class="panel-body">
+                            <blockquote>
+                                Git仓库
+                                初始化版本库：
+                                git init
+                                添加文件到版分库：
+                                git add
+                                git commit
+                            </blockquote>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="glyphicon glyphicon-thumbs-up"></span><span>123</span>
+                                </li>
+                                <li>
+                                    <ul class="list-unstyled list-inline">
+                                        <li class="pull-left">日期：2019年5月17日17:30:26</li>
+                                        <li class="pull-right">
+                                            <a href="#" title="修改">
+                                                <span class="glyphicon glyphicon-erase"></span>
+                                            </a>
+                                        </li>
+                                        <li class="pull-right" title="删除">
+                                            <a href="#">
+                                                <span class="glyphicon glyphicon-trash"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h4><b>git基础课程</b></h4>
+                            <small>1-2 提交更改</small>
+                        </div>
+                        <div class="panel-body">
+                            <blockquote>
+                                Git仓库
+                                初始化版本库：
+                                git init
+                                添加文件到版分库：
+                                git add
+                                git commit
+                            </blockquote>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="glyphicon glyphicon-thumbs-up"></span><span>123</span>
+                                </li>
+                                <li>
+                                    <ul class="list-unstyled list-inline">
+                                        <li class="pull-left">日期：2019年5月17日17:30:26</li>
+                                        <li class="pull-right">
+                                            <a href="#" title="修改">
+                                                <span class="glyphicon glyphicon-erase"></span>
+                                            </a>
+                                        </li>
+                                        <li class="pull-right" title="删除">
+                                            <a href="#">
+                                                <span class="glyphicon glyphicon-trash"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- 个人设置 -->
+                <div id="setting">
+                    <h3>个人设置</h3>
+                    <hr/>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="name">昵称</label>
+                                    <input type="text" class="form-control" id="name" placeholder="请输入昵称">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">性别</label>
+                                    <div>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="sex" id="inlineRadio1">男
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="sex" id="inlineRadio2">女
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="sex" id="inlineRadio3">保密
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">生日</label>
+                                    <input type="date" class="form-control" id="name" placeholder="请输入邮箱">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">邮箱</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="邮箱名">
+                                        <span class="input-group-addon" id="basic-addon1">@</span>
+                                        <input type="text" class="form-control" placeholder="域名">
+                                    </div>
+                                    <!-- <input type="text" class="form-control" id="name" placeholder="请输入邮箱"> -->
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">手机</label>
+                                    <input type="text" class="form-control" id="name" placeholder="请输入手机号">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">签名</label>
+                                    <textarea class="form-control" rows="3" id="name" placeholder="请输入签名"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">学习方向</label>
+                                    <div>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" id="direction">python
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" id="direction">java
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" id="direction">c++
+                                        </label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-default">确认更改</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 头像及修改按钮 -->
+            <div class="col-md-3 hidden-xs hidden-sm">
+                <ul class="list-unstyled">
+                    <li>
+                        <div class="row" id="user-img">
+                            <img src={{ MEDIA_URL }}{{ user.avatar }}/>
+                        </div>
+                    </li>
+                    <li>
+                        <h4><strong>{{ user.username }}</strong></h4>
+                    </li>
+                    <li>
+                        <div id="set-user-img-button">
+                            <span class="glyphicon glyphicon-new-window"></span>
+                            <input class="btn btn-default" type="button" value="修改头像">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 修改头像窗口 -->
+    <div id="set-user-img">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">修改头像</h4>
+            </div>
+            <div class="panel-body">
+                <h4><strong>{{ user.username }}</strong></h4>
+                <img src={{MEDIA_URL}}{{ user.avatar }}>
+                <div class="text-center">
+                    <form action="get">
+                        <input id="img-file" type="file">
+                        <input class="btn btn-primary" type="submit" value="确定">
+                        <input class="btn btn-default" type="button" id="set-user-img-close" value="取消">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script type="text/javascript">
+        $("#course").show()
+
+        function display(id) {
+            $("#main>div").hide();
+            $("#" + id).show();
+            $("#user-center-label-list li").removeClass("active");
+            $("#" + id + "-label").addClass("active");
+            $("#set-user-img-button").hide()
+            if (id == "setting") {
+                $("#set-user-img-button").show()
+            }
+        }
+
+        $("#my-answer").click(function () {
+            $("#my-answer").addClass("active");
+            $("#my-question").removeClass("active");
+            $("#QA-answer").show();
+            $("#QA-question").hide();
+        })
+
+        $("#my-question").click(function () {
+            $("#my-answer").removeClass("active");
+            $("#my-question").addClass("active");
+            $("#QA-question").show();
+            $("#QA-answer").hide();
+        })
+
+        $("#set-user-img-button").click(function () {
+            $("#set-user-img").show()
+            $(".mask").show()
+        })
+
+        $("#set-user-img-close").click(function () {
+            $("#set-user-img").hide()
+            $(".mask").hide()
+        })
+    </script>
+{% endblock %}
