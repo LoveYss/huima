@@ -6,7 +6,9 @@ from usercenter.views import UserCenter
 
 urlpatterns = [
 
-    path('<int:uid>/', UserCenter.as_view()),
+    path('<int:uid>/', UserCenter.as_view(), name='个人中心'),
+
+    path('submit_userinfo_update/', )
 
 ]
 
