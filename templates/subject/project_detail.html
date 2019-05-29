@@ -1,10 +1,160 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>project_detail</title>
-</head>
-<body>
-<p>project detail </p>
-</body>
-</html>
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block html_body %}
+    <div class="container">
+        <!-- 重构第二版 -->
+
+
+        <!-- 重构第二版 -->
+        <!-- 内容展示 放置具体项目内容 -->
+        <div class="row row1 ">
+
+            <div class="col-md-12 col-left col-sm-12 col-xs-12">
+                <h1>爬虫项目</h1>
+                <!-- <p class="text-center">项目详细指导书</p> -->
+            </div>
+
+        </div>
+
+        <!-- 进度条 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="35"
+                         aria-valuemin="0"
+                         aria-valuemax="100" style="width: 35%">
+                        <span class="sr-only">35% Complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="node1 col-md-3">
+                <p class="">开始挑战</p>
+            </div>
+            <div class=" node_arrow col-md-1">
+                <img src="{% static "img/arrow.jpg" %}">
+            </div>
+            <div class="node1 col-md-3">
+                <p class="">功能介绍</p>
+            </div>
+            <div class=" node_arrow col-md-1">
+                <img src="{% static "img/arrow.jpg" %}">
+            </div>
+            <div class="node1 col-md-3">
+                <p class="">基础技能</p>
+            </div>
+            <!-- <div class="node1 col-md-3">
+                <p class="">项目展示<span class="glyphicon glyphicon-circle-arrow-down"></span></p>
+            </div> -->
+
+
+        </div>
+
+        <!-- 空白占位行 -->
+        <div class="row ">
+            <div class="node1 col-md-3 mm_visible">
+                <!-- <p class="">开始挑战<span class="glyphicon glyphicon-circle-arrow-right"></span></p> -->
+            </div>
+
+            <div class="node1 col-md-3 mm_visible">
+                <!-- <p class="">功能介绍<span class="glyphicon glyphicon-circle-arrow-right"></span></p> -->
+            </div>
+            <div class=" node_arrow col-md-1 mm_visible">
+                <!-- <img src="img/arrow.jpg" > -->
+            </div>
+
+            <div class="node1 col-md-3 mm_visible">
+                <!-- <p class="">基础技能<span class="glyphicon glyphicon-circle-arrow-right"></span></p> -->
+            </div>
+
+            <div class=" node_arrow col-md-1">
+                <img src="{% static "img/arrow_down.jpg" %}">
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="node1 col-md-3">
+                <p class="">相关视频</p>
+            </div>
+            <div class=" node_arrow col-md-1">
+                <img src="{% static "img/arrow_left.jpg" %}">
+            </div>
+            <div class="node1 col-md-3">
+                <p class="">资料下载</p>
+            </div>
+            <div class=" node_arrow col-md-1">
+                <img src="{% static "img/arrow_left.jpg" %}">
+            </div>
+            <div class="node1 col-md-3">
+                <p class="">相关阅读</p>
+            </div>
+            <!-- 	<div class="node1 col-md-3">
+                <p class="">上传项目</p>
+            </div> -->
+
+
+        </div>
+        <!-- 空白占位行 -->
+        <div class="row ">
+            <div class=" node_arrow col-md-1">
+                <img src="{% static "img/arrow_down.jpg" %}">
+            </div>
+            <div class="node1 col-md-3 mm_visible">
+                <!-- <p class="">开始挑战</p> -->
+            </div>
+
+            <div class="node1 col-md-3 mm_visible">
+                <!-- <p class="">功能介绍</p> -->
+            </div>
+            <div class=" node_arrow col-md-1 mm_visible">
+                <!-- <img src="img/arrow.jpg" > -->
+            </div>
+
+            <div class="node1 col-md-3 mm_visible">
+                <!-- <p class="">基础技能</p> -->
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="node1 col-md-3">
+                <p class="">进阶教程</p>
+            </div>
+            <div class=" node_arrow col-md-1">
+                <img src="{% static "img/arrow.jpg" %}">
+            </div>
+            <div class="node1 col-md-3">
+                <p class="">项目排行</p>
+            </div>
+            <div class=" node_arrow col-md-1">
+                <img src="{% static "img/arrow.jpg" %}">
+            </div>
+            <div class="node1 col-md-3">
+                <p class="">项目终点</p>
+            </div>
+
+
+        </div>
+
+        <!-- 触发开启页 -->
+        <div class="row">
+            <div class="col-md-12 details col-sm-12 col-xs-12">
+
+                <a href="javascript:void(0);" class="input browse">
+                    上传文件<input type="file" id="file" name="document[file]">
+                </a>
+                <p>*只能上传rar格式的单文件</p>
+                <p>ddddddd</p>
+                <div class="text-right-bottom ">
+                    <p class="btn btn-info btn-lg ">完成小节</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+        </div>
+    </div>
+{% endblock %}
