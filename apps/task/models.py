@@ -11,6 +11,13 @@ class QuestionsBank(models.Model):
     create_time = models.DateField(verbose_name="创建时间", null=True, blank=True)
     schedule = models.IntegerField(verbose_name="进度时间", null=True, blank=True)
 
+    def __str__(self):
+        return self.QuestionsBank_name
+
+    class Meta:
+        verbose_name = '题库'
+        verbose_name_plural = verbose_name
+
 
 class Questions(models.Model):
     category = models.CharField(max_length=20, verbose_name="任务类别",
