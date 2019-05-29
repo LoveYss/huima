@@ -83,49 +83,7 @@
                                     </a>
                                 </div>
                                 <div class="col-xs-12 col-md-4">
-                                    <h5>学习进度：<font size="" color="#C9302C">99%</font>
-                                    </h5>
-                                    <h5>已学xxxH</h5>
-                                    <h5>章节进度：</h5>
-                                    <h5>1-2 变量的命名规则</h5>
-                                </div>
-                                <div class="col-xs-12 col-md-2">
-                                    <div>
-                                        <a href="#">错题：123</a>
-                                    </div>
-                                    <div>
-                                        <a href="#">点评：123</a>
-                                    </div>
-                                    <div>
-                                        <a href="#">问答：123</a>
-                                    </div>
-                                    <div>
-                                        <a href="#">笔记：123</a>
-                                    </div>
-                                    <button class="btn btn-default" type="button">
-                                        继续学习
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">2019年
-                                <small>5月17日</small>
-                            </h4>
-                        </div>
-                        <div class="panel-body">
-                            <h4><b>Python基础课程</b></h4>
-                            <hr/>
-                            <div class="row">
-                                <div class="col-xs-12 col-md-5">
-                                    <a href="#">
-                                        <img src={% static 'img/python_course.jpg' %} alt="python">
-                                    </a>
-                                </div>
-                                <div class="col-xs-12 col-md-4">
-                                    <h5>学习进度：<font size="" color="#C9302C">99%</font>
+                                    <h5>学习进度：99%
                                     </h5>
                                     <h5>已学xxxH</h5>
                                     <h5>章节进度：</h5>
@@ -380,7 +338,7 @@
                                                     <span class="label label-danger">热</span>
                                                 </h4>
                                                 <blockquote>
-                                                    {{ blog.content | truncatewords:2 }}
+                                                    {{ blog.content | truncatechars:50 }}
                                                 </blockquote>
                                             </div>
                                             <ul class="list-unstyled">
@@ -389,8 +347,8 @@
                                                 </li>
                                                 <li>
                                                     <ul class="list-unstyled list-inline">
-                                                        <li class="pull-left">作者：<a href="#">陈思杰</a></li>
-                                                        <li class="pull-right">日期：2019年5月17日</li>
+                                                        <li class="pull-left">作者：<a href="#">{{ author.username }}</a></li>
+                                                        <li class="pull-right">日期：{{ blog.publish }}</li>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -618,61 +576,61 @@
                     <hr/>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <form role="form">
-                                <div class="form-group">
-                                    <label for="name">昵称</label>
-                                    <input type="text" class="form-control" id="name" placeholder="请输入昵称">
-                                </div>
-                                <div class="form-group">
-                                    <label for="name">性别</label>
-                                    <div>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="sex" id="inlineRadio1">男
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="sex" id="inlineRadio2">女
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="sex" id="inlineRadio3">保密
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="name">生日</label>
-                                    <input type="date" class="form-control" id="name" placeholder="请输入邮箱">
-                                </div>
-                                <div class="form-group">
-                                    <label for="name">邮箱</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="邮箱名">
-                                        <span class="input-group-addon" id="basic-addon1">@</span>
-                                        <input type="text" class="form-control" placeholder="域名">
-                                    </div>
-                                    <!-- <input type="text" class="form-control" id="name" placeholder="请输入邮箱"> -->
-                                </div>
-                                <div class="form-group">
-                                    <label for="name">手机</label>
-                                    <input type="text" class="form-control" id="name" placeholder="请输入手机号">
-                                </div>
-                                <div class="form-group">
-                                    <label for="name">签名</label>
-                                    <textarea class="form-control" rows="3" id="name" placeholder="请输入签名"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="name">学习方向</label>
-                                    <div>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" id="direction">python
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" id="direction">java
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" id="direction">c++
-                                        </label>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-default">确认更改</button>
+                            <form role="form" action="/usercenter/submit_userinfo_update" method="post">
+{#                                <div class="form-group">#}
+{#                                    <label for="name">昵称</label>#}
+{#                                    <input type="text" class="form-control" id="name" placeholder="请输入昵称">#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <label for="name">性别</label>#}
+{#                                    <div>#}
+{#                                        <label class="radio-inline">#}
+{#                                            <input type="radio" name="sex" id="inlineRadio1">男#}
+{#                                        </label>#}
+{#                                        <label class="radio-inline">#}
+{#                                            <input type="radio" name="sex" id="inlineRadio2">女#}
+{#                                        </label>#}
+{#                                        <label class="radio-inline">#}
+{#                                            <input type="radio" name="sex" id="inlineRadio3">保密#}
+{#                                        </label>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <label for="name">生日</label>#}
+{#                                    <input type="date" class="form-control" id="name" placeholder="请输入邮箱">#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <label for="name">邮箱</label>#}
+{#                                    <div class="input-group">#}
+{#                                        <input type="text" class="form-control" placeholder="邮箱名">#}
+{#                                        <span class="input-group-addon" id="basic-addon1">@</span>#}
+{#                                        <input type="text" class="form-control" placeholder="域名">#}
+{#                                    </div>#}
+{#                                    <!-- <input type="text" class="form-control" id="name" placeholder="请输入邮箱"> -->#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <label for="name">手机</label>#}
+{#                                    <input type="text" class="form-control" id="name" placeholder="请输入手机号">#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <label for="name">签名</label>#}
+{#                                    <textarea class="form-control" rows="3" id="name" placeholder="请输入签名"></textarea>#}
+{#                                </div>#}
+{#                                <div class="form-group">#}
+{#                                    <label for="name">学习方向</label>#}
+{#                                    <div>#}
+{#                                        <label class="checkbox-inline">#}
+{#                                            <input type="checkbox" id="direction">python#}
+{#                                        </label>#}
+{#                                        <label class="checkbox-inline">#}
+{#                                            <input type="checkbox" id="direction">java#}
+{#                                        </label>#}
+{#                                        <label class="checkbox-inline">#}
+{#                                            <input type="checkbox" id="direction">c++#}
+{#                                        </label>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <button type="submit" class="btn btn-default">确认更改</button>#}
                             </form>
                         </div>
                     </div>
