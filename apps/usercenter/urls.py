@@ -1,7 +1,12 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+from django.urls import path, re_path
+from usercenter.views import UserCenter
 
-if __name__ == '__main__':
-    pass
+urlpatterns = [
+
+    path('<int:uid>/', UserCenter.as_view),
+
+]
 
