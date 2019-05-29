@@ -1,0 +1,275 @@
+.post-card {
+    background-color: #fff;
+    margin-bottom: 30px;
+}
+.single-post-header {
+    text-align: center;
+    padding-bottom: 60px;
+}
+.single-post-header h1 {
+    text-transform: capitalize;
+    max-width: 700px;
+    color: #444;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700;
+    padding-top: 5px;
+    line-height: 40px;
+    font-size: 30px;
+    margin-bottom: 0;
+}
+.single-post-header .post-tag {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    color: #888;
+    letter-spacing: 0.8px;
+    font-family: 'EB Garamond', serif;
+    display: inline-block;
+}
+.post-card .list-inline-item:not(:last-child) {
+    border-right: 2px solid #999;
+    padding-right: 5px;
+}
+.post-card .blog-item-links{
+    position: relative;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+}
+.post-card .blog-item-links::after {
+    display: block;
+    border-top: 2px solid #10b765;
+    position: absolute;
+    top: 61px;
+    left: 50%;
+    height: 8px;
+    width: 68px;
+    content: '';
+    margin-left: -34px;
+}
+.post-card .list-inline-item {
+    color: #777;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: "Raleway",sans-serif;
+    letter-spacing: 4px;
+    position: relative;
+}
+.post-card .card-details .card-tag-date span {
+    font-weight: 500;
+    font-size: 12px;
+    font-style: italic;
+    color: #999;
+    letter-spacing: 0.3px;
+}
+.post-card .card-details .card-tag span {
+    margin: 35px 0 25px;
+    display: inline-block;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 3px;
+    line-height: 1;
+    text-indent: 8px;
+    color: #999;
+}
+.post-card .card-details .card-tag span::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 1px;
+    background-color: #ccc;
+    display: inline-block;
+    top: 7px;
+    right: -30px;
+}
+.post-card .card-details .card-tag span::before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 1px;
+    background-color: #ccc;
+    display: inline-block;
+    top: 7px;
+    left: -30px;
+}
+.post-card .card-details h2 {
+    font-family: "Raleway",sans-serif;
+    color: #444;
+    font-size: 22px;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+.post-card .card-details ol li {
+    color: #777;
+    font-weight: 400;
+    text-indent: 10px;
+    line-height: 2.2;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.post-card .card-details ol {
+    padding-left: 15px;
+}
+.post-card .card-details {
+    margin: 0 20px;
+    border-bottom: 1px solid #eee;
+}
+.post.post-card .card-details hr {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-color: #ccc;
+}
+.post.post-card .card-details {
+    padding: 50px 0 0;
+    margin: 0;
+    border: none;
+}
+.post-card .card-details h3 {
+    color: #333;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+}
+.post-card .card-tag + h3 {
+    color: #273f5b;
+    margin-bottom: 40px;
+    font-size: 21px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+.post.post-card p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 2.2;
+    word-spacing: 1px;
+    letter-spacing: 0.3px;
+    margin-bottom: 30px;
+}
+.post.post-card .post-image .featured-img {
+    height: 100%;
+    border-radius: 5px;
+}
+.post-card .featured-img {
+    height: 250px;
+    width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.post.post-card .share-icon {
+    padding: 0;
+    margin-bottom: 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.post.post-card .share-icon i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+.post.post-card .share-icon .list-inline-item {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #999;
+    padding: 12px 20px;
+    margin: 15px 1px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+}
+
+.post-writer .media {
+    background-color: #fff;
+}
+.post-writer .media img {
+    max-width: 140px;
+    border-radius: 50%;
+}
+.post-writer .media .media-body {
+    padding: 0 20px 0 0;
+}
+.post-writer .media p {
+    line-height: 1.8;
+    font-size: 14px;
+}
+.post-writer .media h5 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+    color: #333;
+}
+/*==================== Comments =====================*/
+.all-comments {
+    padding-top: 0;
+}
+.all-comments .comment-section-title {
+    margin-bottom: 30px;
+    font-size: 25px;
+    font-weight: 700;
+    color: #333;
+    word-spacing: 2px;
+}
+.border-wrapper {
+    border-top: 1px solid #ddd;
+    margin-top: 45px;
+    padding-top: 30px;
+}
+.comment-posts {
+    border-top: 1px solid #ddd;
+    padding-top: 50px;
+}
+.comment-posts .single-content {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(198, 198, 198, 0.5);
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+.comment-posts .single-content:not(:last-child) {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+}
+.comment-posts .single-content .media-body .single-content {
+    border-top: 2px dashed rgba(198, 198, 198, .5);
+    padding-top: 25px;
+    margin-top: 25px;
+}
+.comment-posts .single-content:last-child {
+    border: none;
+    padding-bottom: 0;
+}
+
+.comment-posts .single-content img {
+    margin-right: 25px;
+    max-width: 68px;
+    border-radius: 50%;
+}
+.comment-posts .single-content h3 span{
+    font-size: 12px;
+    color: #10b765;
+}
+.comment-posts .single-content h3 {
+    color: #666;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.1;
+    margin: 0 auto 20px;
+}
+.comment-posts .single-content p {
+    color: #777;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.7;
+    margin-bottom: 0;
+    word-spacing: 2px;
+}
