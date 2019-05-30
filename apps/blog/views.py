@@ -9,18 +9,13 @@ from django.db.models import Q
 class BlogListView(View):
     def get(self, request):
         blogs = Blog.objects.all().order_by('-publish')
+        # level = request.GET.get()
+        # category = request.GET.get()
         return render(request, 'blog/bloglist.html', locals())
-
-    # def catalog(self, request):
-    #     type = request.GET.get('type')
-    #     language = request.GET.get('language')
-    #     blogs = Blog.objects.filter(Q(type=type)|Q(language=language))
-    #     return render(request, 'blog/bloglist.html', locals())
 
 
 class BlogView(View):
     def get(self, request, title):
-
         blog = Blog.objects.get(title=title)
-
+        comments = BlogComment.objects.filter(blog=blog.id)
         return render(request, 'blog/blog.html', locals())

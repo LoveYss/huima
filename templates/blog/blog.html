@@ -1,72 +1,61 @@
-<!DOCTYPE html>{% load staticfiles %}
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>8 个用于业余项目的优秀 Python 库</title>
-    <script src="{% static 'jquery/jquery-3.1.1.js' %}"></script>
-    <link href="{% static 'bootstrap/bootstrap.css' %}" rel="stylesheet">
+{% extends 'base.html' %}{% load staticfiles %}
+{% block title %}{{ blog.title }}{% endblock %}
+{% block custom_css %}
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    <script src="{% static 'bootstrap/bootstrap.js' %}"></script>
-    <script src="{% static 'bootstrap/bootstrap.min.css' %}"></script>
-</head>
-<body>
-<div class="container">
-    <ul class="nav nav-tabs">
-        <li role="presentation"><a href="{% url 'blog:bloglist' %}">所有文章</a></li>
-        <li role="presentation"><a href="#">观点与动态</a></li>
-        <li role="presentation"><a href="#">基础知识</a></li>
-        <li role="presentation"><a href="#">系列教程</a></li>
-        <li role="presentation"><a href="#">实践项目</a></li>
-        <li role="presentation"><a href="#">工具与框架</a></li>
-        <li role="presentation"><a href="#">工具资源</a></li>
-        <li role="presentation"><a href="#">python小组</a></li>
-    </ul>
-    <br>
-    <ol class="breadcrumb">
-        <li><a href="{% url 'blog:bloglist' %}">所有文章</a></li>
-        <li><a href="#">基础知识</a></li>
-        <li class="active">{{ blog.title }}</li>
-    </ol>
-</div>
-<section class="blog-home">
+{% endblock %}
+{% block html_body %}
     <div class="container">
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8 mx-auto">
-                <div class="post post-card">
-                    <div class="single-post-header">
-                        <ul class="list-inline blog-item-links">
-                            <li class="list-inline-item"><a href="#">{{ blog.publish }}</a></li>
-                            <li class="list-inline-item"><a href="#">{{ blog.category }}</a></li>
-                            <li class="list-inline-item"><a href="#">{{ blog.level }}</a></li>
-                        </ul>
-                        <h1>{{ blog.title }}</h1>
-                    </div>
-                    <a href="#" class="post-image"><img src="{% static 'images/blog/test1.jpg' %}" alt="#"
-                                                        class="img-fluid featured-img"></a>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card-details">
-                                {{ blog.content|safe }}
-                                <p>有什么你最喜欢的用于业余项目的 Python 库不在这个列表中吗？请在评论中和我们分享。</p>
-                            </div>
+        <ol class="breadcrumb">
+            <li><a href="{% url 'blog:bloglist' %}">所有文章</a></li>
+            <li><a href="#">{{ blog.level }}</a></li>
+            <li><a href="#">{{ blog.category }}</a></li>
+            <li class="active">{{ blog.title }}</li>
+        </ol>
+    </div>
+    <section class="blog-home">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 mx-auto">
+                    <div class="post post-card">
+                        <div class="single-post-header">
+                            <ul class="list-inline blog-item-links">
+                                <li class="list-inline-item"><a href="#">{{ blog.category }}</a></li>
+                                <li class="list-inline-item"><a href="#">{{ blog.level }}</a></li>
+                                <li class="list-inline-item"><a href="#">{{ blog.publish }}</a></li>
+                            </ul>
+                            <h1>{{ blog.title }}</h1>
                         </div>
-                    </div>
-                    <ul class="list-inline share-icon text-left">
-                        <li class="list-inline-item"><span class="glyphicon glyphicon-thumbs-up"></span> 点赞 {{ blog.tag_num }}次</li>
-                        <li class="list-inline-item"><span class="glyphicon glyphicon-comment"></span> 评论 {{ blog.com_num }}条</li>
-                    </ul>
-                </div>
-                <div class="post-writer">
-                    <div class="media d-flex align-items-center">
+                        <a href="#" class="post-image"><img src="{% static 'images/blog/test1.jpg' %}" alt="#"
+                                                            class="img-fluid featured-img"></a>
                         <div class="row">
-                            <div class="col-lg-3">
-                                <a href="#"><img class="mr-5" src="{% static '' %}" alt="Admin"></a>
+                            <div class="col-12">
+                                <div class="card-details">
+                                    <p>{{ blog.content|safe }}</p>
+                                    <p>有什么你最喜欢的用于业余项目的 Python 库不在这个列表中吗？请在评论中和我们分享。</p>
+                                </div>
                             </div>
-                            <div class="col-lg-9">
-                                <div class="media-body">
-                                    <h5 class="mt-0"><a href="#">{{ blog.user.username }}</a></h5>
-                                    <p>{{ blog.user.description }}</p>
+                        </div>
+                        <ul class="list-inline share-icon text-left">
+                            <li class="list-inline-item"><span class="glyphicon glyphicon-thumbs-up"></span>
+                                点赞 {{ blog.tag_num }}次
+                            </li>
+                            <li class="list-inline-item"><span class="glyphicon glyphicon-comment"></span>
+                                评论 {{ blog.com_num }}条
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="post-writer">
+                        <div class="media d-flex align-items-center">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <a href="#"><img class="mr-5" src="{{ MEDIA_URL }}{{ blog.user.avatar }}" alt="Admin"></a>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="media-body">
+                                        <h5 class="mt-0"><a href="#">{{ blog.user.username }}</a></h5>
+                                        <p>{{ blog.user.description }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -74,101 +63,60 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section class="all-comments contact">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8 mx-auto">
-                <div class="comment-posts">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class=""><h2 class="comment-section-title">评论区</h2></div>
-                            <div class="media single-content">
-                                <div class="row">
-                                    <div class="col-lg-1">
-                                        <a href="#"><img class=" img-responsive" src="{% static 'images/emt.png' %}"
-                                                         alt="image"></a>
-                                    </div>
-                                    <div class="col-lg-11">
-                                        <div class="media-body">
-                                            <h3 class="">Jhon Doe | <span>Oct 03, 2016</span></h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-                                                volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-                                                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                            </p>
+    </section>
+    <section class="all-comments contact">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 mx-auto">
+                    <div class="comment-posts">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class=""><h2 class="comment-section-title">评论区</h2></div>
+                                {% for comment in comments %}
+                                    <div class="media single-content">
+                                        <div class="row">
+                                            <div class="col-lg-1">
+                                                <a href="#"><img class=" img-responsive"
+                                                                 src="{{ MEDIA_URL }}{{ comment.user.avatar }}"
+                                                                 alt="image"></a>
+                                            </div>
+                                            <div class="col-lg-11">
+                                                <div class="media-body">
+                                                    <h3 class="">{{ comment.user.username }} |
+                                                        <span>{{ comment.publish }}</span></h3>
+                                                    <p>{{ comment.content }}</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="media single-content">
-                                <div class="row">
-                                    <div class="col-lg-1">
-                                        <a href="#"><img class=" img-responsive" src="{% static 'images/emt.png' %}"
-                                                         alt="image"></a>
-                                    </div>
-                                    <div class="col-lg-11">
-                                        <div class="media-body">
-                                            <h3 class="">Jhon Doe | <span>Oct 03, 2016</span></h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-                                                volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-                                                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media single-content">
-                                <div class="row">
-                                    <div class="col-lg-1">
-                                        <a href="#"><img class=" img-responsive" src="{% static 'images/emt.png' %}"
-                                                         alt="image"></a>
-                                    </div>
-                                    <div class="col-lg-11">
-                                        <div class="media-body">
-                                            <h3 class="">Jhon Doe | <span>Oct 03, 2016</span></h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                                nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-                                                volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-                                                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="border-wrapper"><h2 class="comment-section-title">发表评论</h2></div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label class="sr-only">Massage</label>
-                                <textarea class="form-control textarea" name="message" rows="5"
-                                          placeholder="Massage"></textarea>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="border-wrapper"><h2 class="comment-section-title">发表评论</h2></div>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-secondary">发送</button>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="sr-only">Massage</label>
+                                    <textarea class="form-control textarea" name="message" rows="5"
+                                              placeholder="Massage"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div class="text-right">
+                                        <button type="submit" class="btn btn-secondary">发送</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-</body>
-</html>
+    </section>
+{% endblock %}

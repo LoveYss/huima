@@ -1,193 +1,195 @@
 {% extends 'base.html' %}{% load staticfiles %}
+{% block title %}博客列表{% endblock %}
 {% block custom_css %}
     <link rel="stylesheet" href="{% static 'css/bloglist.css' %}">
 {% endblock %}
 {% block html_body %}
 
-<div class="container">
-    <ul class="nav nav-tabs">
-        <li role="presentation"><a href="#">所有文章</a></li>
-        <li role="presentation" class="active"><a href="#">最新文章</a></li>
-        <li role="presentation"><a href="#">IT职场</a></li>
-        <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-               aria-expanded="false" onclick="return false">
-                前端 <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="#">JavaScript</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">HTML5</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">CSS</a></li>
-            </ul>
-        </li>
-        <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-               aria-expanded="false" onclick="return false">
-                后端 <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Python</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Java</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">C/C++</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">PHP</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">.NET</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Ruby</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Go</a></li>
-            </ul>
-        </li>
-        <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-               aria-expanded="false" onclick="return false">
-                移动端 <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Android</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">iOS</a></li>
-            </ul>
-        </li>
-        <li role="presentation"><a href="#">数据库</a></li>
-        <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-               aria-expanded="false" onclick="return false">
-                运维 <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Linux</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">UNIX</a></li>
-            </ul>
-        </li>
-        <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-               aria-expanded="false" onclick="return false">
-                其他技术 <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Git</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">机器学习</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">算法</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">测试</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">信息安全</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Vim</a></li>
-            </ul>
-        </li>
-    </ul>
-    <br>
-    <ol class="breadcrumb">
-        <li><a href="#">所有文章</a></li>
-        <li class="active">最新文章</li>
-    </ol>
-</div>
-<br>
-<section class="blog-page-1">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="blog-post">
-                    <div class="post-img">
-                        <img src="{% static 'images/blog/test1.jpg' %}" alt="8 个用于业余项目的优秀 Python 库">
-                    </div>
-                    <div class="blog-details">
-                        {% for blog in blogs %}
-                        <a href="{% url 'blog:blog' blog.title %}">
-                            <h4 class="media-heading">{{ blog.title }}</h4>
-                        </a>
-                        <p class="notice">{{ blog.content }}</p>
-                        <ul class="list-inline blog-item-links">
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-user"></span><a href="#">{{ blog.user.username }}</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-calendar"></span> {{ blog.publish }}
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-education"></span> {{ blog.category }} {{ blog.level }}
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-comment"></span> 评论 {{ blog.com_num }}条
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-thumbs-up"></span> 点赞 {{ blog.tag_num }}次
-                            </li>
-                        </ul>
-                        <p></p>
-                        <a class="blog-post-link" href="{% url 'blog:blog' blog.title %}">
-                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> 阅读全文
-                        </a>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<div class="text-center">
-    <nav aria-label="Page navigation">
-        <ul class="pagination">
-            <li>
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
+        <ul class="nav nav-tabs">
+            <li role="presentation"><a href="#">所有文章</a></li>
+            <li role="presentation" class="active"><a href="#">最新文章</a></li>
+            <li role="presentation"><a href="#">IT职场</a></li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false" onclick="return false">
+                    前端 <span class="caret"></span>
                 </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">JavaScript</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">HTML5</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">CSS</a></li>
+                </ul>
             </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false" onclick="return false">
+                    后端 <span class="caret"></span>
                 </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Python</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Java</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">C/C++</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">PHP</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">.NET</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Ruby</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Go</a></li>
+                </ul>
+            </li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false" onclick="return false">
+                    移动端 <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Android</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">iOS</a></li>
+                </ul>
+            </li>
+            <li role="presentation"><a href="#">数据库</a></li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false" onclick="return false">
+                    运维 <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Linux</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">UNIX</a></li>
+                </ul>
+            </li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false" onclick="return false">
+                    其他技术 <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Git</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">机器学习</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">算法</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">测试</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">信息安全</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Vim</a></li>
+                </ul>
             </li>
         </ul>
-    </nav>
-</div>
-<script>
-    $('.dropdown-toggle').on("click", function () {
-        console.log('test')
-        $(".dropdown-toggle").dropdown('toggle');
-    })
-    $('li.dropdown').mouseover(function () {
-        $(this).addClass('open');
-    }).mouseout(function () {
-        $(this).removeClass('open');
-    });
+        <br>
+        <ol class="breadcrumb">
+            <li><a href="#">所有文章</a></li>
+            <li class="active">最新文章</li>
+        </ol>
+    </div>
+    <br>
+    <section class="blog-page-1">
+        <div class="container">
+            <div class="row">
+                {% for blog in blogs %}
+                    <div class="col-lg-4 col-sm-6 col-md-6">
+                        <div class="blog-post">
+                            <div class="post-img">
+                                <img src="{% static 'images/blog/test1.jpg' %}" alt="">
+                            </div>
+                            <div class="blog-details">
+                                <a href="{% url 'blog:blog' blog.title %}">
+                                    <h4 class="media-heading">{{ blog.title }}</h4>
+                                </a>
+                                <p class="notice">{{ blog.content }}</p>
+                                <ul class="list-inline blog-item-links">
+                                    <li class="list-inline-item">
+                                        <span class="glyphicon glyphicon-user"></span><a
+                                            href="#"> {{ blog.user.username }}</a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <span class="glyphicon glyphicon-calendar"></span> {{ blog.publish }}
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <span class="glyphicon glyphicon-education"></span> {{ blog.category }} {{ blog.level }}
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <span class="glyphicon glyphicon-comment"></span> 评论 {{ blog.com_num }}条
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span> 点赞 {{ blog.tag_num }}次
+                                    </li>
+                                </ul>
+                                <p></p>
+                                <a class="blog-post-link" href="{% url 'blog:blog' blog.title %}">
+                                    <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> 阅读全文
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <div class="text-center">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <script>
+        $('.dropdown-toggle').on("click", function () {
+            console.log('test')
+            $(".dropdown-toggle").dropdown('toggle');
+        })
+        $('li.dropdown').mouseover(function () {
+            $(this).addClass('open');
+        }).mouseout(function () {
+            $(this).removeClass('open');
+        });
 
-    $(function () {
-        $('.popover-toggle').popover('toggle');
-    });
-    $('button.popover-toggle').mouseover(function () {
-        $(this).addClass('click');
-    }).mouseout(function () {
-        $(this).removeClass('click');
-    });
-</script>
-<script>
-    $("[t='popover']").on("click mouseenter", function (e) {
-        e.stopPropagation();
-        var $this = $(this);
-        $this.popover("show");
-        $(document).one("click", function () {
-            $this.popover("hide");
+        $(function () {
+            $('.popover-toggle').popover('toggle');
         });
-        $(".popover").on("click", function (e) {
+        $('button.popover-toggle').mouseover(function () {
+            $(this).addClass('click');
+        }).mouseout(function () {
+            $(this).removeClass('click');
+        });
+    </script>
+    <script>
+        $("[t='popover']").on("click mouseenter", function (e) {
             e.stopPropagation();
+            var $this = $(this);
+            $this.popover("show");
+            $(document).one("click", function () {
+                $this.popover("hide");
+            });
+            $(".popover").on("click", function (e) {
+                e.stopPropagation();
+            });
         });
-    });
-</script>
+    </script>
 {% endblock %}
 
