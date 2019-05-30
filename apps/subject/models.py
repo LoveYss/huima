@@ -68,12 +68,12 @@ class ProjectDetail(models.Model):
     proj_howlong = models.SmallIntegerField(verbose_name="项目时长", default=1)
 
     class Meta:
-        verbose_name = '项目详细表1'
-        verbose_name_plural = verbose_name + '222'
-        db_tablespace = 'proj_date'
-        get_latest_by = 'proj_date'
-        managed = True
-        order_with_respect_to = 'proj_name'
+        verbose_name = '项目详细表'
+        verbose_name_plural = verbose_name
+        # db_tablespace = 'proj_date'
+        # get_latest_by = 'proj_date'
+        # managed = True
+        # order_with_respect_to = 'proj_name'
 
 
     def __str__(self):
