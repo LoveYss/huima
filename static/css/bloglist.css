@@ -87,3 +87,9 @@
     word-spacing: 4px!important;
     color: #888!important;
 }
+.notice {
+width:70%;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}

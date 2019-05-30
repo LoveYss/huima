@@ -4,8 +4,9 @@ from django.urls import re_path
 
 from blog.views import BlogView, BlogListView
 
+app_name = '[blog]'
 urlpatterns = [
     # path('', admin.site.urls),
-    path('', BlogListView.as_view),
-    re_path(r'^blog/$', BlogView.as_view),
+    path('', BlogListView.as_view(), name="bloglist"),
+    re_path(r'^blog/(?P<title>.*)$', BlogView.as_view(), name="blog"),
 ]

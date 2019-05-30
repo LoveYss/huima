@@ -1,15 +1,9 @@
-<!DOCTYPE html>{% load staticfiles %}
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>博客列表</title>
-    <script src="{% static 'jquery/jquery-3.1.1.js' %}"></script>
-    <link href="{% static 'bootstrap/bootstrap.css' %}" rel="stylesheet">
+{% extends 'base.html' %}{% load staticfiles %}
+{% block custom_css %}
     <link rel="stylesheet" href="{% static 'css/bloglist.css' %}">
-    <script src="{% static 'bootstrap/bootstrap.js' %}"></script>
-    <script src="{% static 'bootstrap/bootstrap.min.css' %}"></script>
-</head>
-<body>
+{% endblock %}
+{% block html_body %}
+
 <div class="container">
     <ul class="nav nav-tabs">
         <li role="presentation"><a href="#">所有文章</a></li>
@@ -105,516 +99,36 @@
             <div class="col-lg-4 col-sm-6 col-md-6">
                 <div class="blog-post">
                     <div class="post-img">
-                        <img src="{% static 'images/test1.jpg' %}" alt="8 个用于业余项目的优秀 Python 库">
+                        <img src="{% static 'images/blog/test1.jpg' %}" alt="8 个用于业余项目的优秀 Python 库">
                     </div>
                     <div class="blog-details">
-                        <a href="{% url 'blog' %}">
-                            <h4 class="media-heading">8 个用于业余项目的优秀 Python 库</h4>
+                        {% for blog in blogs %}
+                        <a href="{% url 'blog:blog' blog.title %}">
+                            <h4 class="media-heading">{{ blog.title }}</h4>
                         </a>
-                        <p>
-                            在 Python/Django 的世界里有这样一个谚语：为语言而来，为社区而留。对绝大多数人来说的确是这样的，但是，还有一件事情使得我们一直停留在 Python 的世界里……
-                        </p>
+                        <p class="notice">{{ blog.content }}</p>
                         <ul class="list-inline blog-item-links">
                             <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <a href="#">作者</a>
+                                <span class="glyphicon glyphicon-user"></span><a href="#">{{ blog.user.username }}</a>
                             </li>
                             <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                                2019/05/16
+                                <span class="glyphicon glyphicon-calendar"></span> {{ blog.publish }}
                             </li>
                             <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-education"></span>
-                                基础知识
-                            </li>
-                            <br>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-comment"></span>
-                                评论 3条
+                                <span class="glyphicon glyphicon-education"></span> {{ blog.category }} {{ blog.level }}
                             </li>
                             <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-thumbs-up"></span>
-                                点赞 6次
+                                <span class="glyphicon glyphicon-comment"></span> 评论 {{ blog.com_num }}条
+                            </li>
+                            <li class="list-inline-item">
+                                <span class="glyphicon glyphicon-thumbs-up"></span> 点赞 {{ blog.tag_num }}次
                             </li>
                         </ul>
                         <p></p>
-                        <a class="blog-post-link" href="{% url 'blog' %}">
-                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-                            阅读全文
+                        <a class="blog-post-link" href="{% url 'blog:blog' blog.title %}">
+                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> 阅读全文
                         </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="blog-post">
-                    <div class="post-img">
-                        <img src="{% static 'images/test1.jpg' %}" alt="8 个用于业余项目的优秀 Python 库">
-                    </div>
-                    <div class="blog-details">
-                        <a href="#">
-                            <h4 class="media-heading">8 个用于业余项目的优秀 Python 库</h4>
-                        </a>
-                        <p>
-                            在 Python/Django 的世界里有这样一个谚语：为语言而来，为社区而留。对绝大多数人来说的确是这样的，但是，还有一件事情使得我们一直停留在 Python 的世界里……
-                        </p>
-                        <ul class="list-inline blog-item-links">
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <a href="#">作者</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                                2019/05/16
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-education"></span>
-                                基础知识
-                            </li>
-                            <br>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-comment"></span>
-                                评论 10条
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-thumbs-up"></span>
-                                点赞 6次
-                            </li>
-                        </ul>
-                        <p></p>
-                        <a class="blog-post-link" href="{% url 'blog' %}">
-                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-                            阅读全文
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="blog-post">
-                    <div class="post-img">
-                        <img src="{% static 'images/test1.jpg' %}" alt="8 个用于业余项目的优秀 Python 库">
-                    </div>
-                    <div class="blog-details">
-                        <a href="#">
-                            <h4 class="media-heading">8 个用于业余项目的优秀 Python 库</h4>
-                        </a>
-                        <p>
-                            在 Python/Django 的世界里有这样一个谚语：为语言而来，为社区而留。对绝大多数人来说的确是这样的，但是，还有一件事情使得我们一直停留在 Python 的世界里……
-                        </p>
-                        <ul class="list-inline blog-item-links">
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <a href="#">作者</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                                2019/05/16
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-education"></span>
-                                基础知识
-                            </li>
-                            <br>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-comment"></span>
-                                评论 10条
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-thumbs-up"></span>
-                                点赞 6次
-                            </li>
-                        </ul>
-                        <p></p>
-                        <a class="blog-post-link" href="{% url 'blog' %}">
-                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-                            阅读全文
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="blog-post">
-                    <div class="post-img">
-                        <img src="{% static 'images/test1.jpg' %}" alt="8 个用于业余项目的优秀 Python 库">
-                    </div>
-                    <div class="blog-details">
-                        <a href="#">
-                            <h4 class="media-heading">8 个用于业余项目的优秀 Python 库</h4>
-                        </a>
-                        <p>
-                            在 Python/Django 的世界里有这样一个谚语：为语言而来，为社区而留。对绝大多数人来说的确是这样的，但是，还有一件事情使得我们一直停留在 Python 的世界里……
-                        </p>
-                        <ul class="list-inline blog-item-links">
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <a href="#">作者</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                                2019/05/16
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-education"></span>
-                                基础知识
-                            </li>
-                            <br>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-comment"></span>
-                                评论 10条
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-thumbs-up"></span>
-                                点赞 6次
-                            </li>
-                        </ul>
-                        <p></p>
-                        <a class="blog-post-link" href="{% url 'blog' %}">
-                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-                            阅读全文
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="blog-post">
-                    <div class="post-img">
-                        <img src="{% static 'images/test1.jpg' %}" alt="8 个用于业余项目的优秀 Python 库">
-                    </div>
-                    <div class="blog-details">
-                        <a href="#">
-                            <h4 class="media-heading">8 个用于业余项目的优秀 Python 库</h4>
-                        </a>
-                        <p>
-                            在 Python/Django 的世界里有这样一个谚语：为语言而来，为社区而留。对绝大多数人来说的确是这样的，但是，还有一件事情使得我们一直停留在 Python 的世界里……
-                        </p>
-                        <ul class="list-inline blog-item-links">
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <a href="#">作者</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                                2019/05/16
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-education"></span>
-                                基础知识
-                            </li>
-                            <br>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-comment"></span>
-                                评论 10条
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-thumbs-up"></span>
-                                点赞 6次
-                            </li>
-                        </ul>
-                        <p></p>
-                        <a class="blog-post-link" href="{% url 'blog' %}">
-                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-                            阅读全文
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="blog-post">
-                    <div class="post-img">
-                        <img src="{% static 'images/test1.jpg' %}" alt="8 个用于业余项目的优秀 Python 库">
-                    </div>
-                    <div class="blog-details">
-                        <a href="#">
-                            <h4 class="media-heading">8 个用于业余项目的优秀 Python 库</h4>
-                        </a>
-                        <p>
-                            在 Python/Django 的世界里有这样一个谚语：为语言而来，为社区而留。对绝大多数人来说的确是这样的，但是，还有一件事情使得我们一直停留在 Python 的世界里……
-                        </p>
-                        <ul class="list-inline blog-item-links">
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <a href="#">作者</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                                2019/05/16
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-education"></span>
-                                基础知识
-                            </li>
-                            <br>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-comment"></span>
-                                评论 10条
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-thumbs-up"></span>
-                                点赞 6次
-                            </li>
-                        </ul>
-                        <p></p>
-                        <a class="blog-post-link" href="{% url 'blog' %}">
-                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-                            阅读全文
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="blog-post">
-                    <div class="post-img">
-                        <img src="{% static 'images/test1.jpg' %}" alt="8 个用于业余项目的优秀 Python 库">
-                    </div>
-                    <div class="blog-details">
-                        <a href="#">
-                            <h4 class="media-heading">8 个用于业余项目的优秀 Python 库</h4>
-                        </a>
-                        <p>
-                            在 Python/Django 的世界里有这样一个谚语：为语言而来，为社区而留。对绝大多数人来说的确是这样的，但是，还有一件事情使得我们一直停留在 Python 的世界里……
-                        </p>
-                        <ul class="list-inline blog-item-links">
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <a href="#">作者</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                                2019/05/16
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-education"></span>
-                                基础知识
-                            </li>
-                            <br>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-comment"></span>
-                                评论 10条
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-thumbs-up"></span>
-                                点赞 6次
-                            </li>
-                        </ul>
-                        <p></p>
-                        <a class="blog-post-link" href="{% url 'blog' %}">
-                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-                            阅读全文
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="blog-post">
-                    <div class="post-img">
-                        <img src="{% static 'images/test1.jpg' %}" alt="8 个用于业余项目的优秀 Python 库">
-                    </div>
-                    <div class="blog-details">
-                        <a href="#">
-                            <h4 class="media-heading">8 个用于业余项目的优秀 Python 库</h4>
-                        </a>
-                        <p>
-                            在 Python/Django 的世界里有这样一个谚语：为语言而来，为社区而留。对绝大多数人来说的确是这样的，但是，还有一件事情使得我们一直停留在 Python 的世界里……
-                        </p>
-                        <ul class="list-inline blog-item-links">
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <a href="#">作者</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                                2019/05/16
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-education"></span>
-                                基础知识
-                            </li>
-                            <br>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-comment"></span>
-                                评论 10条
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-thumbs-up"></span>
-                                点赞 6次
-                            </li>
-                        </ul>
-                        <p></p>
-                        <a class="blog-post-link" href="{% url 'blog' %}">
-                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-                            阅读全文
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="blog-post">
-                    <div class="post-img">
-                        <img src="{% static 'images/test1.jpg' %}" alt="8 个用于业余项目的优秀 Python 库">
-                    </div>
-                    <div class="blog-details">
-                        <a href="#">
-                            <h4 class="media-heading">8 个用于业余项目的优秀 Python 库</h4>
-                        </a>
-                        <p>
-                            在 Python/Django 的世界里有这样一个谚语：为语言而来，为社区而留。对绝大多数人来说的确是这样的，但是，还有一件事情使得我们一直停留在 Python 的世界里……
-                        </p>
-                        <ul class="list-inline blog-item-links">
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <a href="#">作者</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                                2019/05/16
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-education"></span>
-                                基础知识
-                            </li>
-                            <br>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-comment"></span>
-                                评论 10条
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-thumbs-up"></span>
-                                点赞 6次
-                            </li>
-                        </ul>
-                        <p></p>
-                        <a class="blog-post-link" href="{% url 'blog' %}">
-                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-                            阅读全文
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="blog-post">
-                    <div class="post-img">
-                        <img src="{% static 'images/test1.jpg' %}" alt="8 个用于业余项目的优秀 Python 库">
-                    </div>
-                    <div class="blog-details">
-                        <a href="#">
-                            <h4 class="media-heading">8 个用于业余项目的优秀 Python 库</h4>
-                        </a>
-                        <p>
-                            在 Python/Django 的世界里有这样一个谚语：为语言而来，为社区而留。对绝大多数人来说的确是这样的，但是，还有一件事情使得我们一直停留在 Python 的世界里……
-                        </p>
-                        <ul class="list-inline blog-item-links">
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <a href="#">作者</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                                2019/05/16
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-education"></span>
-                                基础知识
-                            </li>
-                            <br>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-comment"></span>
-                                评论 10条
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-thumbs-up"></span>
-                                点赞 6次
-                            </li>
-                        </ul>
-                        <p></p>
-                        <a class="blog-post-link" href="{% url 'blog' %}">
-                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-                            阅读全文
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="blog-post">
-                    <div class="post-img">
-                        <img src="{% static 'images/test1.jpg' %}" alt="8 个用于业余项目的优秀 Python 库">
-                    </div>
-                    <div class="blog-details">
-                        <a href="#">
-                            <h4 class="media-heading">8 个用于业余项目的优秀 Python 库</h4>
-                        </a>
-                        <p>
-                            在 Python/Django 的世界里有这样一个谚语：为语言而来，为社区而留。对绝大多数人来说的确是这样的，但是，还有一件事情使得我们一直停留在 Python 的世界里……
-                        </p>
-                        <ul class="list-inline blog-item-links">
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <a href="#">作者</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                                2019/05/16
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-education"></span>
-                                基础知识
-                            </li>
-                            <br>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-comment"></span>
-                                评论 10条
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-thumbs-up"></span>
-                                点赞 6次
-                            </li>
-                        </ul>
-                        <p></p>
-                        <a class="blog-post-link" href="{% url 'blog' %}">
-                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-                            阅读全文
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="blog-post">
-                    <div class="post-img">
-                        <img src="{% static 'images/test1.jpg' %}" alt="8 个用于业余项目的优秀 Python 库">
-                    </div>
-                    <div class="blog-details">
-                        <a href="#">
-                            <h4 class="media-heading">8 个用于业余项目的优秀 Python 库</h4>
-                        </a>
-                        <p>
-                            在 Python/Django 的世界里有这样一个谚语：为语言而来，为社区而留。对绝大多数人来说的确是这样的，但是，还有一件事情使得我们一直停留在 Python 的世界里……
-                        </p>
-                        <ul class="list-inline blog-item-links">
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <a href="#">作者</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                                2019/05/16
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-education"></span>
-                                基础知识
-                            </li>
-                            <br>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-comment"></span>
-                                评论 10条
-                            </li>
-                            <li class="list-inline-item">
-                                <span class="glyphicon glyphicon-thumbs-up"></span>
-                                点赞 6次
-                            </li>
-                        </ul>
-                        <p></p>
-                        <a class="blog-post-link" href="{% url 'blog' %}">
-                            <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
-                            阅读全文
-                        </a>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -642,7 +156,6 @@
         </ul>
     </nav>
 </div>
-</body>
 <script>
     $('.dropdown-toggle').on("click", function () {
         console.log('test')
@@ -676,4 +189,5 @@
         });
     });
 </script>
-</html>
+{% endblock %}
+

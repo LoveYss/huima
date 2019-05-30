@@ -20,6 +20,7 @@ class BlogListView(View):
 
 class BlogView(View):
     def get(self, request, title):
-        title = request.GET.get("title")
+
         blog = Blog.objects.get(title=title)
+
         return render(request, 'blog/blog.html', locals())
