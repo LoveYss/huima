@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views import View
 from django import forms
+from django.http import HttpResponse
+
 from usercenter.models import User
 from blog.models import *
 
@@ -15,13 +17,13 @@ class UserCenter(View):
 
 
 class UserInfoUpdateForm(View):
-    def get(self, request):
-        form_obj = UserInfoUpdate()
+    def post(self, request):
+        print(request.POST)
+        # print(request.POST.get('name'))
         return render(request, 'usercenter/usercenter.html', locals())
 
 
-
-class UserInfoUpdate(forms.Form):
-    username = forms.CharField(label='昵称')
-    sex = forms.CharField(label='性别')
-    email = forms.EmailField(label='邮箱')
+# class UserInfoUpdate(forms.Form):
+#     username = forms.CharField(label='昵称')
+#     sex = forms.CharField(label='性别')
+#     email = forms.EmailField(label='邮箱')
