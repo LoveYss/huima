@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static "css/project_detail.css" %} ">
+{% endblock %}
+{% block custom_js %}
+    <script src="{% static "jquery/project_detail.js" %}"></script>
+{% endblock %}
 {% block html_body %}
-    <div class="container">
+    <div class="container xhw_project">
         <!-- 重构第二版 -->
 
 
@@ -28,133 +34,220 @@
                 </div>
             </div>
         </div>
-
+        <!-- 项目步骤导图 -->
         <div class="row">
             <div class="node1 col-md-3">
-                <p class="">开始挑战</p>
+                <p class="kstz">开始挑战</p>
             </div>
             <div class=" node_arrow col-md-1">
-                <img src="{% static "img/arrow.jpg" %}">
+                <img src="{% static "images/arrow_right.jpg" %}">
             </div>
             <div class="node1 col-md-3">
-                <p class="">功能介绍</p>
+                <p class="gnjs">功能介绍</p>
             </div>
             <div class=" node_arrow col-md-1">
-                <img src="{% static "img/arrow.jpg" %}">
+                <img src="{% static "images/arrow_right.jpg" %}">
             </div>
             <div class="node1 col-md-3">
-                <p class="">基础技能</p>
+                <p class="jcjn">基础技能</p>
             </div>
-            <!-- <div class="node1 col-md-3">
-                <p class="">项目展示<span class="glyphicon glyphicon-circle-arrow-down"></span></p>
-            </div> -->
-
-
         </div>
 
         <!-- 空白占位行 -->
         <div class="row ">
-            <div class="node1 col-md-3 mm_visible">
-                <!-- <p class="">开始挑战<span class="glyphicon glyphicon-circle-arrow-right"></span></p> -->
+            <div class="node1 col-md-11 mm_visible">
             </div>
-
-            <div class="node1 col-md-3 mm_visible">
-                <!-- <p class="">功能介绍<span class="glyphicon glyphicon-circle-arrow-right"></span></p> -->
-            </div>
-            <div class=" node_arrow col-md-1 mm_visible">
-                <!-- <img src="img/arrow.jpg" > -->
-            </div>
-
-            <div class="node1 col-md-3 mm_visible">
-                <!-- <p class="">基础技能<span class="glyphicon glyphicon-circle-arrow-right"></span></p> -->
-            </div>
-
             <div class=" node_arrow col-md-1">
-                <img src="{% static "img/arrow_down.jpg" %}">
+                <img src="{% static "images/arrow_down.jpg" %}">
             </div>
 
         </div>
 
         <div class="row">
             <div class="node1 col-md-3">
-                <p class="">相关视频</p>
+                <p class="xgsp">相关视频</p>
             </div>
             <div class=" node_arrow col-md-1">
-                <img src="{% static "img/arrow_left.jpg" %}">
+                <img src="{% static "images/arrow_left.jpg" %}">
             </div>
             <div class="node1 col-md-3">
-                <p class="">资料下载</p>
+                <p class="zlxz">资料下载</p>
             </div>
             <div class=" node_arrow col-md-1">
-                <img src="{% static "img/arrow_left.jpg" %}">
+                <img src="{% static "images/arrow_left.jpg" %}">
             </div>
             <div class="node1 col-md-3">
-                <p class="">相关阅读</p>
+                <p class="xgyd">相关阅读</p>
             </div>
-            <!-- 	<div class="node1 col-md-3">
-                <p class="">上传项目</p>
-            </div> -->
-
-
         </div>
         <!-- 空白占位行 -->
         <div class="row ">
             <div class=" node_arrow col-md-1">
-                <img src="{% static "img/arrow_down.jpg" %}">
+                <img src="{% static "images/arrow_down.jpg" %}">
             </div>
-            <div class="node1 col-md-3 mm_visible">
-                <!-- <p class="">开始挑战</p> -->
+            <div class="node1 col-md-11 mm_visible">
             </div>
-
-            <div class="node1 col-md-3 mm_visible">
-                <!-- <p class="">功能介绍</p> -->
-            </div>
-            <div class=" node_arrow col-md-1 mm_visible">
-                <!-- <img src="img/arrow.jpg" > -->
-            </div>
-
-            <div class="node1 col-md-3 mm_visible">
-                <!-- <p class="">基础技能</p> -->
-            </div>
-
-
         </div>
+
         <div class="row">
             <div class="node1 col-md-3">
-                <p class="">进阶教程</p>
+                <p class="jjjc">进阶教程</p>
             </div>
             <div class=" node_arrow col-md-1">
-                <img src="{% static "img/arrow.jpg" %}">
+                <img src="{% static "images/arrow_right.jpg" %}">
             </div>
             <div class="node1 col-md-3">
-                <p class="">项目排行</p>
+                <p class="scxm">上传项目</p>
             </div>
             <div class=" node_arrow col-md-1">
-                <img src="{% static "img/arrow.jpg" %}">
+                <img src="{% static "images/arrow_right.jpg" %}">
             </div>
             <div class="node1 col-md-3">
-                <p class="">项目终点</p>
+                <p class="xmzd">项目终点</p>
             </div>
-
 
         </div>
 
-        <!-- 触发开启页 -->
+        <!-- 触发开启页 步骤详细内容展示 -->
         <div class="row">
-            <div class="col-md-12 details col-sm-12 col-xs-12">
-
-                <a href="javascript:void(0);" class="input browse">
-                    上传文件<input type="file" id="file" name="document[file]">
-                </a>
-                <p>*只能上传rar格式的单文件</p>
-                <p>ddddddd</p>
+            <div class="col-md-12 details col-sm-12 col-xs-12 ">
+                <h3>{{ title }}</h3>
+                <div>
+                    <p class="">内容</p>
+                </div>
                 <div class="text-right-bottom ">
                     <p class="btn btn-info btn-lg ">完成小节</p>
                 </div>
-
             </div>
         </div>
+
         <div class="row">
+            <div class="col-md-12 details col-sm-12 col-xs-12 active">
+                <h3>标题2</h3>
+                <div>
+                    <a href="javascript:void(0);" class="input browse">
+                        上传文件<input type="file" id="file" name="document[file]">
+                    </a>
+                    <p>*只能上传rar格式的单文件</p>
+                    <p class="">内容</p>
+                </div>
+                <div class="text-right-bottom ">
+                    <p class="btn btn-info btn-lg ">完成小节</p>
+                </div>
+            </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-12 details col-sm-12 col-xs-12 ">
+                <h3>标题3</h3>
+                <div>
+                    <a href="javascript:void(0);" class="input browse">
+                        上传文件<input type="file" id="file" name="document[file]">
+                    </a>
+                    <p>*只能上传rar格式的单文件</p>
+                    <p class="">内容</p>
+                </div>
+                <div class="text-right-bottom ">
+                    <p class="btn btn-info btn-lg ">完成小节</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 details col-sm-12 col-xs-12 ">
+                <h3>标题4</h3>
+                <div>
+                    <a href="javascript:void(0);" class="input browse">
+                        上传文件<input type="file" id="file" name="document[file]">
+                    </a>
+                    <p>*只能上传rar格式的单文件</p>
+                    <p class="">内容</p>
+                </div>
+                <div class="text-right-bottom ">
+                    <p class="btn btn-info btn-lg ">完成小节</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 details col-sm-12 col-xs-12 ">
+                <h3>标题5</h3>
+                <div>
+                    <a href="javascript:void(0);" class="input browse">
+                        上传文件<input type="file" id="file" name="document[file]">
+                    </a>
+                    <p>*只能上传rar格式的单文件</p>
+                    <p class="">内容</p>
+                </div>
+                <div class="text-right-bottom ">
+                    <p class="btn btn-info btn-lg ">完成小节</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 details col-sm-12 col-xs-12 ">
+                <h3>标题6</h3>
+                <div>
+                    <a href="javascript:void(0);" class="input browse">
+                        上传文件<input type="file" id="file" name="document[file]">
+                    </a>
+                    <p>*只能上传rar格式的单文件</p>
+                    <p class="">内容</p>
+                </div>
+                <div class="text-right-bottom ">
+                    <p class="btn btn-info btn-lg ">完成小节</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 details col-sm-12 col-xs-12 ">
+                <h3>标题7</h3>
+                <div>
+                    <a href="javascript:void(0);" class="input browse">
+                        上传文件<input type="file" id="file" name="document[file]">
+                    </a>
+                    <p>*只能上传rar格式的单文件</p>
+                    <p class="">内容</p>
+                </div>
+                <div class="text-right-bottom ">
+                    <p class="btn btn-info btn-lg ">完成小节</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 details col-sm-12 col-xs-12 ">
+                <h3>标题8</h3>
+                <div>
+                    <a href="javascript:void(0);" class="input browse">
+                        上传文件<input type="file" id="file" name="document[file]">
+                    </a>
+                    <p>*只能上传rar格式的单文件</p>
+                    <p class="">内容</p>
+                </div>
+                <div class="text-right-bottom ">
+                    <p class="btn btn-info btn-lg ">完成小节</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 details col-sm-12 col-xs-12 ">
+                <h3>标题9</h3>
+                <div>
+                    <a href="javascript:void(0);" class="input browse">
+                        上传文件<input type="file" id="file" name="document[file]">
+                    </a>
+                    <p>*只能上传rar格式的单文件</p>
+                    <p class="">内容</p>
+                </div>
+                <div class="text-right-bottom ">
+                    <p class="btn btn-info btn-lg ">完成小节</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 {% endblock %}
