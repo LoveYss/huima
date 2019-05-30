@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from datetime import datetime
 import time
 
 
 # Create your models here.
 class User(AbstractUser):
-    nick_name = models.CharField(max_length=30, verbose_name='昵称', default=('慧码用户'+str(int(time.time() * 1000))))
+    nick_name = models.CharField(max_length=30, verbose_name='昵称', default=('慧码用户' + str(int(time.time() * 1000))))
     avatar = models.ImageField(upload_to='avatar/%Y/%m', default='avatar/default/male.jpg', verbose_name='用户头像')
     uuid = models.UUIDField(null=True, blank=True, verbose_name='uuid')
     birthday = models.DateField(null=True, blank=True, verbose_name='生日')

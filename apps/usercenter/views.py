@@ -4,7 +4,7 @@ from django import forms
 from django.http import HttpResponse
 
 from usercenter.models import User
-from blog.models import *
+from blog.models import Blog
 
 
 # Create your views here.
