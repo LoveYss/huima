@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
+import time
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-import time
 
 
 # Create your models here.
@@ -19,36 +21,47 @@ class User(AbstractUser):
     mobile = models.CharField(max_length=11, null=True, blank=True, verbose_name='手机号码')
 
     class Meta:
-        verbose_name = '用户信息'
+        verbose_name = '用户'
         verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.nick_name
 
 
+# 邮箱验证（注册或找回）
+class EmailVerifiCode(models.Model):
+    code = models.CharField(max_length=6, verbose_name='邮箱验证码')
+    email = models.EmailField(max_length=50, verbose_name='邮箱')
+    send_type = models.CharField(max_length=10, choices=(('register', '注册'), ('retrieve', '找回密码')), verbose_name='验证码类型')
+    send_time = models.DateTimeField(default=datetime.now, verbose_name='发送时间')
+
+    class Meta:
+        verbose_name = '邮箱验证码'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return '{}({})'.format(self.code, self.email)
+
+
+# 分类表
 class Level(models.Model):
-    '''
-    分类表
-    '''
     type = models.CharField(max_length=50, verbose_name="级别")
 
     def __str__(self):
         return self.type
 
     class Meta:
-        verbose_name = '分类表'
+        verbose_name = '级别'
         verbose_name_plural = verbose_name
 
 
+# 语言分类表
 class Category(models.Model):
-    '''
-    编程语言表
-    '''
     language = models.CharField(max_length=50, verbose_name="类别")
 
     def __str__(self):
         return self.language
 
     class Meta:
-        verbose_name = '编程语言表'
+        verbose_name = '类别表'
         verbose_name_plural = verbose_name
