@@ -15,9 +15,7 @@ $(function(){
 	var p = $(".node1.col-md-3")
 	var details = $(".details")
 	p.click(function(){
-
 		var index = p.index($(this));
-		console.log(p)
 		details.removeClass('active');
 		details.eq(index).addClass("active");
 		});
