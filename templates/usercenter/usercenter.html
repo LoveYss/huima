@@ -330,7 +330,7 @@
                                         <li class="media">
                                             <div class="media-left">
                                                 <a href="#">
-                                                    <img class="media-object" src={% static 'img/长颈鹿.png' %} alt="">
+                                                    <img class="media-object" src="{{ MEDIA_URL }}{{ blog.front_image }}" alt="">
                                                 </a>
                                             </div>
                                             <div class="media-body">
@@ -576,7 +576,7 @@
                     <hr/>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <form role="form" action="/usercenter/submit_userinfo_update/" method="post">
+                            <form role="form" action="" method="post">
                                 <div class="form-group">
                                     <label for="name">昵称</label>
                                     <input type="text" class="form-control" id="name" placeholder="请输入昵称" name="name">
@@ -608,8 +608,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone_num">手机</label>
-                                    <input type="text" class="form-control" id="phone_num" placeholder="请输入手机号" name="phone_num">
+                                    <label for="phone_num">QQ</label>
+                                    <input type="text" class="form-control" id="qq_num" placeholder="请输入QQ号" name="qq_num">
                                 </div>
                                 <div class="form-group">
                                     <label for="description">签名</label>
