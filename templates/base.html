@@ -11,7 +11,7 @@
     {% block custom_js %}{% endblock %}
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
 </head>
-<body>
+<body ondragstart="return false">
 <!-- 导航条 -->
 <nav class="navbar navbar-default nav_height">
   <div class="container-fluid nav_panel">
@@ -116,7 +116,7 @@
            $.ajax({
                cache:false,
                type:"POST",
-               url:"",
+               url:"{% url 'index:login' %}",
                data:$('#jsSubForm').serialize(),
                async:true,
                success:function (data) {
