@@ -22,7 +22,7 @@ from .settings import MEDIA_ROOT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', include(('apps.index.urls', 'index'), namespace='index')),  # wjl
+    path('', include(('apps.index.urls', 'index'), namespace='index')),  # wjl
     path('blog/', include('apps.blog.urls', namespace='blog')),
     path('course/', include('apps.course.urls')),
     path('subject/', include('apps.subject.urls')),
