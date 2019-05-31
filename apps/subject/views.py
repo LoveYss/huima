@@ -12,8 +12,8 @@ class Project_list(View):
         :return:
         """
 
-        items = ProjectDetail.objects.all()
-        # return HttpResponse("ddd")
+        items = ProjectDetail.objects.filter()[0:6]
+
         return render(request, "subject/project_list.html", locals())
 
 class Project_detail(View):
@@ -23,4 +23,5 @@ class Project_detail(View):
         :param request:
         :return:
         """
+        item = ProjectDetail.objects.filter(proj_name=name)
         return render(request, "subject/project_detail.html", locals())

@@ -20,19 +20,19 @@
                 <div class="col-md-6">
                     <p>
                     <h4><strong>{{ projitem.proj_name }}</strong>
-                        <mark>基础爬虫</mark>
+                        <mark>{{ item.proj_tag }}</mark>
                     </h4>
                     <br>
                     <img src="{% static  "images/logo.png" %} " class="col-md-2">
                     <div class="col-md-7">
                         <blockquote>
-                            <p>{{ projitem.proj_profile }}</p>
+                            <p>{{ item.proj_desc }}</p>
                         </blockquote>
                         <div class="col-md-offset-2">
-                            <span>指导老师：<a href="">{{ projitem.proj_statu }}</a></span>&nbsp;&nbsp;&nbsp;
-                            <span>学习人数：<a href="">8</a></span><br><br><br>
-                            <span>时长：2天</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span>类型：{{ projitem.proj_aboutread }}</span>
+                            <span>指导老师：<a href="">{{ item.proj_teacher }}</a></span>&nbsp;&nbsp;&nbsp;
+                            <span>学习人数：<a href="">{{ item.proj_student }}</a></span><br><br><br>
+                            <span>时长：{{ item.proj_howlong }}天</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span>难度：{{ item.proj_level }}</span>
                         </div>
                     </div>
                     </p>
