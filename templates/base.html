@@ -31,12 +31,12 @@
         <li><a href="#">课程中心</a></li>
         <li><a href="#">博客</a></li>
         <li><a href="#">项目</a></li>
-        <li><a href="#">个人中心</a></li>
+        <li><a href="/usercenter">个人中心</a></li>
       </ul>
       
       <ul class="nav navbar-nav nav-magrig navbar-right ">
           {% if request.user.is_authenticated %}
-            <li style="width: 100px;white-space: nowrap;overflow:hidden;"><a href=""><img
+            <li style="width: 100px;white-space: nowrap;overflow:hidden;"><a href="/usercenter"><img
                     src="{{ MEDIA_URL }}{{ request.user.avatar }}" alt=""
                     style="width: 20px; height: 20px; margin-top: -5px;">&nbsp;&nbsp;{{ request.user.nick_name }}
             </a></li>

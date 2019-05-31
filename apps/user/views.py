@@ -13,8 +13,12 @@ from user.forms import UserModifyForm
 class UserCenter(View):
     def get(self, request):
         user = request.user
-        blog = Blog.objects.get(user_id=user.id)
-        author = User.objects.get(id=blog.user_id)
+        try:
+            blog = Blog.objects.get(user_id=user.id)
+            author = User.objects.get(id=blog.user_id)
+        except Exception:
+            blog = None
+            author = None
         return render(request, 'usercenter/usercenter.html', locals())
 
     def post(self, request):
