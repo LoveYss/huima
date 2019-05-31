@@ -19,7 +19,7 @@ class Course(models.Model):
     buy_channel = models.IntegerField(choices=((1, '支付宝'), (2, '微信'), (3, '信用卡'), (4, '储蓄卡'), (5, '积分兑换')),
                                       verbose_name='购买渠道', default=1)
     create_times = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
-    score = models.IntegerField(verbose_name='评分',default=5)
+    score = models.IntegerField(verbose_name='评分', default=5)
 
     class Meta:
         verbose_name = '课程表'
@@ -38,23 +38,6 @@ class Chapter(models.Model):
 
     class Meta:
         verbose_name = '章节表'
-        verbose_name_plural = verbose_name
-
-    def __str__(self):
-        return self.name
-
-
-class ChapterData(models.Model):
-    name = models.CharField(max_length=50, blank=True, verbose_name='章节名称')
-    synopsis = models.CharField(max_length=300, null=True, verbose_name='章节简介')
-    cover = models.ImageField(max_length=100, verbose_name='章节封面', null=True, upload_to='course/chapter/')
-    status = models.IntegerField(choices=((0, '未学习'), (1, '学习中'), (2, '已学习')), default=0, verbose_name='是否学习')
-    course_id = models.ForeignKey('Chapter', verbose_name='所属的章节id', on_delete=models.DO_NOTHING, blank=True)
-    create_times = models.DateTimeField(verbose_name='创建时间', default=datetime.now)
-    up_time = models.DateTimeField(verbose_name='修改时间', auto_now=True)
-
-    class Meta:
-        verbose_name = '章节详细表'
         verbose_name_plural = verbose_name
 
     def __str__(self):
@@ -81,7 +64,7 @@ class Video(models.Model):
 
 class Note(models.Model):
     name = models.CharField(max_length=50, null=True)
-    chapter_id = models.ForeignKey('ChapterData', verbose_name='所属章节id', on_delete=models.DO_NOTHING, blank=True)
+    chapter_id = models.ForeignKey('Chapter', verbose_name='所属章节id', on_delete=models.DO_NOTHING, blank=True)
     inner = models.CharField(max_length=300, blank=True, verbose_name='笔记内容')
     status = models.IntegerField(choices=((0, '屏蔽'), (1, '展示')), default=1, verbose_name='当前状态')
     user_id = models.ForeignKey(User, verbose_name='用户id', on_delete=models.DO_NOTHING, blank=True)
