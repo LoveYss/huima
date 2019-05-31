@@ -15,9 +15,9 @@ def show_course(request):
 
 def show_chapter_list(request, c_id):
     """章节列表页"""
-    course = Course.objects.filter(id=c_id)
+    course = Course.objects.get(id=c_id)
     chapters = Chapter.objects.filter(course_id=c_id)
-    return render(request, 'course/chapterList.html', {'course': course[0], 'chapters': chapters})
+    return render(request, 'course/chapterList.html', {'course': course, 'chapters': chapters})
 
 
 def show_chapter(request, c_id):
