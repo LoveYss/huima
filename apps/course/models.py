@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime
-from usercenter.models import User
+from user.models import User
 from subject.models import ProjectDetail
 
 
