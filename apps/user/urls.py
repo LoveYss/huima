@@ -6,7 +6,7 @@ from user.views import UserCenter
 
 urlpatterns = [
 
-    path('<int:uid>/', UserCenter.as_view(), name='usercenter'),
+    path('', UserCenter.as_view(), name='usercenter'),
 
 ]
 
