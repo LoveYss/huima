@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.views import View
-from django import forms
 from django.http import HttpResponse
 
 from user.models import User
 from blog.models import Blog
+from user.forms import UserSettingForm
 
 
 # Create your views here.
@@ -15,15 +15,17 @@ class UserCenter(View):
         author = User.objects.get(id=blog.user_id)
         return render(request, 'usercenter/usercenter.html', locals())
 
-
-class UserInfoUpdateForm(View):
     def post(self, request):
-        print(request.POST)
-        # print(request.POST.get('name'))
-        return render(request, 'usercenter/usercenter.html', locals())
-
-
-# class UserInfoUpdate(forms.Form):
-#     username = forms.CharField(label='昵称')
-#     sex = forms.CharField(label='性别')
-#     email = forms.EmailField(label='邮箱')
+        user_setting_form = UserSettingForm(request.POST)
+        if user_setting_form.is_valid():
+            nick_name = request.POST.get('nike_name', '')
+            sex = request.POST.get('sex', '')
+            email_name = request.POST.get('email_name', '')
+            domain_name = request.POST.get('domain_name', '')
+            birthday = request.POST.get('birthday', '')
+            qq = request.POST.get('QQ', '')
+            description = request.POST.get('description', '')
+            print(nick_name)
+            return render(request, 'usercenter/usercenter.html', locals())
+        else:
+            return render(request, 'usercenter/usercenter.html', {'msg': '信息有误'})
