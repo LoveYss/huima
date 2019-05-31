@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from django.urls import path, re_path
-from usercenter.views import UserCenter, UserInfoUpdateForm
+from user.views import UserCenter, UserInfoUpdateForm
 
 urlpatterns = [
 

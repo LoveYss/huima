@@ -87,7 +87,7 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "huima",
+        'NAME': 'huima2',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': '120.78.81.19',
@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'usercenter.user'
+AUTH_USER_MODEL = 'user.user'
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 

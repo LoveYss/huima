@@ -3,7 +3,7 @@ from django.views import View
 from django import forms
 from django.http import HttpResponse
 
-from usercenter.models import User
+from user.models import User
 from blog.models import Blog
 
 
