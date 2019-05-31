@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 from usercenter.models import User
+from subject.models import ProjectDetail
 
 
 # Create your models here.
@@ -20,6 +21,7 @@ class Course(models.Model):
                                       verbose_name='购买渠道', default=1)
     create_times = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
     score = models.IntegerField(verbose_name='评分', default=5)
+    project_id = models.ManyToManyField(ProjectDetail, verbose_name='相关项目')
 
     class Meta:
         verbose_name = '课程表'
