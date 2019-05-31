@@ -34,6 +34,7 @@ class Course(models.Model):
 class Chapter(models.Model):
     name = models.CharField(max_length=50, blank=True, verbose_name='章节名称')
     synopsis = models.CharField(max_length=300, null=True, verbose_name='章节简介')
+    num = models.CharField(max_length=30, default='第一章')
     course_id = models.ForeignKey('Course', verbose_name='所属的课程id', on_delete=models.DO_NOTHING, blank=True)
     create_times = models.DateTimeField(verbose_name='创建时间', default=datetime.now)
     up_time = models.DateTimeField(verbose_name='修改时间', auto_now=True)

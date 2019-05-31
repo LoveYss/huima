@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>章节列表</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/common.css" type="text/css">
-    <link rel="stylesheet" href="css/chapter.css" type="text/css">
-    <script src="js/jquery3.4.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-</head>
-<body ondragstart="return false">
+{% extends 'base.html' %}
+{% load staticfiles %}
 
 
+{% block title %}
+    课程章节
+{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/course/chapter.css' %}">
+{% endblock %}
+
+{% block html_body %}
 <div class="container-fluid  cha-inner-warp">
     <div class="container-fluid cha-header">
         <div class="container">
@@ -108,8 +102,9 @@
 
 
 </div>
-</body>
-</html>
+{% endblock %}
+
+{% block small_js %}
 <script>
     $(function () {
         $('.list-span').on('click', function () {
@@ -119,3 +114,5 @@
         })
     })
 </script>
+{% endblock %}
+

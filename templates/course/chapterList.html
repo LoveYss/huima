@@ -9,6 +9,9 @@
 {% block custom_css %}
     <link rel="stylesheet" href="{% static 'css/course/chapterList.css' %}">
 {% endblock %}
+
+
+{% block html_body %}
 <div class="container-fluid  cha-inner-warp">
     <div class="container-fluid cha-header">
         <div class="container">
@@ -125,6 +128,9 @@
 
 
 </div>
-</body>
-</html>
-<script src="js/chapterList.js"></script>
+{% endblock %}
+
+{% block small_js %}
+    <script src="{% static 'jquery/chapterList.js' %}"></script>
+{% endblock %}
+
