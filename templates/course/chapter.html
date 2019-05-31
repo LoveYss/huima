@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>章节列表</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    <link rel="stylesheet" href="css/chapter.css" type="text/css">
+    <script src="js/jquery3.4.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body ondragstart="return false">
+
+
+<div class="container-fluid  cha-inner-warp">
+    <div class="container-fluid cha-header">
+        <div class="container">
+            <ol class="breadcrumb cha-nav">
+
+            </ol>
+            <h3>第一章初始HTML+CSS</h3>
+            <p>这里是介绍啊实打实来看大家阿克苏拉家带口拉数据卡就是法律框架阿鲁卡</p>
+        </div>
+    </div>
+    <div class="container cha-inner">
+        <div class="cha-inner-list">
+            <span class="list-span span-active" attr="card1">视频资料</span>
+            <span class="list-span" attr="card2">本章教程</span>
+            <span class="list-span" attr="card3">课程小结</span>
+            <span class="list-span" attr="card4">本章任务</span>
+            <span class="list-span" attr="card5">QA问答</span>
+        </div>
+        <div class="cha-inner-list">
+            <div class="card card1 card-show">
+                <p class="det-name">
+                    视频资料
+                </p>
+                <ul class="list-group cha-entry">
+                    <li class="list-group-item">
+                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a href="#">视频23</a>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a  href="#">视频23</a>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a  href="#">视频23</a>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a  href="#">视频23</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card card2">
+                <p class="det-name">
+                    本章教程
+                </p>
+                <ul class="list-group cha-entry">
+                    <li class="list-group-item">
+                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a  href="#">css怎么导入</a>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a href="#">css怎么导入</a>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a href="#">css怎么导入</a>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a href="#">css怎么导入</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card card3">
+                <p class="det-name">
+                    本章小结
+                </p>
+                <img src="img/daotu.png" alt="">
+            </div>
+            <div class="card card4 ">
+                <p>本章任务</p>
+                <ul class="list-group">
+                    <li class="list-group-item chapter_task"><span>这是一大串的测试数据，仅供测试</span></li>
+                    <li class="list-group-item chapter_task"><span>这是一大串的测试数据，仅供测试</span></li>
+                    <li class="list-group-item chapter_task"><span>这是一大串的测试数据，仅供测试</span></li>
+                    <li class="list-group-item chapter_task"><span>这是一大串的测试数据，仅供测试</span></li>
+                </ul>
+            </div>
+            <div class="card card5">
+                <p class="det-name">
+                    看看大家有什么问题
+                </p>
+                <ul class="list-group cha-entry">
+                    <li class="list-group-item"><span class="def-user">Q：</span>&nbsp;&nbsp;<span>css怎么引入啊？</span>
+                    </li>
+                    <li class="list-group-item"><span class="def-user">A：</span>&nbsp;&nbsp;<span>去看看豆豆大神的博客</span>
+                    </li>
+                    <li class="list-group-item"><span class="def-user">Q：</span>&nbsp;&nbsp;<span>谢谢楼上</span></li>
+                    <li class="list-group-item"><span class="def-user">A： </span>&nbsp;&nbsp;<span>没事没事</span></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
+<script>
+    $(function () {
+        $('.list-span').on('click', function () {
+            var div = $(this).attr('attr');
+            $('.card-show').removeClass('card-show');
+            $('.' + div).addClass('card-show');
+        })
+    })
+</script>

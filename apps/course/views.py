@@ -15,8 +15,16 @@ def show_course(request):
 
 def show_chapter(request, c_id):
     course = Course.objects.get(id=c_id)
+    chapters = course.chapter_set.all()
+
+    ## ['zhuanf' :{}]
+
     chapter = Chapter.objects.get(course_id=c_id)
-    return render(request, 'course/chapterList.html', {'course': course, 'chapter': chapter})
+    chapter_list = []
+    for i in chapters:
+        pass
+
+    return render(request, 'course/chapterList.html', {'course': course, 'chapter': ''})
 
 
 def show_chapter_details(request):

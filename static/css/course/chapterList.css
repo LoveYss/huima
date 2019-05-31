@@ -1,0 +1,201 @@
+/*课程  -  章节页*/
+
+
+/*章节页页面头部*/
+.cha-header {
+    width: 100%;
+    /*background: #FFFFFF;*/
+    background-image: -webkit-linear-gradient(top, #0D0E10, #353B43);
+    box-shadow: 0 5px 5px #DFE1E3;
+    margin-bottom: 20px;
+    position: relative;
+    opacity: 0.8;
+    padding-bottom: 10px;
+}
+
+/*.cha-header::before{*/
+/*    content:'';*/
+/*    width: 100%;*/
+/*    height:200px;*/
+/*    background:url("../img/b.jpg") center center /cover no-repeat;*/
+/*    filter: blur(10px);*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    z-index: -1;*/
+/*    overflow: hidden;*/
+/*}*/
+.cha-nav {
+    background: none;
+    border: 0;
+    color: #777777;
+    padding-left: 0;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.cha-nav a {
+    color: #777777;
+    text-decoration: none;
+}
+
+.cha-nav a:hover {
+    color: #fff;
+}
+
+.cha-header > .container > h1, .cha-header > .container > ul {
+    color: #fff;
+}
+
+.cha-header > .container > ul {
+    margin-top: 15px;
+}
+
+.cha-header > .container > ul > li {
+    font-size: 12px;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+
+/*主体部分*/
+.cha-inner-warp {
+    width: 100%;
+    background: #F8FAFC;
+    padding: 0 0 30px 0;
+}
+
+.cha-inner-list {
+    width: 100%;
+    min-height: 84px;
+    line-height: 30px;
+    padding: 30px 30px 20px 30px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: -5px 5px 5px #DFE1E3;
+    margin-bottom: 20px;
+}
+
+.cha-inner-list .cha-name {
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+}
+/*滑动按钮*/
+.cha-scrollBar{
+    width:100%;
+    max-width: 1020px;
+    margin:0 auto;
+    overflow-y:hidden;
+    overflow-x:auto;
+    height:155px;
+    white-space: nowrap;
+    position: relative;
+}
+.cha-scrollBar-list{
+    width:100%;
+}
+.l-sec-btnLeft{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.l-sec-btnRight{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.l-sec-btnLeft,.l-sec-btnRight{
+    width:40px;
+    height:155px;
+    text-align: center;
+    line-height: 155px;
+    color:#fff;
+    /*background-image: linear-gradient(left, #000, #fff );*/
+    background:#DEE1E6;
+    opacity: 0;
+}
+.l-sec-btnLeft:hover,.l-sec-btnRight:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+.cha-scrollBar::-webkit-scrollbar {
+    display: none;
+}
+
+/*需要滑动的部分*/
+.l-sec{
+    display: inline-block;
+    width:150px;
+    /*float: left;*/
+    margin-right: 20px;
+}
+.l-sec-img {
+    width: 150px;
+
+}
+
+.l-title {
+    font-size: 14px;
+    margin:0;
+}
+
+.l-difficulty span {
+    font-size: 12px;
+}
+
+.l-difficulty span:nth-child(1) {
+    margin-right: 10px;
+}
+
+.add-list {
+    color: #555555;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.35s;
+    display: none;
+}
+
+.cha-list {
+    background: #5cb85c;
+}
+
+.cha-synopsis {
+    box-sizing: border-box;
+    padding: 0 10px 0 20px;
+    background: #555555;
+}
+
+.cha-inner-list:hover .add-list {
+    display: inline-block;
+}
+
+.cha-title {
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+
+.cha-entry {
+    border-radius: 0;
+    display: none;
+    transition: .35s;
+}
+
+.ico-span {
+    margin-right: 15px;
+}
+
+.cha-entry li {
+    border: 0;
+}
+
+.cha-list-color li:hover {
+    background: rgba(89, 249, 40, 0.2);
+}
+
+.add-list:hover .cha-entry {
+    display: block;
+}

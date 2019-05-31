@@ -6,5 +6,4 @@ admin.site.register([
     models.Course,
     models.Chapter,
     models.Video,
-    models.ChapterData,
 ])
