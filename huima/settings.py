@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'index',
     'subject',
     'task',
-    'usercenter',
+    'user',
+    'operation',
 ]
 
 MIDDLEWARE = [
