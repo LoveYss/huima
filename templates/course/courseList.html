@@ -69,8 +69,8 @@
     <div class="container">
         <p class="l-nav"><span class="l-nav-ban">最新</span><span>最热</span></p>
         <div class="row">
-
-            {% for course in datas %}
+        {{ data.count }}
+            {% for course in data %}
                 <section class="col-md-3 l-sec">
                 <img src="{% static course.cover %} " alt="">
                 <a class="l-title">{{ course.name }}</a>
