@@ -38,6 +38,7 @@ class Chapter(models.Model):
     course_id = models.ForeignKey('Course', verbose_name='所属的课程id', on_delete=models.DO_NOTHING, blank=True)
     create_times = models.DateTimeField(verbose_name='创建时间', default=datetime.now)
     up_time = models.DateTimeField(verbose_name='修改时间', auto_now=True)
+    status = models.IntegerField(choices=((0, '未完成'), (1, '已完成')), default=0,verbose_name='章节完成度')
 
     class Meta:
         verbose_name = '章节表'

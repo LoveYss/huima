@@ -199,3 +199,9 @@
 .add-list:hover .cha-entry {
     display: block;
 }
+
+.studied{
+    color: #00CC00;
+    float: right;
+    margin-right: 10px;
+}

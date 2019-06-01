@@ -17,8 +17,8 @@
             <ol class="breadcrumb cha-nav">
 
             </ol>
-            <h3>第一章初始HTML+CSS</h3>
-            <p>这里是介绍啊实打实来看大家阿克苏拉家带口拉数据卡就是法律框架阿鲁卡</p>
+            <h3>{{ chapter.0.name }}</h3>
+            <p>{{ chapter.0.synopsis }}</p>
         </div>
     </div>
     <div class="container cha-inner">
@@ -35,18 +35,12 @@
                     视频资料
                 </p>
                 <ul class="list-group cha-entry">
-                    <li class="list-group-item">
-                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a href="#">视频23</a>
+                    {% for foo in video %}
+                         <li class="list-group-item">
+                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a href="#">{{ foo.name }}</a>
                     </li>
-                    <li class="list-group-item">
-                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a  href="#">视频23</a>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a  href="#">视频23</a>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a  href="#">视频23</a>
-                    </li>
+                    {% endfor %}
+
                 </ul>
             </div>
             <div class="card card2">

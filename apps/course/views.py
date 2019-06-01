@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from course.models import *
+from  subject.models import ProjectDetail
 
 
 # Create your views here.
@@ -16,8 +17,10 @@ def show_course(request):
 def show_chapter_list(request, c_id):
     """章节列表页"""
     course = Course.objects.get(id=c_id)
-    chapters = Chapter.objects.filter(course_id=c_id)
-    return render(request, 'course/chapterList.html', {'course': course, 'chapters': chapters})
+    # chapters=course.chapter_set.all()
+    pro = course.project_id.all()
+    chapters = Chapter.objects.filter(course_id=1)
+    return render(request, 'course/chapterList.html', {'course': course, 'chapters': chapters, 'pro': pro})
 
 
 def show_chapter(request, c_id):
