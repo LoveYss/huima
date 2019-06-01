@@ -87,7 +87,7 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'huima2',
+        'NAME': 'huima',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': '120.78.81.19',
