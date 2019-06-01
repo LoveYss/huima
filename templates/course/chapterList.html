@@ -16,9 +16,8 @@
         <div class="container-fluid cha-header">
             <div class="container">
                 <ol class="breadcrumb cha-nav">
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li class="active"></li>
+                    <li><a href="#">首页</a></li>
+                    <li class="active">{{ course.name }}</li>
                 </ol>
                 <h1>{{ course.name }}</h1>
                 <ul>
@@ -44,8 +43,10 @@
                 <ul class="list-group cha-list-color list_border">
                     {% for chapter in chapters %}
                         <li class="list-group-item">
-                            <p><a href="{% url 'course.chapter/chapter.id' %}">{{ chapter.num }} {{ chapter.name }}</a>
+                            <p><a href="{% url 'chapter' chapter.id %}">{{ chapter.num }} {{ chapter.name }}</a>
+                                {% if chapter.status == 1 %}
                                 <span class="studied">已完成</span>
+                                {% endif %}
                             </p>
                             <p>{{ chapter.synopsis }}</p>
                         </li>
