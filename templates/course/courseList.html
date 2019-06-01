@@ -67,16 +67,16 @@
 </div>
 <div class="container-fluid context">
     <div class="container">
-        <p class="l-nav"><span class="l-nav-ban">最新</span><span>最热</span></p>
+        <p class="l-nav"><a class="l-nav-ban">最新</a><a>最热</a></p>
         <div class="row">
         {{ data.count }}
             {% for course in data %}
-                <section class="col-md-3 l-sec">
-                <img src="{% static course.cover %} " alt="">
-                <a class="l-title">{{ course.name }}</a>
+                <a class="col-md-3 l-sec">
+                <img src="{{ MEDIA_URL }} {{ course.cover }}  " alt="">
+                <span class="l-title">{{ course.name }}</span>
                 <p class="l-difficulty"><span>{{ course.leave_display }}</span><span class="glyphicon glyphicon-user"></span><span>{{ course.study_len }}</span></p>
                 <p class="l-text">{{ course.synopsis }}</p>
-            </section>
+            </a>
             {% endfor %}
         </div>
     </div>

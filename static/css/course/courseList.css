@@ -41,16 +41,19 @@
 .l-nav{
     height: 20px;
     font-size: 12px;
-    margin-bottom:10px;
+    margin-bottom:20px;
 }
-.l-nav span{
-    width:35px;
+.l-nav a{
+    width:60px;
     padding:1px 5px;
-    height:20px;
-    line-height: 20px;
+    height:30px;
+    line-height: 30px;
     box-sizing: border-box;
     display: inline-block;
+    text-align: center;
+    margin-right: 5px;
 }
+
 .l-nav-ban{
     background:rgba(81,214,121,0.4);
     border-radius: 5px;
