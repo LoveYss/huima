@@ -15,7 +15,7 @@ class UserCenter(View):
         user = request.user
         try:
             blog = Blog.objects.get(user_id=user.id)
-            author = User.objects.get(id=blog.user_id)
+            blog_author = User.objects.get(id=blog.user_id)
         except Exception:
             blog = None
             author = None
