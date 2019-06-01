@@ -1,0 +1,58 @@
+{% extends 'usercenter/base.html' %}
+{% load staticfiles %}
+
+{% block course_active %}
+    class="active"
+{% endblock %}
+
+
+{% block main %}
+    <div id="course">
+        <h3>课程</h3>
+        <hr/>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">2019年
+                    <small>5月17日</small>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <h4><b>Python基础课程</b></h4>
+                <hr/>
+                <div class="row">
+                    <div class="col-xs-12 col-md-5">
+                        <a href="#">
+                            <img src="{% static 'img/python_course.jpg' %}" alt="python">
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <h5>学习进度：99%
+                        </h5>
+                        <h5>已学xxxH</h5>
+                        <h5>章节进度：</h5>
+                        <h5>1-2 变量的命名规则</h5>
+                    </div>
+                    <div class="col-xs-12 col-md-2">
+                        <div>
+                            <a href="#">错题：123</a>
+                        </div>
+                        <div>
+                            <a href="#">点评：123</a>
+                        </div>
+                        <div>
+                            <a href="#">问答：123</a>
+                        </div>
+                        <div>
+                            <a href="#">笔记：123</a>
+                        </div>
+                        <button class="btn btn-default" type="button">
+                            继续学习
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block small_js %}
+{% endblock %}

@@ -9,9 +9,6 @@ body {
     line-height: 1.8;
 }
 
-#main > div {
-    display: none;
-}
 
 #course img,
 #project img,
@@ -54,40 +51,36 @@ body {
     padding-top: 0px;
 }
 
-#user-img img {
+#avatar img {
     width: 200px;
     height: 200px;
-}
-
-#set-user-img-button {
-    display: none;
 }
 
 #setting textarea {
     resize: none;
 }
 
-#set-user-img {
+#set-avatar {
     position: fixed;
     left: 30%;
     top: 10%;
-    z-index: 999;
+    z-index: 9999;
     width: 40%;
     height: 40%;
     display: none;
     margin-top: 30px;
 }
 
-#set-user-img img {
+#set-avatar img {
     width: 50%;
     height: 50%;
 }
 
-#set-user-img .panel-body {
+#set-avatar .panel-body {
     text-align: center;
 }
 
-#set-user-img .panel-body input {
+#set-avatar .panel-body input {
     margin-left: 30px;
 }
 
@@ -98,7 +91,7 @@ body {
 .mask {
     display: none;
     position: fixed;
-    z-index: 998;
+    z-index: 999;
     top: 0;
     left: 0;
     bottom: 0;

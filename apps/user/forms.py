@@ -5,7 +5,7 @@ from django import forms
 
 
 class UserModifyForm(forms.Form):
-    nick_name = forms.CharField(required=True, max_length=30)
+    nick_name = forms.CharField(required=True, max_length=30, min_length=2)
     sex = forms.CharField(required=True)
     email_name = forms.CharField(required=True)
     domain_name = forms.CharField(required=True)

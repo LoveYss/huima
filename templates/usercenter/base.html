@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    个人中心
+{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/user_center.css' %}">
+{% endblock %}
+
+{% block html_body %}
+    <div class="container" id="wrapper">
+        <div class="row">
+            <!-- 导航标签 -->
+            <div class="col-md-2">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#user-center-label-list"
+                                aria-expanded="false" aria-controls="navbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <h7 class="navbar-brand">个人中心</h7>
+                    </div>
+                </nav>
+                <div class="panel panel-default" id="user-center-label-list">
+                    <div class="panel-body">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li role="presentation" {% block course_active %}{% endblock %}>
+                                <a href="../course/">我的课程</a>
+                            </li>
+                            <li role="presentation" {% block project_active %}{% endblock %}>
+                                <a href="../project/">实战项目</a>
+                            </li>
+                            <li role="presentation" {% block suggestion_active %}{% endblock %}>
+                                <a href="../suggestion">点评集</a>
+                            </li>
+                            <li role="presentation" {% block error_active %}{% endblock %}>
+                                <a href="../error">错题集</a>
+                            </li>
+                            <li role="presentation" {% block blog_active %}{% endblock %}>
+                                <a href="../blog">博客</a>
+                            </li>
+                            <li role="presentation" {% block QA_active %}{% endblock %}>
+                                <a href="../qa">问答</a>
+                            </li>
+                            <li role="presentation" {% block note_active %}{% endblock %}>
+                                <a href="../note">笔记</a>
+                            </li>
+                            <li role="presentation" {% block setting_active %}{% endblock %}>
+                                <a href="../setting">个人设置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 主页面 -->
+            <div class="col-md-7" id="main">
+                {% block main %}
+
+                {% endblock %}
+            </div>
+            <!-- 头像及修改按钮 -->
+            <div class="col-md-3 hidden-xs hidden-sm">
+                <ul class="list-unstyled">
+                    <li>
+                        <div class="row" id="avatar">
+                            <img src={{ MEDIA_URL }}{{ user.avatar }}/>
+                        </div>
+                    </li>
+                    <li>
+                        <h4><strong>{{ user.username }}</strong></h4>
+                    </li>
+                    {% block set-avatar %}
+
+                    {% endblock %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="mask"></div>
+    {% block set_avatar %}{% endblock %}
+{% endblock %}

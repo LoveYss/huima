@@ -1,0 +1,88 @@
+{% extends 'usercenter/base.html' %}
+{% load staticfiles %}
+
+{% block note_active %}
+    class="active"
+{% endblock %}
+
+
+{% block main %}
+    <div id="note">
+                    <h3>笔记</h3>
+                    <hr/>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h4><b>git基础课程</b></h4>
+                            <small>1-2 提交更改</small>
+                        </div>
+                        <div class="panel-body">
+                            <blockquote>
+                                Git仓库
+                                初始化版本库：
+                                git init
+                                添加文件到版分库：
+                                git add
+                                git commit
+                            </blockquote>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="glyphicon glyphicon-thumbs-up"></span><span>123</span>
+                                </li>
+                                <li>
+                                    <ul class="list-unstyled list-inline">
+                                        <li class="pull-left">日期：2019年5月17日17:30:26</li>
+                                        <li class="pull-right">
+                                            <a href="#" title="修改">
+                                                <span class="glyphicon glyphicon-erase"></span>
+                                            </a>
+                                        </li>
+                                        <li class="pull-right" title="删除">
+                                            <a href="#">
+                                                <span class="glyphicon glyphicon-trash"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h4><b>git基础课程</b></h4>
+                            <small>1-2 提交更改</small>
+                        </div>
+                        <div class="panel-body">
+                            <blockquote>
+                                Git仓库
+                                初始化版本库：
+                                git init
+                                添加文件到版分库：
+                                git add
+                                git commit
+                            </blockquote>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="glyphicon glyphicon-thumbs-up"></span><span>123</span>
+                                </li>
+                                <li>
+                                    <ul class="list-unstyled list-inline">
+                                        <li class="pull-left">日期：2019年5月17日17:30:26</li>
+                                        <li class="pull-right">
+                                            <a href="#" title="修改">
+                                                <span class="glyphicon glyphicon-erase"></span>
+                                            </a>
+                                        </li>
+                                        <li class="pull-right" title="删除">
+                                            <a href="#">
+                                                <span class="glyphicon glyphicon-trash"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}
+{% block small_js %}
+{% endblock %}

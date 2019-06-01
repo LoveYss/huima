@@ -31,7 +31,7 @@
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked">
                             <li role="presentation" id="course-label" onclick="display('course')" class="active">
-                                <a href="#">已学课程</a>
+                                <a href="#">我的课程</a>
                             </li>
                             <li role="presentation" id="project-label" onclick="display('project')">
                                 <a href="#">实战项目</a>
@@ -65,7 +65,7 @@
             <div class="col-md-7" id="main">
                 <!-- 已学课程 -->
                 <div id="course">
-                    <h3>已学课程</h3>
+                    <h3>课程</h3>
                     <hr/>
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -576,16 +576,16 @@
                     <hr/>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <form role="form" action="" method="post">
-                                <div class="form-group">
+                            <form role="form" action="/usercenter/" method="post">
+                                <div class="form-group {% if user_setting_form.errors.nick_name %}has-error{% endif %}">
                                     <label for="nick_name">昵称</label>
                                     <input type="text" class="form-control" id="nick_name" placeholder="请输入昵称" name="nick_name">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group  {% if user_setting_form.errors.nick_name %}has-error{% endif %}">
                                     <label for="sex">性别</label>
                                     <div>
                                         <label class="radio-inline">
-                                            <input type="radio" name="sex" value="male">男
+                                            <input type="radio" name="sex" value="male" {% if user_setting_form.errors.sex %}checked="checked"{% endif %} >男
                                         </label>
                                         <label class="radio-inline">
                                             <input type="radio" name="sex" value="female">女
@@ -595,7 +595,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group  {% if user_setting_form.errors.nick_name %}has-error{% endif %}">
                                     <label for="birthday">生日</label>
                                     <input type="date" class="form-control" id="birthday" name="birthday">
                                 </div>
@@ -706,13 +706,13 @@
             $("#QA-answer").hide();
         })
 
-        $("#set-user-img-button").click(function () {
-            $("#set-user-img").show()
+        $("#set-avatar-button").click(function () {
+            $("#set-avatar").show()
             $(".mask").show()
         })
 
-        $("#set-user-img-close").click(function () {
-            $("#set-user-img").hide()
+        $("#set-avatar-close").click(function () {
+            $("#set-avatar").hide()
             $(".mask").hide()
         })
     </script>

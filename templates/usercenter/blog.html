@@ -1,0 +1,56 @@
+{% extends 'usercenter/base.html' %}
+{% load staticfiles %}
+
+{% block blog_active %}
+    class="active"
+{% endblock %}
+
+
+{% block main %}
+    <div id="blog">
+                    <h3>博客</h3>
+                    <hr/>
+                    <ul class="nav nav-pills">
+                        <li role="presentation" class="active"><a href="#">收藏</a></li>
+                        <li role="presentation"><a href="#">我的</a></li>
+                    </ul>
+                    <div class="panel panel-default">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="panel-body">
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-left">
+                                                <a href="#">
+                                                    <img class="media-object" src="{{ MEDIA_URL }}{{ blog.front_image }}" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">{{blog.title}}
+                                                    <span class="label label-danger">热</span>
+                                                </h4>
+                                                <blockquote>
+                                                    {{ blog.content | slice:100 }}
+                                                </blockquote>
+                                            </div>
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <a href="">https://blog.csdn.net/q121516340/article/details/51506865</a>
+                                                </li>
+                                                <li>
+                                                    <ul class="list-unstyled list-inline">
+                                                        <li class="pull-left">作者：<a href="#">{{ author.username }}</a></li>
+                                                        <li class="pull-right">日期：{{ blog.publish }}</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+{% endblock %}
+{% block small_js %}
+{% endblock %}
