@@ -16,8 +16,8 @@
         <div class="container-fluid cha-header">
             <div class="container">
                 <ol class="breadcrumb cha-nav">
-                    <li><a href="#">首页</a></li>
-                    <li class="active">{{ course.name }}</li>
+{#                    <li><a href="#">首页</a></li>#}
+{#                    <li class="active">{{ course.name }}</li>#}
                 </ol>
                 <h1>{{ course.name }}</h1>
                 <ul>
@@ -58,68 +58,14 @@
 
                 <div class=" cha-scrollBar">
                     <div id='cha-scrollBar-list' class=" cha-scrollBar-list">
-                        <a class=" l-sec">
-                            <img class="l-sec-img" src="img/a.jpg" alt="">
-                            <p class="l-title">Grid布局</p>
-                            <p class="l-difficulty"><span>中级</span><span
-                                    class="glyphicon glyphicon-user"></span><span>12341</span></p>
+                        {% for foo in pro %}
+                         <a class=" l-sec">
+                            <img class="l-sec-img" src="{{ MEDIA_URL }}{{ foo.proj_bg_img }}" alt="">
+                            <p class="l-title">{{ foo.proj_name }}</p>
+                            <p class="l-difficulty"><span>{{ foo.get_proj_level_display }}</span><span
+                                    class="glyphicon glyphicon-user"></span><span>{{ foo.proj_student }}</span></p>
                         </a>
-                        <a class=" l-sec">
-                            <img class="l-sec-img" src="img/a.jpg" alt="">
-                            <p class="l-title">Grid布局</p>
-
-                            <p class="l-difficulty"><span>中级</span><span
-                                    class="glyphicon glyphicon-user"></span><span>12341</span></p>
-                        </a>
-                        <a class=" l-sec">
-                            <img class="l-sec-img" src="img/a.jpg" alt="">
-                            <p class="l-title">Grid布局</p>
-
-                            <p class="l-difficulty"><span>中级</span><span
-                                    class="glyphicon glyphicon-user"></span><span>12341</span></p>
-                        </a>
-                        <a class=" l-sec">
-                            <img class="l-sec-img" src="img/a.jpg" alt="">
-                            <p class="l-title">Grid布局</p>
-
-                            <p class="l-difficulty"><span>中级</span><span
-                                    class="glyphicon glyphicon-user"></span><span>12341</span></p>
-                        </a>
-                        <a class=" l-sec">
-                            <img class="l-sec-img" src="img/a.jpg" alt="">
-                            <p class="l-title">Grid布局</p>
-
-                            <p class="l-difficulty"><span>中级</span><span
-                                    class="glyphicon glyphicon-user"></span><span>12341</span></p>
-                        </a>
-                        <a class=" l-sec">
-                            <img class="l-sec-img" src="img/a.jpg" alt="">
-                            <p class="l-title">Grid布局</p>
-
-                            <p class="l-difficulty"><span>中级</span><span
-                                    class="glyphicon glyphicon-user"></span><span>12341</span></p>
-                        </a>
-                        <a class=" l-sec">
-                            <img class="l-sec-img" src="img/a.jpg" alt="">
-                            <p class="l-title">Grid布局</p>
-
-                            <p class="l-difficulty"><span>中级</span><span
-                                    class="glyphicon glyphicon-user"></span><span>12341</span></p>
-                        </a>
-                        <a class=" l-sec">
-                            <img class="l-sec-img" src="img/a.jpg" alt="">
-                            <p class="l-title">Grid布局</p>
-
-                            <p class="l-difficulty"><span>中级</span><span
-                                    class="glyphicon glyphicon-user"></span><span>12341</span></p>
-                        </a>
-                        <a class=" l-sec">
-                            <img class="l-sec-img" src="img/a.jpg" alt="">
-                            <p class="l-title">Grid布局</p>
-
-                            <p class="l-difficulty"><span>中级</span><span
-                                    class="glyphicon glyphicon-user"></span><span>12341</span></p>
-                        </a>
+                        {% endfor %}
                     </div>
                     <div id="l-sec-btnLeft" class="iconfont l-sec-btnLeft">&#xe659;</div>
                     <div id="l-sec-btnRight" class="iconfont  l-sec-btnRight">&#xe658;</div>
