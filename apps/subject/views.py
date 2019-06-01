@@ -11,8 +11,20 @@ class Project_list(View):
         :param request:
         :return:
         """
+        try:
+            page_num = 2
+            page = int(request.GET.get("page", 1))
+            # print("page", page)
+            # page = 1
+            items = ProjectDetail.objects.filter()
 
-        items = ProjectDetail.objects.filter()[0:6]
+            if page > len(items):
+                page = 1
+            elif page <= 0:
+                page = 1
+            items = items[page-1: page+page_num-1]
+        except ValueError:
+            items = ProjectDetail.objects.filter()[0:page_num]
 
         return render(request, "subject/project_list.html", locals())
 
@@ -23,5 +35,6 @@ class Project_detail(View):
         :param request:
         :return:
         """
-        item = ProjectDetail.objects.filter(proj_name=name)
+
+        item = ProjectDetail.objects.get(id=name)
         return render(request, "subject/project_detail.html", locals())
