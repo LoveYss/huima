@@ -10,10 +10,12 @@
     <div id="setting">
         <h3>个人设置</h3>
         <hr/>
-        <div>{{ msg }}</div>
+        {% if msg %}
+            <div class="alert alert-success" role="alert">{{ msg }}</div>
+        {% endif %}
         <div class="panel panel-default">
             <div class="panel-body">
-                <form role="form" action="../change_user_info/" method="post">
+                <form role="form" action="../setting/" method="post">
                     <div class="form-group {% if user_setting_form.errors.nick_name %}has-error{% endif %}">
                         <label for="nick_name">昵称</label>
                         <input type="text" value="{{ user.nick_name }}" class="form-control" id="nick_name" placeholder="请输入昵称" name="nick_name">
@@ -23,19 +25,21 @@
                         <div>
                             <label class="radio-inline">
                                 <input type="radio" name="sex" value="male"
-                                       {% if user_setting_form.errors.sex %}checked="checked"{% endif %}>男
+                                       {% if user.sex == 'male' %}checked="checked"{% endif %}>男
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="sex" value="female">女
+                                <input type="radio" name="sex" value="female"
+                                {% if user.sex == 'female' %}checked="checked"{% endif %}>女
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="sex" value="secret">保密
+                                <input type="radio" name="sex" value="secret"
+                                {% if user.sex == 'secret' %}checked="checked"{% endif %}>保密
                             </label>
                         </div>
                     </div>
                     <div class="form-group  {% if user_setting_form.errors.nick_name %}has-error{% endif %}">
                         <label for="birthday">生日</label>
-                        <input type="date" value="{{ user.birthday }}" class="form-control" id="birthday" name="birthday">
+                        <input type="date" value="{{ birthday }}" class="form-control" id="birthday" name="birthday">
                     </div>
                     <div class="form-group">
                         <label for="email">邮箱</label>
@@ -52,7 +56,7 @@
                     <div class="form-group">
                         <label for="description">签名</label>
                         <textarea class="form-control" rows="3" id="description" placeholder="请输入签名"
-                                  name="description"></textarea>
+                                  name="description">{{ user.description }}</textarea>
                     </div>
                     {#                                <div class="form-group">#}
                     {#                                    <label for="direction">学习方向</label>#}

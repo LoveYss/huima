@@ -15,57 +15,59 @@
         {% endif %}
         {% for my_project in my_projects %}
             <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    {{ my_project.last_time.year }}年
-                    <small>{{ my_project.last_time.month }}月{{ my_project.last_time.day }}日</small>
-                </h4>
-            </div>
-            <div class="panel-body">
-                <h4><b>{{ my_project.course.proj_name }}</b></h4>
-                <hr/>
-                <div class="row">
-                    <div class="col-xs-12 col-md-5">
-                        <a href="#">
-                            <img src="{{ MEDIA_URL }}{{ my_project.project.proj_bg_img }}" alt="python">
-                        </a>
-                    </div>
-                    <div class="col-xs-12 col-md-4">
-                        <h5>项目难度：{{ my_project.project.proj_level }}
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                        </h5>
-                        <h5>前置课程：</h5>
-                        <ol class="breadcrumb">
-                            <li><a href="#">python基础</a></li>
-                            <li><a href="#">html基础</a></li>
-                            <li><a href="#">html基础</a></li>
-                            <li><a href="#">html基础</a></li>
-                        </ol>
-                    </div>
-                    <div class="col-xs-12 col-md-2">
-                        <div>
-                            <a href="#">错题：123</a>
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        {{ my_project.last_time.year }}年
+                        <small>{{ my_project.last_time.month }}月{{ my_project.last_time.day }}日</small>
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <h4><b>{{ my_project.course.proj_name }}</b></h4>
+                    <hr/>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5">
+                            <a href="#">
+                                <img src="{{ MEDIA_URL }}{{ my_project.project.proj_bg_img }}" alt="python">
+                            </a>
                         </div>
-                        <div>
-                            <a href="#">点评：123</a>
+                        <div class="col-xs-12 col-md-4">
+                            <h5>项目难度：{{ my_project.project.proj_level }}
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </h5>
+                            <h5>前置课程：</h5>
+                            <ol class="breadcrumb">
+                                <li><a href="#">python基础</a></li>
+                                <li><a href="#">html基础</a></li>
+                                <li><a href="#">html基础</a></li>
+                                <li><a href="#">html基础</a></li>
+                            </ol>
                         </div>
-                        <div>
-                            <a href="#">问答：123</a>
+                        <div class="col-xs-12 col-md-2">
+                            <div>
+                                <a href="#">错题：123</a>
+                            </div>
+                            <div>
+                                <a href="#">点评：123</a>
+                            </div>
+                            <div>
+                                <a href="#">问答：123</a>
+                            </div>
+                            <div>
+                                <a href="#">笔记：123</a>
+                            </div>
+                            <a href="/project/{{ my_project.project.proj_name }}">
+                                <button class="btn btn-default" type="button">
+                                    查看详情
+                                </button>
+                            </a>
                         </div>
-                        <div>
-                            <a href="#">笔记：123</a>
-                        </div>
-                        <button class="btn btn-default" type="button">
-                            查看详情
-                        </button>
                     </div>
                 </div>
             </div>
-        </div>
         {% endfor %}
     </div>
 {% endblock %}

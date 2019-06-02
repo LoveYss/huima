@@ -41,13 +41,23 @@ class UserCenterSuggestion(View):
 
 class UserCenterError(View):
     def get(self, request):
+        user = request.user
+        questions = UserQuestion.objects.filter(user=user.id).filter(is_correct=False)
+        questions_bank_name_list = []
+        error_list = []
+        for question in questions:
+            questions_bank_name_list.append(question.questions.its_QuestionsBank.QuestionsBank_name)
+        questions_bank_name_set = set(questions_bank_name_list)
+        for questions_bank_name in questions_bank_name_set:
+            pass
         return render(request, 'usercenter/error.html', locals())
 
 
 class UserCenterBlog(View):
     def get(self, request):
         user = request.user
-        my_blog = Blog.objects.filter(user=user.id)
+        my_blogs = Blog.objects.filter(user=user.id)
+        favorite_blogs = UserBlog.objects.filter(user=user.id).filter(is_favorite=True)
         return render(request, 'usercenter/blog.html', locals())
 
 
@@ -66,21 +76,20 @@ class UserCenterSetting(View):
         user = request.user
         email_name = user.email.split('@')[0]
         domain_name = user.email.split('@')[1]
+        birthday_year = user.birthday.year
+        birthday_month = user.birthday.month
+        birthday_day = user.birthday.day
+        birthday = '%s-%s-%s' % (str(birthday_year).zfill(4), str(birthday_month).zfill(2), str(birthday_day).zfill(2))
         return render(request, 'usercenter/setting.html', locals())
 
-
-class ChangeAvatar(View):
     def post(self, request):
         user = request.user
-        modify_avatar = request.POST.get('avatar', '')
-        user.avatar = modify_avatar
-        user.save()
-        return render(request, 'usercenter/setting.html', locals())
-
-
-class ChangeUserInfo(View):
-    def post(self, request):
-        user = request.user
+        email_name = user.email.split('@')[0]
+        domain_name = user.email.split('@')[1]
+        birthday_year = user.birthday.year
+        birthday_month = user.birthday.month
+        birthday_day = user.birthday.day
+        birthday = '%s-%s-%s' % (str(birthday_year).zfill(4), str(birthday_month).zfill(2), str(birthday_day).zfill(2))
         user_setting_form = UserModifyForm(request.POST)
         if user_setting_form.is_valid():
             modify_nick_name = request.POST.get('nick_name', '')
@@ -106,3 +115,16 @@ class ChangeUserInfo(View):
         else:
             msg = '信息输入有误'
             return render(request, 'usercenter/setting.html', locals())
+
+
+class ChangeAvatar(View):
+    def post(self, request):
+        user = request.user
+        modify_avatar = request.POST.get('avatar', '')
+        user.avatar = modify_avatar
+        user.save()
+        return render(request, 'usercenter/setting.html', locals())
+
+
+class ChangeUserInfo(View):
+    pass

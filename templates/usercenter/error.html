@@ -8,84 +8,23 @@
 
 {% block main %}
     <div id="error">
-                    <h3>错题集</h3>
-                    <hr/>
-                    <div class="error-warp">
-                        <div class="row error-wasp">
-                            <div href="#" class="col-md-3 error-inner">
-                                <!--<img src="img/js.jpg" alt="">-->
-                                <a class=" error-img img1">
-                                    <div class="error-hid">
-                                        <p>Jquery</p>
-                                        <p>错题：<span>223</span></p>
-                                    </div>
-                                </a>
+        <h3>错题集</h3>
+        <hr/>
+        <div class="error-warp">
+            <div class="row error-wasp">
+                {% for question in questions %}
+                    <div href="#" class="col-md-3 error-inner">
+                        <a class=" error-img img1">
+                            <div class="error-hid">
+{#                                <p>{{ question. }}</p>#}
+                                <p>错题：<span>223</span></p>
                             </div>
-                            <div href="#" class="col-md-3 error-inner">
-                                <!--<img src="img/js.jpg" alt="">-->
-                                <a class=" error-img img2">
-                                    <div class="error-hid">
-                                        <p>C++</p>
-                                        <p>错题：<span>223</span></p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div href="#" class="col-md-3 error-inner">
-                                <!--<img src="img/js.jpg" alt="">-->
-                                <a class=" error-img img3">
-                                    <div class="error-hid">
-                                        <p>Python</p>
-                                        <p>错题：<span>223</span></p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div href="#" class="col-md-3 error-inner">
-                                <!--<img src="img/js.jpg" alt="">-->
-                                <a class=" error-img img4">
-                                    <div class="error-hid">
-                                        <p>PHP</p>
-                                        <p>错题：<span>223</span></p>
-                                    </div>
-                                </a>
-                            </div>
-
-                        </div>
-                        <div class="row error-wasp">
-                            <div href="#" class="col-md-3 error-inner">
-                                <a class=" error-img img1">
-                                    <div class="error-hid">
-                                        <p>Jquery</p>
-                                        <p>错题：<span>223</span></p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div href="#" class="col-md-3 error-inner">
-                                <a class=" error-img img2">
-                                    <div class="error-hid">
-                                        <p>C++</p>
-                                        <p>错题：<span>223</span></p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div href="#" class="col-md-3 error-inner">
-                                <a class=" error-img img3">
-                                    <div class="error-hid">
-                                        <p>Python</p>
-                                        <p>错题：<span>223</span></p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div href="#" class="col-md-3 error-inner">
-                                <a class=" error-img img4">
-                                    <div class="error-hid">
-                                        <p>PHP</p>
-                                        <p>错题：<span>223</span></p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                        </a>
                     </div>
-                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
 {% block small_js %}
 {% endblock %}
