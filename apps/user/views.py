@@ -6,50 +6,15 @@ from django.http import HttpResponse
 
 from user.models import User
 from blog.models import Blog
+from course.models import Course
+from subject.models import ProjectDetail
+from task.models import Questions, QuestionsBank
+from operation.models import UserCourse, CourseComment, UserBlog, BlogComment2, UserProject, \
+    UserQuestion, QuestionComment, MessageCategory, UserMessage
 from user.forms import UserModifyForm
 
 
 # Create your views here.
-class UserCenter(View):
-    def get(self, request):
-        user = request.user
-        try:
-            blog = Blog.objects.get(user_id=user.id)
-            blog_author = User.objects.get(id=blog.user_id)
-        except Exception:
-            blog = None
-            author = None
-        return render(request, 'usercenter/usercenter.html', locals())
-
-    def post(self, request):
-        user = request.user
-        user_setting_form = UserModifyForm(request.POST)
-        if user_setting_form.is_valid():
-            modify_nick_name = request.POST.get('nick_name', '')
-            if User.objects.filter(nick_name=modify_nick_name) and modify_nick_name != user.nick_name:
-                errors = {"msg": "用户昵称已经被使用"}
-                return HttpResponse(json.dumps(errors), content_type="application/json")
-            modify_sex = request.POST.get('sex', '')
-            modify_email_name = request.POST.get('email_name', '')
-            modify_domain_name = request.POST.get('domain_name', '')
-            modify_birthday = request.POST.get('birthday', '')
-            modify_qq = request.POST.get('qq_num', '')
-            modify_description = request.POST.get('description', '')
-            user.nick_name = modify_nick_name
-            user.sex = modify_sex
-            modify_email = ''.join([modify_email_name, '@', modify_domain_name])
-            user.email = modify_email
-            user.birthday = modify_birthday
-            user.qq = modify_qq
-            user.description = modify_description
-            user.save()
-            msg = '修改成功'
-            return render(request, 'usercenter/usercenter.html', locals())
-        else:
-            msg = '信息输入有误'
-            return render(request, 'usercenter/usercenter.html', locals())
-
-
 class UserCenterBase(View):
     def get(self, request):
         return render(request, 'usercenter/base.html', locals())
@@ -57,11 +22,15 @@ class UserCenterBase(View):
 
 class UserCenterCourse(View):
     def get(self, request):
+        user = request.user
+        my_courses = UserCourse.objects.filter(user=user.id).order_by('-last_time')
         return render(request, 'usercenter/course.html', locals())
 
 
 class UserCenterProject(View):
     def get(self, request):
+        user = request.user
+        my_projects = UserProject.objects.filter(user=user.id).order_by('-last_time')
         return render(request, 'usercenter/project.html', locals())
 
 
@@ -77,6 +46,8 @@ class UserCenterError(View):
 
 class UserCenterBlog(View):
     def get(self, request):
+        user = request.user
+        my_blog = Blog.objects.filter(user=user.id)
         return render(request, 'usercenter/blog.html', locals())
 
 
@@ -114,8 +85,8 @@ class ChangeUserInfo(View):
         if user_setting_form.is_valid():
             modify_nick_name = request.POST.get('nick_name', '')
             if User.objects.filter(nick_name=modify_nick_name) and modify_nick_name != user.nick_name:
-                errors = {"msg": "用户昵称已经被使用"}
-                return HttpResponse(json.dumps(errors), content_type="application/json")
+                msg = '用户昵称已经被使用'
+                return render(request, 'usercenter/setting.html', locals())
             modify_sex = request.POST.get('sex', '')
             modify_email_name = request.POST.get('email_name', '')
             modify_domain_name = request.POST.get('domain_name', '')

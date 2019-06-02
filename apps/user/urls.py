@@ -5,8 +5,6 @@ from django.urls import path, re_path
 from user.views import *
 
 urlpatterns = [
-
-    path('index/', UserCenter.as_view(), name='usercenter'),
     path('base/', UserCenterBase.as_view(), name='base'),
     path('course/', UserCenterCourse.as_view(), name='course'),
     path('project/', UserCenterProject.as_view(), name='project'),

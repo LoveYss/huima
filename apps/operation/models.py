@@ -17,7 +17,7 @@ class UserCourse(models.Model):
     add_time = models.DateTimeField(default=datetime.now, verbose_name='初始点击时间')
     last_time = models.DateTimeField(default=datetime.now, verbose_name='最后点击时间')
     is_favorite = models.BooleanField(default=False, verbose_name='收藏')
-    favorite_time = models.DateTimeField(default=datetime.now, verbose_name='添加时间')
+    favorite_time = models.DateTimeField(default=datetime.now, verbose_name='收藏时间')
     is_like = models.BooleanField(default=False, verbose_name='点赞')
     study_time = models.TimeField(max_length=20, verbose_name='学习时长')
 

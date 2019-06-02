@@ -8,27 +8,32 @@
 
 {% block main %}
     <div id="course">
-        <h3>课程</h3>
+        <h3>已学课程</h3>
         <hr/>
-        <div class="panel panel-default">
+        {% if not my_courses %}
+            <p>还没有学过的课程哦，赶快<u><a href="/course">开始学习</a></u>吧。</p>
+        {% endif %}
+        {% for my_course in my_courses %}
+            <div class="panel panel-default">
             <div class="panel-heading">
-                <h4 class="panel-title">2019年
-                    <small>5月17日</small>
+                <h4 class="panel-title">
+                    {{ my_course.last_time.year }}年
+                    <small>{{ my_course.last_time.month }}月{{ my_course.last_time.day }}日</small>
                 </h4>
             </div>
             <div class="panel-body">
-                <h4><b>Python基础课程</b></h4>
+                <h4><b>{{ my_course.course.name }}</b></h4>
                 <hr/>
                 <div class="row">
                     <div class="col-xs-12 col-md-5">
                         <a href="#">
-                            <img src="{% static 'img/python_course.jpg' %}" alt="python">
+                            <img src="{{ MEDIA_URL }}{{ my_course.course.cover }}" alt="python">
                         </a>
                     </div>
                     <div class="col-xs-12 col-md-4">
                         <h5>学习进度：99%
                         </h5>
-                        <h5>已学xxxH</h5>
+                        <h5>已学{{ my_course.study_time }}</h5>
                         <h5>章节进度：</h5>
                         <h5>1-2 变量的命名规则</h5>
                     </div>
@@ -52,6 +57,8 @@
                 </div>
             </div>
         </div>
+        {% endfor %}
+
     </div>
 {% endblock %}
 {% block small_js %}
