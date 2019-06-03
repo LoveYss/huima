@@ -12,12 +12,12 @@
         <hr/>
         <div class="error-warp">
             <div class="row error-wasp">
-                {% for question in questions %}
+                {% for key,value in error_dict.items %}
                     <div href="#" class="col-md-3 error-inner">
-                        <a class=" error-img img1">
+                        <a class=" error-img"  style="background: #0D0E10">
                             <div class="error-hid">
-{#                                <p>{{ question. }}</p>#}
-                                <p>错题：<span>223</span></p>
+                                <p>{{ key }}</p>
+                                <p>错题：<span>{{ value }}</span></p>
                             </div>
                         </a>
                     </div>

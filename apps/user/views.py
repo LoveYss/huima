@@ -15,11 +15,6 @@ from user.forms import UserModifyForm
 
 
 # Create your views here.
-class UserCenterBase(View):
-    def get(self, request):
-        return render(request, 'usercenter/base.html', locals())
-
-
 class UserCenterCourse(View):
     def get(self, request):
         user = request.user
@@ -44,12 +39,17 @@ class UserCenterError(View):
         user = request.user
         questions = UserQuestion.objects.filter(user=user.id).filter(is_correct=False)
         questions_bank_name_list = []
-        error_list = []
+        error_dict = {}
         for question in questions:
             questions_bank_name_list.append(question.questions.its_QuestionsBank.QuestionsBank_name)
         questions_bank_name_set = set(questions_bank_name_list)
         for questions_bank_name in questions_bank_name_set:
-            pass
+            questions_bank = QuestionsBank.objects.get(QuestionsBank_name=questions_bank_name)
+            questions_bank_id = questions_bank.id
+            questions_bank_img = questions_bank.img
+            error_question_per_questions_bank = questions.filter(questions__its_QuestionsBank=questions_bank_id).count()
+            error_dict[questions_bank_name] = [error_question_per_questions_bank, questions_bank_img]
+        print(error_dict)
         return render(request, 'usercenter/error.html', locals())
 
 
@@ -120,9 +120,21 @@ class UserCenterSetting(View):
 class ChangeAvatar(View):
     def post(self, request):
         user = request.user
-        modify_avatar = request.POST.get('avatar', '')
-        user.avatar = modify_avatar
+        modify_img = request.FILES.get('avatar')
+        import os
+        from huima.settings import BASE_DIR
+        avatar_path = os.path.join(BASE_DIR, 'media', 'avatar', str(user.id))
+        try:
+            os.makedirs(avatar_path)
+        except FileExistsError as e:
+            pass
+        f = open(os.path.join(avatar_path, modify_img.name), 'wb')
+        for chunk in modify_img.chunks():
+            f.write(chunk)
+        f.close()
+        user.avatar = os.path.join(avatar_path, modify_img.name)
         user.save()
+        msg = '修改头像成功'
         return render(request, 'usercenter/setting.html', locals())
 
 

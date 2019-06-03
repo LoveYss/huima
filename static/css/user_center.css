@@ -12,7 +12,8 @@ body {
 
 #course img,
 #project img,
-#suggestion img {
+#suggestion img,
+#set-avatar{
     width: 250px;
     height: 150px;
 }

@@ -18,7 +18,8 @@
                 <form role="form" action="../setting/" method="post">
                     <div class="form-group {% if user_setting_form.errors.nick_name %}has-error{% endif %}">
                         <label for="nick_name">昵称</label>
-                        <input type="text" value="{{ user.nick_name }}" class="form-control" id="nick_name" placeholder="请输入昵称" name="nick_name">
+                        <input type="text" value="{{ user.nick_name }}" class="form-control" id="nick_name"
+                               placeholder="请输入昵称" name="nick_name">
                     </div>
                     <div class="form-group  {% if user_setting_form.errors.nick_name %}has-error{% endif %}">
                         <label for="sex">性别</label>
@@ -29,11 +30,11 @@
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="sex" value="female"
-                                {% if user.sex == 'female' %}checked="checked"{% endif %}>女
+                                       {% if user.sex == 'female' %}checked="checked"{% endif %}>女
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="sex" value="secret"
-                                {% if user.sex == 'secret' %}checked="checked"{% endif %}>保密
+                                       {% if user.sex == 'secret' %}checked="checked"{% endif %}>保密
                             </label>
                         </div>
                     </div>
@@ -44,14 +45,17 @@
                     <div class="form-group">
                         <label for="email">邮箱</label>
                         <div class="input-group" id="email">
-                            <input type="text" value="{{ email_name }}" class="form-control" placeholder="邮箱名" name="email_name">
+                            <input type="text" value="{{ email_name }}" class="form-control" placeholder="邮箱名"
+                                   name="email_name">
                             <span class="input-group-addon" id="basic-addon1">@</span>
-                            <input type="text" value="{{ domain_name }}" class="form-control" placeholder="域名" name="domain_name">
+                            <input type="text" value="{{ domain_name }}" class="form-control" placeholder="域名"
+                                   name="domain_name">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="phone_num">QQ</label>
-                        <input type="text" value="{{ user.qq }}" class="form-control" id="qq_num" placeholder="请输入QQ号" name="qq_num">
+                        <input type="text" value="{{ user.qq }}" class="form-control" id="qq_num" placeholder="请输入QQ号"
+                               name="qq_num">
                     </div>
                     <div class="form-group">
                         <label for="description">签名</label>
@@ -100,12 +104,13 @@
             </div>
             <div class="panel-body">
                 <h4><strong>{{ user.username }}</strong></h4>
-                <img src={{ MEDIA_URL }}{{ user.avatar }}>
+                <img src="" id="new_avatar" alt="上传图片预览区">
                 <div class="text-center">
-                    <form action="../change_avatar/" method="post">
-                        <input name="avatar" type="file">
+                    <form action="../change_avatar/" method="post" enctype="multipart/form-data">
+                        <input name="avatar" id="new_avatar_file" type="file">
                         <input class="btn btn-primary" type="submit" value="确定">
                         <input class="btn btn-default" type="button" id="set-avatar-close" value="取消">
+                        {% csrf_token %}
                     </form>
                 </div>
             </div>
@@ -125,5 +130,25 @@
             $("#set-avatar").hide()
             $(".mask").hide()
         })
+
+        $("#new_avatar_file").change(function () {
+            var objUrl = getObjectURL(this.files[0]);//获取文件信息
+            console.log("objUrl = " + objUrl);
+            if (objUrl) {
+                $("#new_avatar").attr("src", objUrl);
+            }
+        });
+
+        function getObjectURL(file) {
+            var url = null;
+            if (window.createObjectURL != undefined) {
+                url = window.createObjectURL(file);
+            } else if (window.URL != undefined) { // mozilla(firefox)
+                url = window.URL.createObjectURL(file);
+            } else if (window.webkitURL != undefined) { // webkit or chrome
+                url = window.webkitURL.createObjectURL(file);
+            }
+            return url;
+        }
     </script>
 {% endblock %}
