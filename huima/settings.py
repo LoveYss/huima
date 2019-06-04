@@ -140,3 +140,12 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# 邮箱相关设置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = "huimaage@163.com"
+EMAIL_HOST_PASSWORD = "huimashidai520"
+EMAIL_USE_TLS = True
+EMAIL_FROM = "huimaage@163.com"

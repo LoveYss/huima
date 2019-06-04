@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+# Create your models here.
 
 
 class Banner(models.Model):
@@ -8,7 +9,10 @@ class Banner(models.Model):
     banner_img_nub = models.IntegerField(verbose_name="轮播图片序号", unique=False)
     banner_img_url = models.CharField(max_length=500, verbose_name="轮播图片链接", null=True, blank=True)
     banner_img_introduce = models.CharField(max_length=500, verbose_name="轮播图片内容", null=True, blank=True)
-# Create your models here.
+
+    class Meta:
+        verbose_name = "轮播图"
+        verbose_name_plural = verbose_name
 
 
 class EmailVerifyRecord(models.Model):
@@ -20,7 +24,7 @@ class EmailVerifyRecord(models.Model):
     send_time = models.DateTimeField(verbose_name=u"发送时间", default=datetime.now)
 
     class Meta:
-        verbose_name = u"邮箱验证码"
+        verbose_name = "邮箱验证码"
         verbose_name_plural = verbose_name
 
     def __unicode__(self):

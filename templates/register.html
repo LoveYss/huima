@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" href="{% static 'css/easyform.css' %}">
+{% endblock %}
+{% block custom_js %}
+    <script type="text/javascript" src="{% static 'js/easyform.js' %}"></script>
+{% endblock %}
+{% block html_body %}
+	<div class="container">
+		<div class="row register_header">
+			<div class="col-md-4 title_sty">
+				<label class="h1">慧码时代</label><label class="h2">|用户注册</label>
+			</div>
+			<div class="col-md-8"></div>
+		</div>
+		<div class="row register_body" style="margin-top: 50px;">
+			<div class="col-md-5 register_mod">
+				<form class="form-horizontal" id="registerForm" name="registerForm">
+                    {% csrf_token %}
+				  <div class="form-group">
+				    <label for="name" class="col-sm-3 control-label">昵称：</label>
+				    <div class="col-sm-9 padd-right">
+				      <input type="text" class="form-control" id="Nickname"
+                             message="昵称为1-4位中文、英文、数字、下划线、中文标点符号"
+                             easyform="char-chinese;length:1-4;real-time"
+                             easytip="disappear:lost-focus;theme:red;" placeholder="请输入你的昵称">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-3 control-label">性别：</label>
+				    <div class="col-sm-9 padd-right">
+					    <label class="radio-inline">
+						  <input type="radio" name="sex" class="css-checkbox" id="sex-1" value="male"> 男
+						</label>
+						<label class="radio-inline">
+						  <input type="radio" name="sex" class="css-checkbox" id="sex-2" value="female"> 女
+						</label>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-3 control-label">生日：</label>
+				    <div class="col-sm-9 padd-right">
+				      <input type="date" class="form-control" id="birthday"
+                             message="选择出生日期"
+                             easyform="date;real-time"
+                             easytip="disappear:lost-focus;theme:red;">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-3 control-label">签名：</label>
+				    <div class="col-sm-9 padd-right">
+				      <textarea class="form-control" rows="3" id="name" placeholder="添加你的签名"></textarea>
+				    </div>
+				  </div>
+{#				  <div class="form-group">#}
+{#				    <label class="col-sm-3 control-label">电话号码：</label>#}
+{#				    <div class="col-sm-7 padd-right">#}
+{#				      <input type="text" class="form-control"  placeholder="输入你的手机号码">#}
+{#				    </div>#}
+{#				    <button type="button" class="col-sm-3 btn btn-info">发送</button>#}
+{#				  </div>#}
+{#				  <div class="form-group">#}
+{#				    <label class="col-sm-3 control-label">验证码：</label>#}
+{#				    <div class="col-sm-9 padd-right">#}
+{#				      <input type="text" class="form-control" id="auth_code" placeholder="输入手机验证码">#}
+{#				    </div>#}
+{#				  </div>#}
+				  <div class="form-group">
+				    <label class="col-sm-3 control-label">邮箱：</label>
+				    <div class="col-sm-9 padd-right">
+				      <input type="email" class="form-control" id="inputEmail" placeholder="输入你的邮箱"
+                             message="邮箱格式错误"
+                             easyform="email;real-time"
+                             easytip="disappear:lost-focus;theme:red;">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="password" class="col-sm-3 control-label">密码：</label>
+				    <div class="col-sm-9 padd-right">
+				      <input type="password" class="form-control" id="repassword" name="repassword"
+                             placeholder="输入你的密码"
+                             message="密码必须为6—16位"
+                             easyform="length:6-16;char-normal;real-time;"
+                             easytip="disappear:lost-focus;theme:red;">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="password2" class="col-sm-3 control-label">确认密码：</label>
+				    <div class="col-sm-9 padd-right">
+				      <input type="password" class="form-control" id="password" name="password"
+                             placeholder="输入你的密码"
+                             message="密码不一致"
+                             easyform="equal:#repassword;real-time;"
+                             easytip="disappear:lost-focus;theme:red;">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				      <input type="submit" id="registerBtn" class="btn btn-success" style="width: 80%" value="注册">
+				    </div>
+				  </div>
+				</form>
+			</div>
+		</div>
+	</div>
+    {% block small_js %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#registerForm').easyform();
+        });
+	</script>
+        <script>
+        $(function () {
+           $('#registerBtn') .on('click',function () {
+               $.ajax({
+                   cache:false,
+                   type:"POST",
+                   url:"{% url 'index:register' %}",
+                   data:$('#registerForm').serialize(),
+                   async:true,
+                   success:function (data) {
+                       if (data.status == 'success') {
+                           alert("注册成功");
+                           {#window.location.reload();#}
+
+                       }else if(data.status == 'fail'){
+                           alert_danger = "<div class=\"alert alert-danger\" role=\"alert\">" + data.msg +
+                               "是否<a href=\"#\" class=\"alert-link\">忘记密码</a>？" +
+                               "</div>";
+                           $('#jsSubForm').prepend(alert_danger);
+                       }
+                   }
+               })
+           })
+        })
+    </script>
+
+    {% endblock %}
+{% endblock %}

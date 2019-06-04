@@ -12,3 +12,12 @@ from django import forms
 class LoginForm(forms.Form):
     username = forms.CharField(required=True)
     password = forms.CharField(required=True)
+
+
+class RegisterForm(forms.Form):
+    Username = forms.EmailField(required=True)
+    Password = forms.CharField(required=True)
+    Nickname = forms.CharField(required=True)
+
+    Sex = forms.CharField(required=True)
+    Birthday = forms.DateField(required=True)
