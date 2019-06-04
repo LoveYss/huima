@@ -8,5 +8,6 @@ urlpatterns = [
     path('chapter/<int:c_id>/', show_chapter, name='chapter'),
     path('course/<int:c_id>', show_chapter_list, name='chapter_list'),
     path('chapter/video/<int:v_id>/', video_play, name='chapter_video'),
+    path('chapter/ajax/', chapter_ajax_page, name='chapter_ajax'),
 
 ]

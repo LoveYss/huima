@@ -9,7 +9,7 @@
 {% block custom_css %}
     <link rel="stylesheet" href="{% static 'css/course/chapterDetails.css' %}" type="text/css">
     <link href="{% static 'jquery/video_js/alt/video-js-cdn.min.css' %}" rel="stylesheet"/>
-
+    <link rel="stylesheet" href="{% static 'css/course/paging.css' %}">
 {% endblock %}
 
 {% block custom_js %}
@@ -27,6 +27,7 @@
         }); //播放视频
         player.responsive(true);
     </script>
+
 {% endblock %}
 
 
@@ -37,65 +38,108 @@
                 <video id="video" class="video-js vjs-default-skin medium" controls preload="none">
                     <source src="a.mp4" type="video/mp4">
                 </video>
+                <div class="det-inner-list">
+                    <p class="cha-name">牛牛讨论</p>
+                    <ul class="list-group cha-list-color list_border">
+
+                        <li class="list-group-item vid-message-list">
+                            <div class="vid-message-userHeader"><img src="{{ MEDIA_URL }}a.jpg" alt=""></div>
+                            <div class="vid-message-userText">
+                                <p>小白 @ 小豆：你说什么？我真的不知道数码大师打蜡凯迪拉克速度快死了凯迪拉克大科室领导喀斯柯达</p>
+                            </div>
+                            <span class="vid-message-reply">回复</span>
+                        </li>
+                        <li class="list-group-item vid-message-list">
+                            <div class="vid-message-userHeader"><img src="{{ MEDIA_URL }}a.jpg" alt=""></div>
+                            <div class="vid-message-userText">
+                                <p>小白 @ 小豆：你说什么？我真的不知道数码大师打蜡凯迪拉克速度快死了凯迪拉克大科室领导喀斯柯达</p>
+                            </div>
+                            <span class="vid-message-reply">回复</span>
+                        </li>
+                        <li class="list-group-item vid-message-list">
+                            <div class="vid-message-userHeader"><img src="{{ MEDIA_URL }}a.jpg" alt=""></div>
+                            <div class="vid-message-userText">
+                                <p>小白 @ 小豆：你说什么？我真的不知道数码大师打蜡凯迪拉克速度快死了凯迪拉克大科室领导喀斯柯达</p>
+                            </div>
+                            <span class="vid-message-reply">回复</span>
+                        </li>
+                        <li class="list-group-item vid-message-list">
+                            <div class="vid-message-userHeader"><img src="{{ MEDIA_URL }}a.jpg" alt=""></div>
+                            <div class="vid-message-userText">
+                                <p>小白 @ 小豆：你说什么？我真的不知道数码大师打蜡凯迪拉克速度快死了凯迪拉克大科室领导喀斯柯达</p>
+                            </div>
+                            <span class="vid-message-reply">回复</span>
+                        </li>
+                        <li class="list-group-item vid-message-list">
+                            <div class="vid-message-userHeader"><img src="{{ MEDIA_URL }}a.jpg" alt=""></div>
+                            <div class="vid-message-userText">
+                                <p>小白 @ 小豆：你说什么？我真的不知道数码大师打蜡凯迪拉克速度快死了凯迪拉克大科室领导喀斯柯达</p>
+                            </div>
+                            <span class="vid-message-reply">回复</span>
+                        </li>
+
+                    </ul>
+                    <div class="vid-hidden-div">
+                        <div class="vid-hidden-input" contentEditable="true"><span>123</span><span>1234</span></div>
+                        <p><span class="blue-span vid-sub-span">提交</span><span class="vid-message-cancel">取消</span></p>
+                    </div>
+
+                    <div id="page" class="page_div" allnum=20 allpage=5></div>
+                </div>
             </div>
 
-            <!--        <video id="video" class="video-js vjs-default-skin vjs-fluid" poster="http://vjs.zencdn.net/v/oceans.png" width="375" height="200" controls preload="none"-->
-            <!--               data-setup='{ "html5" : { "nativeTextTracks" : false } }'>-->
-            <!--            <source src="https://www.bilibili.com/9e972378-409d-42c8-a79c-b2187e1c709d" type="video/mp4">-->
-            <!--        </video>-->
+
         </div>
-        <!--<div class="container det-list-waper">-->
-        <!--<div class="row">-->
-        <!--<div class="col-md-9">-->
-        <!--<div class="det-inner-list">-->
-        <!--<p class="det-name">-->
-        <!--本章教程-->
-        <!--<span class="glyphicon glyphicon-plus add-list"></span>-->
-        <!--</p>-->
-        <!--<ul class="list-group cha-entry">-->
-        <!--<li class="list-group-item"><span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<span>css怎么导入</span></li>-->
-        <!--<li class="list-group-item"><span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<span>css怎么导入</span></li>-->
-        <!--<li class="list-group-item"><span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<span>css怎么导入</span></li>-->
-        <!--<li class="list-group-item"><span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<span>css怎么导入</span></li>-->
-        <!--</ul>-->
-        <!--</div>-->
-        <!--<div class="det-inner-list">-->
-        <!--<p class="det-name">本章知识小结</p>-->
-        <!--<a href="http://www.bai.com">点击查看本章小结</a>-->
 
-        <!--</div>-->
-        <!--<div class="det-inner-list">-->
-        <!--<p class="det-name">-->
-        <!--看看大家有什么问题-->
-        <!--<span class="glyphicon glyphicon-plus add-list"></span>-->
-        <!--</p>-->
-        <!--<ul class="list-group cha-entry">-->
-        <!--<li class="list-group-item"><span class="def-user">小白：</span>&nbsp;&nbsp;<span>css怎么引入啊？</span></li>-->
-        <!--<li class="list-group-item"><span class="def-user">豆豆：</span>&nbsp;&nbsp;<span>去看看豆豆大神的博客</span></li>-->
-        <!--<li class="list-group-item"><span class="def-user">小白：</span>&nbsp;&nbsp;<span>谢谢楼上</span></li>-->
-        <!--<li class="list-group-item"><span class="def-user">豆豆： </span>&nbsp;&nbsp;<span>没事没事</span></li>-->
-        <!--</ul>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col-md-3 ">-->
-        <!--<a href="#" class="det-studyData det-subject">-->
-        <!--<span class="iconfont det-subject-img">&#xe662;</span>-->
-        <!--<h2>选择题库</h2>-->
-        <!--<p>Note</p>-->
-        <!--<p>开始练习吧！</p>-->
-        <!--</a>-->
-        <!--<a href="#" class="det-studyData det-subject">-->
-        <!--<span class="iconfont det-subject-img">&#xe662;</span>-->
-        <!--<h2>操作题库</h2>-->
-        <!--<p>Note</p>-->
-        <!--<p>开始练习吧！</p>-->
-        <!--</a>-->
-        <!--</div>-->
-        <!--</div>-->
-
-
-        <!--</div>-->
     </div>
+
 {% endblock %}
 
-{#<script src="js/chapterList.js"></script>#}
+{% block small_js %}
+    <script type="text/javascript" src="{% static 'jquery/paging/pageMe.js' %}"></script>
+
+    <script>
+        // pageMe.js 使用方法
+        var page = $("#page");
+        page.paging({
+            pageNum: 1, // 当前页面
+            totalNum: parseInt(page.attr('allpage')), // 总页码
+            totalList: parseInt(page.attr('allnum')), // 记录总数量
+            callback: function (num) { //回调函数
+                console.log(num);
+                $.ajax({
+                    url: '{% url "chapter_ajax" %}',    //请求的url地址
+                    dataType: "json",   //返回格式为json
+                    async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+                    data: {"id": "value", 'csrfmiddlewaretoken': '{{ csrf_token  }}'},    //参数值
+                    type: "POST",   //请求方式
+                    beforeSend: function () {
+                        //请求前的处理
+                    },
+                    success: function (req) {
+                        //请求成功时处理
+
+                    },
+                    complete: function () {
+                        //请求完成的处理
+                    },
+                    error: function () {
+                        //请求出错处理
+                    }
+                });
+
+
+            }
+        });
+    </script>
+    <script>
+        $(function () {
+            $('.vid-message-reply').on('click', function () {
+                $('.vid-hidden-input').prepend('<span class=""> 回复 小白</span>:');
+            });
+            $('.vid-message-cancel').on('click', function () {
+                $('.vid-hidden-input').text('');
+            })
+        })
+    </script>
+{% endblock %}
