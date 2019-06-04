@@ -75,9 +75,9 @@
              <div class="cha-inner-list">
                 <p class="cha-name">课程评论</p>
                 <ul class="list-group cha-list-color list_border">
-                    {% for chapter in chapters %}
-                        <li class="list-group-item">
-                            <img src="" alt=""><span>...</span>
+                    {% for tex in contacts %}
+                        <li class="list-group-item course-comment">
+                            <span>{{ tex.user.nick_name }}:</span><span>{{ tex.comment }}</span>
                         </li>
                     {% endfor %}
                 </ul>

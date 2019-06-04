@@ -1,10 +1,8 @@
 from django.shortcuts import render
 from course.models import *
 from django.http import JsonResponse
-from django.http import HttpResponse
-import json
-from subject.models import ProjectDetail
-from django.core.paginator import Paginator
+from operation.models import CourseComment
+from .models import Video
 
 
 # Create your views here.
@@ -22,10 +20,11 @@ def show_chapter_list(request, c_id):
     """章节列表页"""
     course = Course.objects.get(id=c_id)
     # chapters=course.chapter_set.all()
+    contacts = CourseComment.objects.order_by('-id')
     pro = course.project_id.all()
     chapters = Chapter.objects.filter(course_id=1)
     return render(request, 'course/chapterList.html',
-                  {'course': course, 'chapters': chapters, 'pro': pro, 'contacts': ''})
+                  {'course': course, 'chapters': chapters, 'pro': pro, 'contacts': contacts})
 
 
 def chapter_ajax_page(request):
@@ -42,11 +41,29 @@ def chapter_ajax_page(request):
     # return HttpResponse(contact_lists)
 
 
-def show_chapter(request, c_id):
+def show_chapter(request, c_id=1):
     """章节详情页"""
-    chapter = Chapter.objects.filter(id=c_id)
-    video = Video.objects.filter(chapter_id=c_id)
-    return render(request, 'course/chapter.html', {'chapter': chapter, 'video': video})
+    chapter = Chapter.objects.get(id=c_id)
+    print(type(chapter))
+    # 知识点
+    # 博客
+
+
+    # QA
+    qa = chapter.chapterqa_set.all()
+
+    # 任务
+    # task = chapter.questionsbank_set.all()
+
+    # 视频
+    video = chapter.video_set.all()
+    print('qa',qa)
+    # print('task',task)
+    print('video',video)
+
+
+    # video = Video.objects.filter(chapter_id=c_id)
+    return render(request, 'course/chapter.html', {'chapter': chapter, 'video': ''})
 
 
 def video_play(request, v_id):

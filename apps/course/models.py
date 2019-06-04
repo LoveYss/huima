@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime
 from user.models import User
 from subject.models import ProjectDetail
+from blog.models import Blog
 
 
 # Create your models here.
@@ -36,9 +37,12 @@ class Chapter(models.Model):
     synopsis = models.CharField(max_length=300, null=True, verbose_name='章节简介')
     num = models.CharField(max_length=30, default='第一章')
     course_id = models.ForeignKey('Course', verbose_name='所属的课程id', on_delete=models.DO_NOTHING, blank=True)
+    knowledge = models.ImageField(verbose_name='思维导图(知识点)', null='', blank='', default='')
+    blog = models.ManyToManyField(Blog, verbose_name='相关博客',blank=True)
+
     create_times = models.DateTimeField(verbose_name='创建时间', default=datetime.now)
     up_time = models.DateTimeField(verbose_name='修改时间', auto_now=True)
-    status = models.IntegerField(choices=((0, '未完成'), (1, '已完成')), default=0,verbose_name='章节完成度')
+    status = models.IntegerField(choices=((0, '未完成'), (1, '已完成')), default=0, verbose_name='章节完成度')
 
     class Meta:
         verbose_name = '章节表'
