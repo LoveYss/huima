@@ -10,6 +10,7 @@ class QuestionsBank(models.Model):
     QuestionsBank_describe = models.CharField(max_length=700, verbose_name="题库简介", null=True, blank=True)
     create_time = models.DateField(verbose_name="创建时间", null=True, blank=True)
     schedule = models.IntegerField(verbose_name="进度时间", null=True, blank=True)
+    cover = models.ImageField(upload_to="media/", verbose_name="封面", default="media/a.jpg")
 
     def __str__(self):
         return self.QuestionsBank_name

@@ -27,11 +27,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse nav_body" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left">
-        <li class="active"><a href="#">首页</a></li>
-        <li><a href="#">课程中心</a></li>
-        <li><a href="#">博客</a></li>
-        <li><a href="#">项目</a></li>
-        <li><a href="/usercenter">个人中心</a></li>
+        <li class="active"><a href="{% url "index:index1" %}">首页</a></li>
+        <li><a href="{% url "chapter" 1 %}">课程中心</a></li>
+        <li><a href="{% url "blog:bloglist" %}">博客</a></li>
+        <li><a href="{% url "project_list"  "page=1" %}">项目</a></li>
+        <li><a href="{% url "course" %}">个人中心</a></li>
       </ul>
       
       <ul class="nav navbar-nav nav-magrig navbar-right ">

@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 # 项目详细表
 class ProjectDetail(models.Model):
+
     proj_name = models.CharField(max_length=200, verbose_name='项目名称')
     proj_desc = models.CharField(verbose_name="项目简介", max_length=1024)
     # 大项目分割为小项目所以每个小项目有完成时间和状态
@@ -45,10 +46,10 @@ class ProjectDetail(models.Model):
     proj_finish = models.CharField(max_length=1024, verbose_name='项目终点', null=True, blank=True)
     proj_finish_status = models.IntegerField(verbose_name='进阶教程状态', choices=((0, '未完成'), (1, '完成')), default=0)
     # 保存图片 用于页面样式
-    proj_arrowleft = models.ImageField(verbose_name='左箭头', null=True, blank=True)
-    proj_arrowright = models.ImageField(verbose_name='右箭头', null=True, blank=True)
-    proj_arrowdown = models.ImageField(verbose_name='下箭头', null=True, blank=True)
-    proj_arrowup = models.ImageField(verbose_name='上箭头', null=True, blank=True)
+    proj_arrowleft = models.ImageField(verbose_name='左箭头', null=True, blank=True, upload_to="media/project")
+    proj_arrowright = models.ImageField(verbose_name='右箭头', null=True, blank=True, upload_to="media/project")
+    proj_arrowdown = models.ImageField(verbose_name='下箭头', null=True, blank=True, upload_to="media/project")
+    proj_arrowup = models.ImageField(verbose_name='上箭头', null=True, blank=True, upload_to="media/project")
 
     proj_date = models.DateTimeField(verbose_name='项目完成日期', null=True, blank=True)
     proj_statu = models.IntegerField(verbose_name='项目状态', choices=((0, '未完成'), (1, '完成')), default=0)
@@ -66,6 +67,7 @@ class ProjectDetail(models.Model):
     proj_teacher = models.CharField(max_length=1024, verbose_name="指导老师", null=True, blank=True)
     proj_tag = models.CharField(max_length=1024, verbose_name="项目标签", null=True, blank=True)
     proj_howlong = models.SmallIntegerField(verbose_name="项目时长", default=1)
+    proj_cover = models.ImageField(verbose_name="项目背景", default="media/a.jpg", upload_to="media/project/")
 
     class Meta:
         verbose_name = '项目详细表'
