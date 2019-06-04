@@ -46,8 +46,9 @@ def show_chapter(request, c_id=1):
     chapter = Chapter.objects.get(id=c_id)
     print(type(chapter))
     # 知识点
-    # 博客
 
+    # 博客
+    blog = chapter.blog.all()
 
     # QA
     qa = chapter.chapterqa_set.all()
@@ -57,13 +58,8 @@ def show_chapter(request, c_id=1):
 
     # 视频
     video = chapter.video_set.all()
-    print('qa',qa)
-    # print('task',task)
-    print('video',video)
-
-
-    # video = Video.objects.filter(chapter_id=c_id)
-    return render(request, 'course/chapter.html', {'chapter': chapter, 'video': ''})
+    print('qa', qa)
+    return render(request, 'course/chapter.html', {'chapter': chapter, 'video': video, 'qa': qa, 'blog': blog})
 
 
 def video_play(request, v_id):

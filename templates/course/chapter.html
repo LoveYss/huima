@@ -48,25 +48,18 @@
                     本章教程
                 </p>
                 <ul class="list-group cha-entry">
-                    <li class="list-group-item">
-                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a  href="#">css怎么导入</a>
+                    {% for bl in blog %}
+                        <li class="list-group-item">
+                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a  href="#">{{ bl.title }}</a>
                     </li>
-                    <li class="list-group-item">
-                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a href="#">css怎么导入</a>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a href="#">css怎么导入</a>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="iconfont">&#xe809;</span>&nbsp;&nbsp;<a href="#">css怎么导入</a>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="card card3">
                 <p class="det-name">
                     本章小结
                 </p>
-                <img src="img/daotu.png" alt="">
+                <img src="{{ MEDIA_URL }}{{ chapter.knowledge }}" alt="">
             </div>
             <div class="card card4 ">
                 <p>本章任务</p>
@@ -82,12 +75,10 @@
                     看看大家有什么问题
                 </p>
                 <ul class="list-group cha-entry">
-                    <li class="list-group-item"><span class="def-user">Q：</span>&nbsp;&nbsp;<span>css怎么引入啊？</span>
-                    </li>
-                    <li class="list-group-item"><span class="def-user">A：</span>&nbsp;&nbsp;<span>去看看豆豆大神的博客</span>
-                    </li>
-                    <li class="list-group-item"><span class="def-user">Q：</span>&nbsp;&nbsp;<span>谢谢楼上</span></li>
-                    <li class="list-group-item"><span class="def-user">A： </span>&nbsp;&nbsp;<span>没事没事</span></li>
+                    {% for questions in qa %}
+                        <li class="list-group-item"><span class="def-user">Q：</span>&nbsp;&nbsp;<span>{{ questions.question }}</span></li>
+                        <li class="list-group-item"><span class="def-user">A：</span>&nbsp;&nbsp;<span>{{ questions.answer }}</span></li>
+                    {% endfor %}
                 </ul>
             </div>
 
