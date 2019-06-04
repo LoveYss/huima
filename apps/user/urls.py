@@ -4,6 +4,8 @@
 from django.urls import path, re_path
 from user.views import *
 
+app_name = '[usercenter]'
+
 urlpatterns = [
     path('course/', UserCenterCourse.as_view(), name='course'),
     path('project/', UserCenterProject.as_view(), name='project'),
@@ -15,8 +17,8 @@ urlpatterns = [
 
     # 个人设置
     path('setting/', UserCenterSetting.as_view(), name='setting'),
-    path('change_avatar/', ChangeAvatar.as_view(), name='setting'),
-    path('change_user_info/', ChangeUserInfo.as_view(), name='setting'),
+    path('change_avatar/', ChangeAvatar.as_view(), name='set_avatar'),
+    path('change_user_info/', ChangeUserInfo.as_view(), name='set_user_info'),
 
 ]
 

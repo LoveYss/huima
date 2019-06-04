@@ -106,7 +106,7 @@
                 <h4><strong>{{ user.username }}</strong></h4>
                 <img src="" id="new_avatar" alt="上传图片预览区">
                 <div class="text-center">
-                    <form action="../change_avatar/" method="post" enctype="multipart/form-data">
+                    <form action="{% url "[usercenter]:set_avatar" %}" method="post" enctype="multipart/form-data">
                         <input name="avatar" id="new_avatar_file" type="file">
                         <input class="btn btn-primary" type="submit" value="确定">
                         <input class="btn btn-default" type="button" id="set-avatar-close" value="取消">

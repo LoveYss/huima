@@ -30,28 +30,28 @@
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked">
                             <li role="presentation" {% block course_active %}{% endblock %}>
-                                <a href="../course">我的课程</a>
+                                <a href="{% url "[usercenter]:course" %}">我的课程</a>
                             </li>
                             <li role="presentation" {% block project_active %}{% endblock %}>
-                                <a href="../project/">实战项目</a>
+                                <a href="{% url "[usercenter]:project" %}">实战项目</a>
                             </li>
                             <li role="presentation" {% block suggestion_active %}{% endblock %}>
-                                <a href="../suggestion">点评集</a>
+                                <a href="{% url "[usercenter]:suggestion" %}">点评集</a>
                             </li>
                             <li role="presentation" {% block error_active %}{% endblock %}>
-                                <a href="../error">错题集</a>
+                                <a href="{% url "[usercenter]:error" %}">错题集</a>
                             </li>
                             <li role="presentation" {% block blog_active %}{% endblock %}>
-                                <a href="../blog">博客</a>
+                                <a href="{% url "[usercenter]:blog" %}">博客</a>
                             </li>
                             <li role="presentation" {% block QA_active %}{% endblock %}>
-                                <a href="../qa">问答</a>
+                                <a href="{% url "[usercenter]:qa" %}">问答</a>
                             </li>
                             <li role="presentation" {% block note_active %}{% endblock %}>
-                                <a href="../note">笔记</a>
+                                <a href="{% url "[usercenter]:note" %}">笔记</a>
                             </li>
                             <li role="presentation" {% block setting_active %}{% endblock %}>
-                                <a href="../setting">个人设置</a>
+                                <a href="{% url "[usercenter]:setting" %}">个人设置</a>
                             </li>
                         </ul>
                     </div>
