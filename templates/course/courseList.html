@@ -70,7 +70,7 @@
             <p class="l-nav"><a class="l-nav-ban">最新</a><a>最热</a></p>
             <div class="row">
                 {% for course in data %}
-                    <a href="{% url 'chapter_list' course.id %} }}" class="col-md-3 l-sec">
+                    <a href="{% url 'chapter_list' course.id %}" class="col-md-3 l-sec">
                         <img src="{{ MEDIA_URL }}{{ course.cover }}  " alt="">
                         <span class="l-title">{{ course.name }}</span>
                         <p class="l-difficulty"><span>{{ course.get_leave_display }}</span><span

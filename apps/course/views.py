@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from course.models import *
-from  subject.models import ProjectDetail
+from django.http import JsonResponse
+from django.http import HttpResponse
+import json
+from subject.models import ProjectDetail
+from django.core.paginator import Paginator
 
 
 # Create your views here.
@@ -20,7 +24,22 @@ def show_chapter_list(request, c_id):
     # chapters=course.chapter_set.all()
     pro = course.project_id.all()
     chapters = Chapter.objects.filter(course_id=1)
-    return render(request, 'course/chapterList.html', {'course': course, 'chapters': chapters, 'pro': pro})
+    return render(request, 'course/chapterList.html',
+                  {'course': course, 'chapters': chapters, 'pro': pro, 'contacts': ''})
+
+
+def chapter_ajax_page(request):
+    page = 1
+
+    page_num = 2  # 每页显示条数
+    contact_list = Course.objects.all()
+    chapter_count = contact_list.count()
+    contact_lists = contact_list.filter(id__range=[(page * page_num + 1) - page_num, page * page_num + 1]).values('id',
+                                                                                                                  'name')
+    page_all = chapter_count / page_num  # 总页码
+    contact_lists = list(contact_lists)
+    return JsonResponse(contact_lists, content_type="application/json", safe=False)
+    # return HttpResponse(contact_lists)
 
 
 def show_chapter(request, c_id):

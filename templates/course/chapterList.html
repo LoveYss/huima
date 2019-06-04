@@ -12,12 +12,13 @@
 
 
 {% block html_body %}
+    {% csrf_token %}
     <div class="container-fluid  cha-inner-warp">
         <div class="container-fluid cha-header">
             <div class="container">
                 <ol class="breadcrumb cha-nav">
-{#                    <li><a href="#">首页</a></li>#}
-{#                    <li class="active">{{ course.name }}</li>#}
+                    {#                    <li><a href="#">首页</a></li>#}
+                    {#                    <li class="active">{{ course.name }}</li>#}
                 </ol>
                 <h1>{{ course.name }}</h1>
                 <ul>
@@ -38,14 +39,13 @@
             <div class="cha-inner-list">
                 <p class="cha-name">
                     章节展示
-                    <span class="glyphicon glyphicon-plus add-list"></span>
                 </p>
                 <ul class="list-group cha-list-color list_border">
                     {% for chapter in chapters %}
                         <li class="list-group-item">
                             <p><a href="{% url 'chapter' chapter.id %}">{{ chapter.num }} {{ chapter.name }}</a>
                                 {% if chapter.status == 1 %}
-                                <span class="studied">已完成</span>
+                                    <span class="studied">已完成</span>
                                 {% endif %}
                             </p>
                             <p>{{ chapter.synopsis }}</p>
@@ -59,17 +59,28 @@
                 <div class=" cha-scrollBar">
                     <div id='cha-scrollBar-list' class=" cha-scrollBar-list">
                         {% for foo in pro %}
-                         <a class=" l-sec">
-                            <img class="l-sec-img" src="{{ MEDIA_URL }}{{ foo.proj_bg_img }}" alt="">
-                            <p class="l-title">{{ foo.proj_name }}</p>
-                            <p class="l-difficulty"><span>{{ foo.get_proj_level_display }}</span><span
-                                    class="glyphicon glyphicon-user"></span><span>{{ foo.proj_student }}</span></p>
-                        </a>
+                            <a class=" l-sec">
+                                <img class="l-sec-img" src="{{ MEDIA_URL }}{{ foo.proj_bg_img }}" alt="">
+                                <p class="l-title">{{ foo.proj_name }}</p>
+                                <p class="l-difficulty"><span>{{ foo.get_proj_level_display }}</span><span
+                                        class="glyphicon glyphicon-user"></span><span>{{ foo.proj_student }}</span></p>
+                            </a>
                         {% endfor %}
                     </div>
                     <div id="l-sec-btnLeft" class="iconfont l-sec-btnLeft">&#xe659;</div>
                     <div id="l-sec-btnRight" class="iconfont  l-sec-btnRight">&#xe658;</div>
                 </div>
+            </div>
+
+             <div class="cha-inner-list">
+                <p class="cha-name">课程评论</p>
+                <ul class="list-group cha-list-color list_border">
+                    {% for chapter in chapters %}
+                        <li class="list-group-item">
+                            <img src="" alt=""><span>...</span>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
 
@@ -79,5 +90,49 @@
 
 {% block small_js %}
     <script src="{% static 'jquery/chapterList.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jquery/paging/pageMe.js' %}"></script>
+    <script>
+        // pageMe.js 使用方法
+        var page = $("#page");
+        page.paging({
+            pageNum: 1, // 当前页面
+            totalNum: parseInt(page.attr('allpage')), // 总页码
+            totalList: parseInt(page.attr('allnum')), // 记录总数量
+            callback: function (num) { //回调函数
+                console.log(num);
+                $.ajax({
+                        url: '{% url "chapter_ajax" %}',    //请求的url地址
+                        dataType: "json",   //返回格式为json
+                        async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+                        data: {"id": "value",'csrfmiddlewaretoken': '{{ csrf_token  }}'},    //参数值
+                        type: "POST",   //请求方式
+                        beforeSend: function () {
+                            //请求前的处理
+                        },
+                        success: function (req) {
+                            //请求成功时处理
+                            alert(1)
+
+                        },
+                        complete: function () {
+                            //请求完成的处理
+                            alert(2)
+                        },
+                        error: function () {
+                            //请求出错处理
+                            alert(3)
+                        }
+            });
+                {#$.post('{% url "chapter_ajax" %}', {#}
+                {#    'a': 1,#}
+                {#    "b": 2,#}
+                {#    'csrfmiddlewaretoken': '{{ csrf_token  }}'#}
+                {#    console.log('res')#}
+                {#    console.log('res')#}
+                {#    console.log('res')#}
+
+            }
+        });
+    </script>
 {% endblock %}
 
