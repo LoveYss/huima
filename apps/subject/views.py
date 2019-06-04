@@ -35,6 +35,8 @@ class Project_detail(View):
         :param request:
         :return:
         """
-
-        item = ProjectDetail.objects.get(id=name)
+        try:
+            item = ProjectDetail.objects.get(id=name)
+        except Exception as e:
+            pass
         return render(request, "subject/project_detail.html", locals())
