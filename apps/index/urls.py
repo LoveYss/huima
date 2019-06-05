@@ -5,5 +5,6 @@ from index.views import *
 app_name = '[index]'
 urlpatterns = [
     path('', show_index, name='index1'),
-    path('login', LoginView.as_view(), name='login')
+    path('login', LoginView.as_view(), name='login'),
+    path('register', Register.as_view(), name='register')
 ]

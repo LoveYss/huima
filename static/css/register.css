@@ -1,10 +1,33 @@
 .register_header{
 	border-bottom: 1px solid #DFE1E3;
-	box-shadow: 0px 11px 9px -8px #DFE1E3;
+	box-shadow: 0 11px 9px -8px #DFE1E3;
 	padding: 10px;
 	margin-bottom: 50px;
 }
+body{
+	background: url("../images/register_bg.jpg") no-repeat;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+}
+.title_sty label{
+	color: #d4d4d4;
+}
+.register_mod{
+	border-radius: 20px;
+	background-color: #fff;
+	padding: 30px 20px 20px 5px;
 
+}
+@media (min-width: 992px){
+	.register_mod {
+		width: 36%;
+	}
+}
+@media (min-width: 768px){
+	.col-sm-9 {
+		width: 69%;
+	}
+}
 .padd-right{
 	padding: 0;
 }
