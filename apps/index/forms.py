@@ -21,3 +21,4 @@ class RegisterForm(forms.Form):
 
     Sex = forms.CharField(required=True)
     Birthday = forms.DateField(required=True)
+    Signature = forms.CharField(required=True)

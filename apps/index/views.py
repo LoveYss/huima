@@ -55,6 +55,7 @@ class LoginView(View):
 class Register(View):
     def post(self, request):
         register_form = RegisterForm(request.POST)
+        print(register_form)
         if register_form.is_valid():
             user_name = request.POST.get("Username", "")
             if User.objects.filter(username=user_name):

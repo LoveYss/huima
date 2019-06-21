@@ -42,6 +42,7 @@ ul > li{
 	height: 70px;
 	z-index: 999;
 	background-color: #f8f8f8;
+	box-shadow: 0 5px 5px #DFE1E3;
 }
 .nav_panel > .nav_head{
 	margin-left: 40px;
@@ -53,13 +54,16 @@ ul > li{
 .nav_head a{
 	height: 70px;
 	width: 300px;
-	background: url(../images/logo.png) no-repeat;
-	background-size: 100% 100%;
+}
+.nav_head a>h1{
+	font-family: '华文行楷';
+	margin-top: 12px;
+	margin-right: 20px;
+	font-size: 3em;
 }
 .nav_body > ul > li{
 	height: 70px;
 	line-height: 70px;
-	background-color: #F8F8F8;
 }
 .nav_body > ul > li > a{
 	font-size: 16px;
